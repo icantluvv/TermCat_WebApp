@@ -12,7 +12,7 @@ import quit from "@/public/images/quit.svg"
 const Navigation = () => {
   return (
     <div className="w-[8%] fixed left-0 top-0 flex justify-end h-screen items-center">
-      <nav className="flex flex-col bg-black h-[70vh] w-full rounded-[50px] items-center py-[48px] max-w-[96px] flex-grow">
+      <nav className="flex flex-col bg-black h-[65vh] w-full rounded-[50px] items-center py-[48px] max-w-[96px] flex-grow">
         <Link href={"/"}>
           <Image
             src={nav_logo}
