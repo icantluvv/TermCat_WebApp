@@ -5,6 +5,7 @@ import termwardBack from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078ab
 import IntroduceCard from "@/components/homepage/IntroduceCard"
 import CommentCard from "@/components/homepage/CommentCard"
 import HistoryCard from "@/components/homepage/HistoryCard"
+import ChatCard from "@/components/homepage/ChatCard"
 
 export default function Home() {
   return (
@@ -49,12 +50,7 @@ export default function Home() {
           <div className="flex flex-col w-2/3 gap-6">
             {/* top */}
             <div className="flex w-full gap-6">
-              <Link
-                className="rounded-[24px] w-1/2 bg-black h-[334px] text-white p-5 hover:opacity-50 transition-all"
-                href={"/chat"}
-              >
-                Чат
-              </Link>
+              <ChatCard></ChatCard>
               <button className="rounded-[24px] w-1/2 bg-[#e8e8e8] h-[334px] hover:opacity-50 transition-all relative">
                 <Image
                   src={termwardBack}

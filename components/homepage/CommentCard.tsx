@@ -2,7 +2,7 @@ import React from "react"
 
 const CommentCard = () => {
   return (
-    <button className="rounded-[24px] w-full bg-black h-[128px] text-white px-10 hover:opacity-50 transition-all flex items-center">
+    <button className="rounded-[24px] w-full bg-black h-[128px] text-white px-10 hover:opacity-85 transition-all flex items-center">
       <div className="w-full flex flex-col items-start">
         <p className="text-[2rem] font-medium">Помогите нам стать лучше</p>
         <p className="text-[1.125rem] font-normal opacity-50 font-thin">
