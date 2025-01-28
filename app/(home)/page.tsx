@@ -4,6 +4,7 @@ import lightning from "@/public/images/lightning.svg"
 import termwardBack from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import IntroduceCard from "@/components/homepage/IntroduceCard"
 import CommentCard from "@/components/homepage/CommentCard"
+import HistoryCard from "@/components/homepage/HistoryCard"
 
 export default function Home() {
   return (
@@ -78,12 +79,7 @@ export default function Home() {
 
           {/* right panel */}
           <div className="flex flex-col w-1/3 gap-6">
-            <Link
-              className="rounded-[24px] w-full bg-black flex-1 text-white p-5 hover:opacity-50 transition-all"
-              href={"/history"}
-            >
-              История
-            </Link>
+            <HistoryCard></HistoryCard>
             <button className="rounded-[24px] w-full bg-black h-[194px] text-white p-5 hover:opacity-50 transition-all">
               Подробнее о тарифе Старт
             </button>
