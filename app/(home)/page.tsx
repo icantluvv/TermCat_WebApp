@@ -6,6 +6,7 @@ import IntroduceCard from "@/components/homepage/IntroduceCard"
 import CommentCard from "@/components/homepage/CommentCard"
 import HistoryCard from "@/components/homepage/HistoryCard"
 import ChatCard from "@/components/homepage/ChatCard"
+import SubScriptionCard from "@/components/homepage/SubcriptionCard"
 
 export default function Home() {
   return (
@@ -67,9 +68,7 @@ export default function Home() {
             {/* bottom */}
             <div className="flex w-full gap-6">
               <IntroduceCard></IntroduceCard>
-              <button className="rounded-[24px] w-1/2 bg-black h-[194px] text-white p-5 hover:opacity-50 transition-all">
-                Активировать подписку
-              </button>
+              <SubScriptionCard></SubScriptionCard>
             </div>
           </div>
 

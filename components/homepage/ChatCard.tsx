@@ -7,7 +7,7 @@ import AI from "@/public/images/homepage/AI.svg"
 const ChatCard = () => {
   return (
     <Link
-      className="rounded-[24px] w-1/2 bg-[#0c0c0c] h-[334px] flex text-white hover:opacity-50 transition-all relative overflow-hidden"
+      className="rounded-[24px] w-1/2 bg-[#0c0c0c] h-[334px] flex text-white hover:opacity-85 transition-all relative overflow-hidden"
       href={"/chat"}
     >
       <div className="w-full px-8 py-10">
