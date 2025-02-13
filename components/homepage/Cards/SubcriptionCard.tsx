@@ -7,7 +7,7 @@ import background from "@/public/images/homepage/d20c90509061782c2cbc21e06ccf4ce
 
 const SubScriptionCard = () => {
   return (
-    <button className="rounded-[24px] w-1/2 bg-[#0c0c0c] flex h-[194px] hover:opacity-85 transition-all relative overflow-hidden ">
+    <button className="rounded-[24px] w-[48%] bg-[#0c0c0c] flex h-[194px] hover:opacity-85 transition-all relative overflow-hidden ">
       <p className="text-white text-[2rem] flex flex-col text-start pt-[3vh] h-full px-10 leading-10 ">
         Активировать
         <br /> подписку
