@@ -10,7 +10,7 @@ import elemetn_plus from "@/public/images/homepage/elements-plus.svg"
 const HistoryCard = () => {
   return (
     <Link
-      className="rounded-[24px] flex w-full bg-[#a1a1a1]/60 flex-1 text-white px-8 py-10 hover:opacity-85 transition-all relative overflow-hidden"
+      className="rounded-[24px] flex w-1/2 xl:w-full bg-[#a1a1a1]/60 flex-1 text-white px-8 py-10 hover:opacity-85 transition-all relative overflow-hidden"
       href={"/history"}
     >
       <Image

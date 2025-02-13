@@ -6,7 +6,7 @@ import arrow from "@/public/images/homepage/Arrow.png"
 
 const PlanCard = () => {
   return (
-    <button className="rounded-[24px] w-full bg-[#a1a1a1]/50 flex h-[194px] hover:opacity-85 transition-all relative overflow-hidden ">
+    <button className="rounded-[24px] w-1/2 xl:w-full bg-[#a1a1a1]/50 flex xl:h-[194px] hover:opacity-85 transition-all relative overflow-hidden ">
       <p className="text-black text-[2rem] flex flex-col text-start pt-[3vh] h-full px-10 leading-10 z-[1000]">
         Подробнее
         <br /> о тарифе Смарт
