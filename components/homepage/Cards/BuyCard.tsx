@@ -9,7 +9,7 @@ const BuyCard = () => {
     <>
       {/* pc card */}
       <Link
-        className="rounded-[24px] bg-[#e8e8e8] w-full xl:flex hidden lg:w-[48%] h-[334px] flex text-white hover:opacity-85 transition-all relative overflow-hidden"
+        className="rounded-[24px] bg-[#e8e8e8] w-full xl:flex hidden lg:w-[48%]  flex text-white hover:opacity-85 transition-all relative overflow-hidden"
         href={"/chat"}
       >
         <div className="w-full px-8 py-10 z-[1000]">
@@ -35,7 +35,7 @@ const BuyCard = () => {
 
       {/* mobile and laptop card */}
       <Link
-        className="rounded-[24px] bg-[#e8e8e8] w-[47.5%] lg:w-[48%]  flex text-white active:opacity-85 transition-all relative overflow-hidden"
+        className="rounded-[24px] bg-[#e8e8e8] w-[47.5%] lg:w-[48%] flex xl:hidden text-white active:opacity-85 transition-all relative overflow-hidden"
         href={"/chat"}
       >
         <div className="w-full p-4 gap-y-2 flex flex-col z-[1000]">

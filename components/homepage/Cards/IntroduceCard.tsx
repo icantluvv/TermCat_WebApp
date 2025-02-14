@@ -10,7 +10,7 @@ const IntroduceCard = () => {
     <>
       {/* pc version */}
       <Link
-        className="rounded-[24px] w-[48%] bg-[#e8e8e8] hidden xl:flex h-[194px] hover:opacity-85 transition-all relative overflow-hidden "
+        className="rounded-[24px] w-[48%] bg-[#e8e8e8] hidden xl:flex hover:opacity-85 transition-all relative overflow-hidden "
         href={""}
       >
         <p className="text-black text-[2rem] flex flex-col text-start pt-[3vh] h-full px-10 leading-10">
@@ -36,7 +36,7 @@ const IntroduceCard = () => {
       {/* mobile and laptop version */}
 
       <Link
-        className="rounded-[24px] bg-[#e8e8e8] w-[47.5%] lg:w-[48%] flex text-white active:opacity-85 transition-all relative overflow-hidden"
+        className="rounded-[24px] bg-[#e8e8e8] w-[47.5%] lg:w-[48%] xl:hidden flex text-white active:opacity-85 transition-all relative overflow-hidden"
         href={""}
       >
         <p className="text-black text-[20px] flex flex-col text-start p-4 h-full ">

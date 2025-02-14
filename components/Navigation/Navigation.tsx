@@ -6,15 +6,15 @@ import nav_logo from "@/public/images/nav_logo.svg"
 import home from "@/public/images/home.svg"
 import profile from "@/public/images/profile.svg"
 import chat from "@/public/images/chat.svg"
-import folder from "@/public/images/folder.svg"
+import folder from "@/public/images/clock.svg"
 import quit from "@/public/images/quit.svg"
 
 // Nav data
 const navItems = [
   { href: "/", icon: home, alt: "Home" },
-  { href: "/profile", icon: profile, alt: "Profile" },
   { href: "/chat", icon: chat, alt: "Chat" },
-  { href: "/history", icon: folder, alt: "History" }
+  { href: "/history", icon: folder, alt: "History" },
+  { href: "/profile", icon: profile, alt: "Profile" }
 ]
 
 const NavItem = ({
