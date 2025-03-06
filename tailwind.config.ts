@@ -13,6 +13,12 @@ export default {
         foreground: "var(--foreground)",
         grayButton: "var(--grayButton)",
         activeGrayButton: "var(--activeGrayButton)"
+      },
+      fontFamily: {
+        // Для использования через классы (например, font-poppins)
+        poppins: ["var(--font-poppins)"],
+        // Ваш предыдущий шрифт Cygre
+        cygre: ["Cygre", "sans-serif"]
       }
     }
   },

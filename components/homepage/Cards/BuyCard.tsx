@@ -13,14 +13,16 @@ const BuyCard = () => {
         href={"/chat"}
       >
         <div className="w-full px-8 py-10 z-[1000]">
-          <p className="text-[2.625rem] leading-[120%] text-[#1F1F1F] text-[32px]">
+          <p className="text-[2rem] leading-[120%] text-[#1F1F1F]  font-cygre font-medium">
             Приобретите <br />
             termwards
           </p>
 
-          <p className="text-[64px] font-bold text-[#1F1F1F]">2025T</p>
+          <p className="text-[4rem] font-bold text-[#1F1F1F] font-cygre font-bold">
+            2025T
+          </p>
 
-          <p className="text-[18px] text-[#A1A1A1] font-thin">
+          <p className="text-[1.125rem] text-[#A1A1A1] font-poppins">
             Используйте промокод в профиле <br />
             для получения валюты
           </p>
@@ -35,18 +37,18 @@ const BuyCard = () => {
 
       {/* mobile and laptop card */}
       <Link
-        className="rounded-[24px] bg-[#e8e8e8] w-[47.5%] lg:w-[48%] flex xl:hidden text-white active:opacity-85 transition-all relative overflow-hidden"
+        className="rounded-[24px] bg-[#e8e8e8] h-full w-[47.5%] lg:w-[48%] flex xl:hidden text-white active:opacity-85 transition-all relative overflow-hidden"
         href={"/chat"}
       >
-        <div className="w-full p-4 gap-y-2 flex flex-col z-[1000]">
+        <div className="w-full p-4 gap-y-4 flex flex-col z-[1000]">
           <div className="flex flex-row w-full gap-x-5 items-center">
-            <p className="text-[26px] font-semibold text-[#1F1F1F] text-[32px]">
+            <p className="text-[22px] font-semibold text-[#1F1F1F] text-[32px] font-cygre font-medium">
               TERMX
             </p>
-            <Image src={copyIcon} alt={""}></Image>
+            <Image src={copyIcon} alt={""} width={17}></Image>
           </div>
 
-          <p className="text-[12px] text-[#A1A1A1] font-thin">
+          <p className="text-[10px] text-[#A1A1A1] font-thin">
             Промокод для получения termwards в профиле
           </p>
         </div>

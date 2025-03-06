@@ -10,12 +10,14 @@ const CommentCard = () => {
         href={""}
       >
         <div className="w-full flex flex-col items-start">
-          <p className="text-[2rem] font-medium">Помогите нам стать лучше</p>
-          <p className="text-[1.125rem] font-normal opacity-50 font-thin">
+          <p className="text-[2rem] font-cygre font-medium">
+            Помогите нам стать лучше
+          </p>
+          <p className="text-[1.125rem] font-normal opacity-50 font-poppins">
             Пройдите опрос для улучшения нашего сервиса
           </p>
         </div>
-        <div className="text-black px-4 py-2 rounded-[24px] bg-[#c2f041] whitespace-nowrap">
+        <div className="text-black px-5 py-2 rounded-[24px] bg-[#c2f041] whitespace-nowrap font-cygre font-medium">
           Пройти опрос за минуту
         </div>
       </Link>

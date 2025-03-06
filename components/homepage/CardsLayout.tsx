@@ -10,7 +10,7 @@ import PlanCard from "./Cards/PlanCard"
 const CardsLayout = () => {
   return (
     <div className="flex xl:flex-row flex-col w-full mb-[4vh] xl:mb-0 gap-4 xl:gap-6">
-      <div className="flex flex-col w-full xl:w-2/3">
+      <div className="flex flex-col w-full xl:w-[64%]">
         <div className="flex w-full h-full flex-wrap justify-between gap-4 xl:gap-6">
           <ChatCard></ChatCard>
           <BuyCard></BuyCard>
@@ -22,7 +22,7 @@ const CardsLayout = () => {
         </div>
       </div>
 
-      <div className="flex flex-col w-full xl:w-1/3 justify-between flex-grow gap-4 xl:gap-6">
+      <div className="flex flex-col w-full xl:w-[36%] justify-between flex-grow gap-4 xl:gap-6">
         <HistoryCard></HistoryCard>
         <PlanCard></PlanCard>
       </div>
