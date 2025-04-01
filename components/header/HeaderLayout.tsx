@@ -1,5 +1,6 @@
 import React from "react"
-import HeaderButtonsLayout from "./HeaderButtonsLayout"
+import PcHeaderButtons from "./PcHeaderButtons"
+import MobileHeaderButtons from "./MobileHeaderButtons"
 
 interface HeaderProps {
   title: string
@@ -8,7 +9,7 @@ interface HeaderProps {
 
 const HeaderLayout = ({ title, text }: HeaderProps) => {
   return (
-    <div
+    <header
       className="flex flex-col-reverse gap-y-4
      lg:flex-row justify-between"
     >
@@ -20,8 +21,10 @@ const HeaderLayout = ({ title, text }: HeaderProps) => {
           {text}
         </p>
       </div>
-      <HeaderButtonsLayout></HeaderButtonsLayout>
-    </div>
+
+      <PcHeaderButtons />
+      <MobileHeaderButtons />
+    </header>
   )
 }
 
