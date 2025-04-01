@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import "../globals.css"
-import Navigation from "@/components/Navigation/Navigation"
+import Navigation from "@/components/nav/Navigation"
 import { Poppins } from "next/font/google"
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={poppins.variable}>
-      <body className="xl:px-0 px-[2%]">
+      <body className="lg:px-0">
         <Navigation />
         {children}
       </body>
