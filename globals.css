@@ -71,3 +71,7 @@ body {
     scrollbar-width: none; /* Firefox */
   }
 }
+
+input::placeholder {
+  color: #a1a1a1 !important; /* Укажи нужный цвет */
+}

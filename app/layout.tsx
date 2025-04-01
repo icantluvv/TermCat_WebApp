@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={poppins.variable}>
-      <body>{children}</body>
+      <body className="w-full h-screen">{children}</body>
     </html>
   )
 }
