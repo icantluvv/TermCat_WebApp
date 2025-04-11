@@ -1,6 +1,6 @@
-import CardsLayout from "@/app/(app)/(home)/components/CardsLayout"
-import HeaderLayout from "@/components/header/HeaderLayout"
-import TariffLayout from "@/app/(app)/(home)/components/TariffLayout"
+import HeaderLayout from "@/components/header/HeaderLayout";
+import CardsLayout from "../(pages)/home/components/CardsLayout";
+import TariffLayout from "../(pages)/home/components/TariffLayout";
 
 export default function Home() {
   return (
