@@ -1,6 +1,5 @@
 "use client"
 
-import { useAuth } from "@/lib/hooks/useAuth"
 import { createContext, useContext, ReactNode } from "react"
 
 // Создаём контекст для авторизации
@@ -19,15 +18,14 @@ export const useAuthContext = () => {
   return context
 }
 
-interface AuthProviderProps {
-  children: ReactNode
-}
+// interface AuthProviderProps {
+//   children: ReactNode
+// }
 
 // Компонент, который будет использовать хук useAuth и предоставлять данные в контексте
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const { user } = useAuth() // Используем твой хук
+// export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
-  return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
-  )
-}
+//   return (
+//     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+//   )
+// }

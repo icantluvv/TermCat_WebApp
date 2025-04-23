@@ -11,7 +11,7 @@ const PcHeaderButtons = () => {
         <p>Upgrade now</p>
       </button>
       <Link
-        href={"/profile"}
+        href={"/app/profile"}
         className="rounded-[50%] w-[48px] h-[48px] bg-[#c2f041]"
       ></Link>
     </div>

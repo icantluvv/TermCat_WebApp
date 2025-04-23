@@ -1,38 +1,45 @@
 import { cookies } from "next/headers"
+import axios from "axios"
 
 export async function POST(req: Request) {
   const body = await req.json()
-  const res = await fetch(`${process.env.BACKEND_URL}/auth/register`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "*/*" },
-    body: JSON.stringify(body)
-  })
 
-  if (!res.ok) {
-    console.log("Login failed ", res)
+  try {
+    const { data } = await axios.post(
+      `${process.env.BACKEND_URL}/auth/register`,
+      body,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "*/*"
+        }
+      }
+    )
+
+    const { accessToken, refreshToken } = data
+    const cookieStore = await cookies()
+
+    // accessToken — 15 минут
+    cookieStore.set("accessToken", accessToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict",
+      path: "/",
+      maxAge: 60 * 15
+    })
+
+    // refreshToken — 7 дней
+    cookieStore.set("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict",
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7
+    })
+
+    return new Response(JSON.stringify({ success: true }))
+  } catch (error: any) {
+    console.log("Register failed ", error.response || error)
     return new Response("Unauthorized", { status: 401 })
   }
-
-  const { accessToken, refreshToken } = await res.json()
-  const cookieStore = await cookies()
-
-  // accessToken — 15 минут
-  cookieStore.set("accessToken", accessToken, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict",
-    path: "/",
-    maxAge: 60 * 15
-  })
-
-  // refreshToken — 7 дней
-  cookieStore.set("refreshToken", refreshToken, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 7
-  })
-
-  return new Response(JSON.stringify({ success: true }))
 }

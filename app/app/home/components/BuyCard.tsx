@@ -5,6 +5,19 @@ import React from "react"
 import background from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import copyIcon from "@/public/images/homepage/copy_icon.svg"
 
+
+const BuyCard = () => {
+  return (
+    <>
+      <BuyCardDesktop />
+      <BuyCardMobile />
+    </>
+  )
+}
+
+export default BuyCard
+
+
 const BuyCardDesktop = () => {
   return (
     <Link
@@ -46,14 +59,3 @@ const BuyCardMobile = () => {
     </Link>
   )
 }
-
-const BuyCard = () => {
-  return (
-    <>
-      <BuyCardDesktop />
-      <BuyCardMobile />
-    </>
-  )
-}
-
-export default BuyCard

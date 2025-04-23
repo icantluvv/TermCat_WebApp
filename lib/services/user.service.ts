@@ -1,3 +1,6 @@
+import { TokenValidate } from "@/utils/TokenValidate"
+import axios from "axios"
+
 interface UserData {
   id: string
   name: string
@@ -15,15 +18,20 @@ export class UserService {
     }
     return UserService.instance
   }
+
   async getUser(): Promise<UserData> {
-    const res = await fetch("/api/user/getMe", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
-    })
-    if (!res.ok) {
-      throw new Error("Failed to fetch user data")
+    const accessToken = await TokenValidate()
+
+    const res = await axios.get<UserData>(
+      `${process.env.BACKEND_URL}/users/getMe`,
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        params: { revalidate: 60 }
+      }
+    )
+    if (res.status === 200 || res.status === 201) {
+      return res.data
     }
-    const data = await res.json()
-    return data
+    throw new Error("Failed to fetch user data")
   }
 }

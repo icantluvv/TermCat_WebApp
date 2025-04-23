@@ -11,10 +11,10 @@ import quit from "@/public/images/sidebar/quit.svg"
 
 // Nav data
 const navItems = [
-  { href: "/", icon: home, alt: "Home" },
-  { href: "/chat", icon: chat, alt: "Chat" },
-  { href: "/history", icon: history, alt: "History" },
-  { href: "/profile", icon: profile, alt: "Profile" }
+  { href: "/app/home", icon: home, alt: "Home" },
+  { href: "/app/chat", icon: chat, alt: "Chat" },
+  { href: "/app/history", icon: history, alt: "History" },
+  { href: "/app/profile", icon: profile, alt: "Profile" }
 ]
 
 const NavItem = ({
