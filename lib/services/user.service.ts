@@ -1,5 +1,5 @@
-import { TokenValidate } from "@/utils/TokenValidate"
 import axios from "axios"
+import { cookies } from "next/headers"
 
 interface UserData {
   id: string
@@ -20,18 +20,22 @@ export class UserService {
   }
 
   async getUser(): Promise<UserData> {
-    const accessToken = await TokenValidate()
-
-    const res = await axios.get<UserData>(
-      `${process.env.BACKEND_URL}/users/getMe`,
-      {
-        headers: { Authorization: `Bearer ${accessToken}` },
-        params: { revalidate: 60 }
+    const accessToken = (await cookies()).get("accessToken")?.value
+    try {
+      const res = await axios.get<UserData>(
+        `${process.env.BACKEND_URL}/users/getMe`,
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+          params: { revalidate: 60 }
+        }
+      )
+      if (res.status === 200 || res.status === 201) {
+        return res.data
       }
-    )
-    if (res.status === 200 || res.status === 201) {
-      return res.data
+    } catch {
+      throw Error("Fetch trouble")
     }
-    throw new Error("Failed to fetch user data")
+
+    throw new Error("getUser function error")
   }
 }

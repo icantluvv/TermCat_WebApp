@@ -1,11 +1,11 @@
-import { cookies } from "next/headers"
 import axios from "axios"
+import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   const body = await req.json()
 
   try {
-    const { data } = await axios.post(
+    const res = await axios.post(
       `${process.env.BACKEND_URL}/auth/register`,
       body,
       {
@@ -16,30 +16,34 @@ export async function POST(req: Request) {
       }
     )
 
-    const { accessToken, refreshToken } = data
-    const cookieStore = await cookies()
+    const accessToken = res.data.accessToken
+    const refreshToken = res.data.refreshToken
 
-    // accessToken — 15 минут
-    cookieStore.set("accessToken", accessToken, {
+    const response = NextResponse.json(
+      { message: "Registration successful" },
+      { status: 200 }
+    )
+
+    response.cookies.set("accessToken", accessToken, {
       httpOnly: true,
-      secure: true,
       sameSite: "strict",
       path: "/",
-      maxAge: 60 * 15
+      maxAge: 60 * 15 // 15 minutes
     })
 
-    // refreshToken — 7 дней
-    cookieStore.set("refreshToken", refreshToken, {
+    response.cookies.set("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: true,
       sameSite: "strict",
       path: "/",
       maxAge: 60 * 60 * 24 * 7
     })
 
-    return new Response(JSON.stringify({ success: true }))
-  } catch (error: any) {
-    console.log("Register failed ", error.response || error)
-    return new Response("Unauthorized", { status: 401 })
+    return response
+  } catch (error) {
+    console.error("Registration error:", error)
+    return NextResponse.json(
+      { message: "Invalid credentials" },
+      { status: 401 }
+    )
   }
 }

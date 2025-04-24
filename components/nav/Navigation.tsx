@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import React from "react"
 import Image from "next/image"
@@ -8,6 +9,7 @@ import profile from "@/public/images/sidebar/profile.svg"
 import chat from "@/public/images/sidebar/chat.svg"
 import history from "@/public/images/sidebar/history.svg"
 import quit from "@/public/images/sidebar/quit.svg"
+import { AuthService } from "@/lib/services/auth.service"
 
 // Nav data
 const navItems = [
@@ -49,7 +51,18 @@ const Navigation = () => {
               <NavItem key={item.href} {...item} />
             ))}
           </div>
-          <NavItem href="#" icon={quit} alt="Quit" />
+          <button
+            onClick={() => handleLogout()}
+            className="flex justify-center items-center"
+          >
+            <Image
+              src={quit}
+              width={48}
+              height={48}
+              alt={quit}
+              className="hover:opacity-70 transition-all"
+            />
+          </button>
         </nav>
       </div>
 
@@ -68,3 +81,8 @@ const Navigation = () => {
 }
 
 export default Navigation
+
+const handleLogout = async () => {
+  await AuthService.getInstance().logout()
+  window.location.href = "/login"
+}
