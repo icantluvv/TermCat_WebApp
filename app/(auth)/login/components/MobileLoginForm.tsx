@@ -102,7 +102,7 @@ const MobileLoginForm = () => {
         <div className="flex gap-x-1 text-center ">
           <p className="text-[#a1a1a1] text-nowrap">Нет аккаунта? </p>
           <button
-            onClick={() => router.push("/SignUp")}
+            onClick={() => router.push("/signup")}
             className="text-[#0c0c0c] font-semibold"
           >
             Создать аккаунт

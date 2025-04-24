@@ -145,7 +145,7 @@ const PcSignUpForm = () => {
       <div className="flex gap-x-1">
         <p className="text-[#a1a1a1]">Уже есть аккаунт? </p>
         <button
-          onClick={() => router.push("/SignIn")}
+          onClick={() => router.push("/login")}
           className="text-[#0c0c0c] font-semibold"
         >
           Войти

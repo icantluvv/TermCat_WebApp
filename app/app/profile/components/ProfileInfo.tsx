@@ -5,34 +5,26 @@ import back from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import InputField from "@/components/input/InputField"
 import Button from "@/components/Button/Button"
 
-const ProfileInfo = () => (
+const ProfileInfo = ({ User }: UserProps) => (
   <>
     <div className="bg-[#E8E8E8] flex rounded-[24px] w-full relative ">
       {/* info block */}
       <div className="z-[5000] p-[24px] lg:p-[40px] flex flex-col lg:flex-row gap-y-[24px] lg:gap-x-4 2xl:gap-x-10 lg:gap-y-0 w-full">
         {/* profile image */}
         <div className="lg:min-w-[150px] xl:min-w-[200px]">
-          <Image
-            src={""}
-            alt={""}
-            className="w-[126px] h-[126px] lg:w-[150px] lg:h-[150px] xl:w-[175px] xl:h-[175px] 2xl:w-[200px] 2xl:h-[200px] bg-[#C2F041] rounded-[50%]"
-          ></Image>
+          <div className="w-[126px] h-[126px] lg:w-[150px] lg:h-[150px] xl:w-[175px] xl:h-[175px] 2xl:w-[200px] 2xl:h-[200px] bg-[#C2F041] rounded-[50%]"></div>
         </div>
 
         {/* input places*/}
         <div className="flex w-full flex-col gap-y-[24px]">
-          <InputField label="Имя" type="text" placeholder="Имя" />
-          <InputField label="E-mail" type="email" placeholder="Почта" />
+          <InputField label="Имя" type="text" placeholder={`${User.name}`} />
           <InputField
-            label="Старый пароль"
-            type="password"
-            placeholder="Старый Пароль"
+            label="E-mail"
+            type="email"
+            placeholder={`${User.email}`}
           />
-          <InputField
-            label="Новый пароль"
-            type="password"
-            placeholder="Новый Пароль"
-          />
+          <InputField label="Старый пароль" type="password" placeholder="" />
+          <InputField label="Новый пароль" type="password" placeholder="" />
           <div className="max-w-[300px]">
             <Button text={"Сохранить"} type={"main"}></Button>
           </div>
@@ -56,7 +48,7 @@ const ProfileInfo = () => (
       <Image
         src={back}
         className="w-full h-full absolute opacity-10 rounded-[24px]"
-        alt=""
+        alt="background"
       />
     </div>
   </>
