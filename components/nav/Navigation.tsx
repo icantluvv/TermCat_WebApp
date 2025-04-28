@@ -43,7 +43,7 @@ const Navigation = () => {
   return (
     <>
       {/* Desktop navigation */}
-      <div className="lg:w-[12%] xl:w-[8%] hidden lg:flex fixed left-0 top-0 justify-end h-screen  items-center">
+      <div className="fixed h-screen lg:w-[12%] xl:w-[10%] hidden lg:flex left-0 top-0 justify-center items-center z-[5000]">
         <nav className="flex flex-col bg-black lg:h-[65vh] max-h-[600px] min-h-[500px] w-full rounded-t-[50px] lg:rounded-[50px] items-center py-[48px] max-w-[96px] flex-grow gap-x-6">
           <NavItem href="/" icon={nav_logo} alt="Logo" />
           <div className="flex flex-col flex-1 gap-y-[24px] justify-center">

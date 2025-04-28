@@ -9,6 +9,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        PageBG: "#F5F5F5",
+        GrayDark: "#1F1F1F",
+        Purpl: "#D3A2FB",
+        LightGray: "#E8E8E8",
+        Gray01: "#E1E1E1",
+        BotMessageBG: "#EEE4F6",
+
         background: "var(--background)",
         foreground: "var(--foreground)",
         grayButton: "var(--grayButton)",

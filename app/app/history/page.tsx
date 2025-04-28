@@ -1,7 +1,29 @@
 import React from "react"
 
 const History = () => {
-  return <main className="w-[92%] ml-[8%] px-[2%] h-screen">history page</main>
+  return (
+    <>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+      <div className="bg-black py-5 w-full text-white flex">history page</div>
+    </>
+  )
 }
 
 export default History
