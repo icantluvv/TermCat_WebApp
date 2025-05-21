@@ -1,34 +1,26 @@
-import axios from "axios"
-import { cookies } from "next/headers"
+import axios, { AxiosInstance } from "axios"
+import getAccessToken from "../getAccess"
 
 export class UserService {
-  private static instance: UserService
-  private constructor() {}
+  private api: AxiosInstance
 
-  public static getInstance(): UserService {
-    if (!UserService.instance) {
-      UserService.instance = new UserService()
-    }
-    return UserService.instance
+  constructor() {
+    this.api = axios.create({
+      baseURL: process.env.BACKEND_URL
+    })
   }
 
-  async getUser(): Promise<User> {
-    const accessToken = (await cookies()).get("accessToken")?.value
+  async getCurrentUser() {
+    const token = getAccessToken()
     try {
-      const res = await axios.get<User>(
-        `${process.env.BACKEND_URL}/users/getMe`,
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-          params: { revalidate: 60 }
+      const res = await this.api.get("/users/getMe", {
+        headers: {
+          Authorization: `Bearer ${token}`
         }
-      )
-      if (res.status === 200 || res.status === 201) {
-        return res.data
-      }
-    } catch {
-      throw Error("Fetch trouble")
+      })
+      return res.data
+    } catch (e) {
+      return null
     }
-
-    throw new Error("getUser function error")
   }
 }

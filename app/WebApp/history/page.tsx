@@ -1,28 +1,11 @@
+import NotReadyPage from "@/components/NotReadyPage"
 import React from "react"
 
 const History = () => {
   return (
-    <>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-      <div className="bg-black py-5 w-full text-white flex">history page</div>
-    </>
+    <main className="flex h-screen w-full">
+      <NotReadyPage></NotReadyPage>
+    </main>
   )
 }
 

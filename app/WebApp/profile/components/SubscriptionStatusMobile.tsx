@@ -6,7 +6,7 @@ const SubscriptionStatusMobile = () => (
     <p className="text-[1.5rem] font-medium text-white text-nowrap">
       Активных подписок нет
     </p>
-    <Button text={"Приобрести"} type={"main"}></Button>
+    <Button text={"Приобрести"} variant={"main"}></Button>
   </div>
 )
 

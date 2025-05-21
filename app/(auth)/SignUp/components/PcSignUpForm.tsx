@@ -22,7 +22,7 @@ const PcSignUpForm = () => {
       name
     })
     if (register) {
-      router.push("/app/home")
+      router.push("/WebApp")
     } else {
       alert("Ошибка регистрации")
     }

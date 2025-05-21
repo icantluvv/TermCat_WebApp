@@ -1,8 +1,13 @@
 import axios from "axios"
 import { NextResponse } from "next/server"
 
+interface LoginBody {
+  email: string
+  password: string
+}
+
 export async function POST(req: Request) {
-  const body = await req.json()
+  const body: LoginBody = await req.json()
 
   try {
     const res = await axios.post(
@@ -16,8 +21,14 @@ export async function POST(req: Request) {
       }
     )
 
-    const accessToken = res.data.accessToken
-    const refreshToken = res.data.refreshToken
+    const { accessToken, refreshToken } = res.data
+
+    if (!accessToken || !refreshToken) {
+      return NextResponse.json(
+        { message: "Invalid tokens from server" },
+        { status: 500 }
+      )
+    }
 
     const response = NextResponse.json(
       { message: "Login successful" },
@@ -26,24 +37,24 @@ export async function POST(req: Request) {
 
     response.cookies.set("accessToken", accessToken, {
       httpOnly: true,
-      sameSite: "strict",
+      sameSite: "lax",
       path: "/",
-      maxAge: 60 * 15 // 15 минут
+      maxAge: 60 * 10
     })
 
     response.cookies.set("refreshToken", refreshToken, {
       httpOnly: true,
-      sameSite: "strict",
+      sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60 * 24 * 7
+      maxAge: 60 * 60 * 23 * 7
     })
 
     return response
-  } catch (error) {
-    console.error("Login error:", error)
+  } catch (error: any) {
+    console.error("Login error:", error.response?.data || error.message)
     return NextResponse.json(
-      { message: "Invalid credentials" },
-      { status: 401 }
+      { message: error.response?.data?.message || "Invalid credentials" },
+      { status: error.response?.status || 401 }
     )
   }
 }

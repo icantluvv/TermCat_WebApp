@@ -1,14 +1,12 @@
-import HeaderLayout from "@/components/header/HeaderLayout"
-import React from "react"
+export const revalidate = 60
 
+import HeaderLayout from "@/components/header/HeaderLayout"
 import LinkedServices from "./components/LinkedServices"
 import SubscriptionStatusMobile from "./components/SubscriptionStatusMobile"
 import SubscriptionStatus from "./components/SubscriptionStatus"
-import ProfileInfo from "./components/ProfileInfo"
-import { UserService } from "@/lib/services/user.service"
+// import ProfileInfo from "./components/ProfileInfo"
 
 async function Profile() {
-  const User = await UserService.getInstance().getUser()
   return (
     <>
       <HeaderLayout
@@ -17,10 +15,9 @@ async function Profile() {
       />
       <main className="w-full flex gap-4 lg:gap-6 flex-col md:flex-row flex-wrap lg:pb-0">
         <section className="flex lg:flex-col gap-4 lg:gap-6 md:w-1/2 lg:min-w-[700px]">
-          <ProfileInfo User={User} />
+          {/* <ProfileInfo User={User} /> */}
           <SubscriptionStatus />
         </section>
-
         <section className="xl:w-1/3 md:flex-1 flex flex-col gap-4 lg:gap-6 lg:flex-row flex-wrap ">
           <LinkedServices />
           <SubscriptionStatusMobile />
@@ -29,5 +26,4 @@ async function Profile() {
     </>
   )
 }
-
 export default Profile

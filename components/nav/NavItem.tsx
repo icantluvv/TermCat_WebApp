@@ -1,0 +1,27 @@
+import Link from "next/link"
+import Image from "next/image"
+
+const NavItem = ({
+  href,
+  icon,
+  alt
+}: {
+  href: string
+  icon: string
+  alt: string
+}) => (
+  <li>
+    <Link href={href} className="flex justify-center items-center">
+      <Image
+        src={icon}
+        width={48}
+        height={48}
+        alt={alt}
+        className="hover:opacity-70 transition-all"
+      />
+    </Link>
+  </li>
+)
+
+export default NavItem
+

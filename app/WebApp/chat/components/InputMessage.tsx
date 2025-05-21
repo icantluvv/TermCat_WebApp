@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import { useRef } from "react"
 import send from "@/public/images/chat/sendButton.svg"
@@ -8,7 +9,6 @@ const InputMessage = ({
   onHeightChange: (height: number) => void
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-
   const handleInput = () => {
     const textarea = textareaRef.current
     if (textarea) {
@@ -21,7 +21,7 @@ const InputMessage = ({
       onHeightChange(newHeight)
     }
   }
-
+  function sendMessage() {}
   return (
     <>
       <div className="w-full flex gap-x-[2vw] absolute bottom-0 z-[1000]">
@@ -38,7 +38,10 @@ const InputMessage = ({
           }}
         />
         <div className="bg-PageBG rounded-t-[48px] flex-2">
-          <button className="rounded-[50%] bg-[#0C0C0C] w-[48px] h-[48px] flex items-center justify-center">
+          <button
+            onClick={() => sendMessage()}
+            className="rounded-[50%] bg-[#0C0C0C] w-[48px] h-[48px] flex items-center justify-center"
+          >
             <Image src={send} alt="send" className="w-[24px] h-[24px]" />
           </button>
         </div>
@@ -47,5 +50,4 @@ const InputMessage = ({
     </>
   )
 }
-
 export default InputMessage

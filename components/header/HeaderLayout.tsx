@@ -1,11 +1,5 @@
-import React from "react"
 import PcHeaderButtons from "./PcHeaderButtons"
 import MobileHeaderButtons from "./MobileHeaderButtons"
-
-interface HeaderProps {
-  title: string
-  text: string
-}
 
 const HeaderLayout = ({ title, text }: HeaderProps) => {
   return (
@@ -29,3 +23,8 @@ const HeaderLayout = ({ title, text }: HeaderProps) => {
 }
 
 export default HeaderLayout
+
+interface HeaderProps {
+  title: string
+  text: string
+}
