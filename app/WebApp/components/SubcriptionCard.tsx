@@ -5,14 +5,14 @@ import termwardBack from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078ab
 import background from "@/public/images/homepage/d20c90509061782c2cbc21e06ccf4ce1.png"
 import Link from "next/link"
 
-const SubScriptionCard = () => {
+const SubScriptionCard = ({ href }: CardProps) => {
   return (
     <Link
-      className="order-[2] lg:order-4 w-full md:w-[calc(50%-20px)] p-[24px] pb-[48px] md:min-h-[194px] rounded-[24px] flex bg-PrimaryBlack active:opacity-85 
-      transition-all relative overflow-hidden"
-      href={""}
+      className="order-[2] md:order-[3] lg:order-4 w-full md:w-full xl:w-[calc(50%-20px)] p-[24px] pb-[48px] xl:min-h-[194px]
+       rounded-[24px] flex bg-PrimaryBlack active:opacity-85 transition-all relative overflow-hidden"
+      href={href}
     >
-      <p className="text-white text-[1.5rem] lg:text-[2rem] leading-8 font-cygre font-medium">
+      <p className="text-white text-[1.5rem] xl:text-[2rem] leading-8 font-cygre font-medium">
         Активировать
         <br /> Подписку
       </p>

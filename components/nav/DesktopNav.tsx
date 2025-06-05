@@ -7,7 +7,7 @@ import quit from "@/public/images/sidebar/quit.svg"
 
 const DesktopNav = ({ links }: NavigationProps) => {
   return (
-    <aside className="fixed h-screen w-[6%] items-center hidden lg:flex">
+    <aside className="fixed h-screen w-[6%] items-center hidden xl:flex">
       <nav className="w-full bg-PrimaryBlack rounded-[100px] py-[48px] px-[24px] flex flex-col gap-y-[70px]">
         <NavItem href="/" icon={nav_logo} alt="Logo" />
         <div className="flex flex-col gap-y-[12px]">

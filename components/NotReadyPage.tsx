@@ -5,13 +5,14 @@ import back from "@/public/images/404/background_404.svg"
 const NotReadyPage = () => {
   return (
     <div className="flex flex-col h-screen w-full bg-PageBG relative">
-      <div className="pl-[10vw] pt-[15vh]">
+      <div className="pl-[10vw] flex flex-col gap-6 pt-[15vh]">
         <h2 className="text-PrimaryBlack font-cygre text-[42px] font-medium">
-          Страница не найдена
+          Страница не доступна
         </h2>
         <div className="flex flex-col text-Gray02 font-poppins text-[1.125rem]">
           <p>
-            Эта страница в данный момент недоступна или находится в разработке
+            Эта страница в данный момент недоступна, так как находится в
+            разработке
           </p>
           <p>Приносим свои извинения</p>
         </div>

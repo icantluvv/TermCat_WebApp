@@ -35,7 +35,16 @@ const LandingHeader = () => {
 
         <div className="flex gap-[1vw]">
           <Button type={"secondary"} text={"Зарегистрироваться"}></Button>
-          <Button type={"primary-action"} text={"Войти"}></Button>
+
+          <Link
+            className="p-[6px] pl-[28px] max-w-[204px] py-[12px] border-[1.5px] 
+      rounded-[100px] flex items-center gap-[10px] text-white border-primaryGreen bg-transparent 
+      hover:bg-primaryGreen active:bg-primaryGreenActive hover:text-black "
+            href={"/login"}
+          >
+            Войти
+          </Link>
+          {/* <Button type={"primary-action"} text={"Войти"}></Button> */}
         </div>
       </div>
     </header>

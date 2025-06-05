@@ -6,4 +6,5 @@ interface NavigationItem {
 
 interface NavigationProps {
   links: NavigationItem[]
+  
 }
