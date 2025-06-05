@@ -5,7 +5,7 @@ import nav_logo from "@/public/images/sidebar/nav_logo.svg"
 
 const MobileHeaderButtons = () => {
   return (
-    <div className="h-[48px] w-full justify-between flex xl:hidden gap-x-4">
+    <div className="h-[48px] w-full justify-between flex md:hidden gap-x-4">
       <Link
         href={"/"}
         className="rounded-[50%] bg-black w-[36px] h-[36px] flex items-center justify-center"

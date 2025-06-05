@@ -1,34 +1,36 @@
 import Link from "next/link"
 import Image from "next/image"
 import React from "react"
-
 import background from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import copyIcon from "@/public/images/homepage/copy_icon.svg"
 
 const BuyCard = () => {
   return (
     <>
-      <BuyCardDesktop />
-      <BuyCardMobile />
+      <BigBuyCard />
+      <SmallBuyCard />
     </>
   )
 }
 
 export default BuyCard
 
-const BuyCardDesktop = () => {
+const BigBuyCard = () => {
   return (
     <Link
-      className="rounded-[24px] bg-[#e8e8e8] xl:flex hidden flex-1 text-white active:opacity-85 transition-all relative overflow-hidden"
+      className="w-[calc(50%-20px)] rounded-[24px] md:flex bg-[#e8e8e8] hidden  text-white active:opacity-85 transition-all relative overflow-hidden"
       href={"/chat"}
     >
-      <div className="w-full px-8 py-10 z-[1000]">
-        <p className="text-[2rem] leading-[120%] text-[#1F1F1F] font-cygre font-medium">
-          Приобретите <br /> termwards
+      <div className="w-full p-[24px] py-[48px] z-[1000]">
+        <p className="md:text-[1.5rem] lg:text-[2rem] leading-[120%] text-[#1F1F1F] font-cygre font-medium">
+          Заберите <br /> ваш подарок!
         </p>
-        <p className="text-[4rem] text-[#1F1F1F] font-cygre font-bold">2025T</p>
-        <p className="text-[1.125rem] text-[#A1A1A1] font-poppins">
-          Используйте промокод в профиле <br /> для получения валюты
+        <p className="md:text-[2.5rem] lg:text-[4rem] text-[#1F1F1F] font-cygre font-bold">
+          2025T
+        </p>
+        <p className="md:text-[1rem] lg:text-[1.125rem] text-[#A1A1A1] font-poppins">
+          Используйте промокод <br />
+          для активации пробного периода
         </p>
       </div>
       <Image src={background} className="absolute opacity-10 h-full" alt="" />
@@ -36,21 +38,19 @@ const BuyCardDesktop = () => {
   )
 }
 
-const BuyCardMobile = () => {
+const SmallBuyCard = () => {
   return (
     <Link
-      className="rounded-[24px] bg-[#e8e8e8] w-[47.5%] lg:w-[48%] flex xl:hidden text-white active:opacity-85 transition-all relative overflow-hidden"
+      className="order-[1] w-[calc(50%-6px)] rounded-[24px] md:hidden bg-[#e8e8e8] relative overflow-hidden"
       href={"/chat"}
     >
-      <div className="w-full p-[16px] gap-y-4 flex flex-col z-[1000]">
-        <div className="flex flex-row w-full gap-x-5 items-center">
-          <p className="text-[22px] text-[#1F1F1F] font-cygre font-bold">
-            TERMX
-          </p>
-          <Image src={copyIcon} alt="" width={16} />
-        </div>
-        <p className="text-[10px] text-[#A1A1A1] font-thin">
-          Промокод для получения termwards в профиле
+      <div className="w-full p-[12px] z-[1000] gap-y-[12px] flex-col flex">
+        <span className="text-[1.375rem] leading-[120%] text-[#1F1F1F] font-cygre font-bold flex gap-x-[12px]">
+          TERMX
+          <Image src={copyIcon} alt={"copyIcon"}></Image>
+        </span>
+        <p className="text-[0.625rem] text-[#A1A1A1] font-poppins">
+          Промокод для получения <br /> termwords в профиле
         </p>
       </div>
       <Image src={background} className="absolute opacity-10 h-full" alt="" />

@@ -14,14 +14,11 @@ const NavItem = ({
     <Link href={href} className="flex justify-center items-center">
       <Image
         src={icon}
-        width={48}
-        height={48}
         alt={alt}
-        className="hover:opacity-70 transition-all"
+        className="w-[48px] h-[48px] hover:opacity-70 transition-all"
       />
     </Link>
   </li>
 )
 
 export default NavItem
-

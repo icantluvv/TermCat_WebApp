@@ -30,10 +30,7 @@ export async function POST(req: Request) {
       )
     }
 
-    const response = NextResponse.json(
-      { message: "Login successful" },
-      { status: 200 }
-    )
+    const response = NextResponse.json({ message: "Login successful" })
 
     response.cookies.set("accessToken", accessToken, {
       httpOnly: true,
@@ -46,9 +43,8 @@ export async function POST(req: Request) {
       httpOnly: true,
       sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60 * 23 * 7
+      maxAge: 60 * 60 * 24 * 7
     })
-
     return response
   } catch (error: any) {
     console.error("Login error:", error.response?.data || error.message)

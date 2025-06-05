@@ -11,6 +11,7 @@ export default {
       colors: {
         PageBG: "#F5F5F5",
         PrimaryBlack: "#050505",
+        PrimaryGreen: "#c2f041",
         Gray02: "#a1a1a1",
         GrayDark: "#1F1F1F",
         Purpl: "#D3A2FB",

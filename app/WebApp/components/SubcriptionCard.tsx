@@ -5,19 +5,20 @@ import termwardBack from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078ab
 import background from "@/public/images/homepage/d20c90509061782c2cbc21e06ccf4ce1.png"
 import Link from "next/link"
 
-const SubScriptionCardDesktop = () => {
+const SubScriptionCard = () => {
   return (
     <Link
-      className="rounded-[24px] w-full md:flex-1 bg-[#0c0c0c] xl:flex hidden active:opacity-85 transition-all relative overflow-hidden"
+      className="order-[2] lg:order-4 w-full md:w-[calc(50%-20px)] p-[24px] pb-[48px] md:min-h-[194px] rounded-[24px] flex bg-PrimaryBlack active:opacity-85 
+      transition-all relative overflow-hidden"
       href={""}
     >
-      <p className="text-white text-[1.5rem] lg:text-[2rem] py-[3vh] px-10 leading-8 font-cygre font-medium">
+      <p className="text-white text-[1.5rem] lg:text-[2rem] leading-8 font-cygre font-medium">
         Активировать
-        <br /> подписку
+        <br /> Подписку
       </p>
       <Image
         src={termwardBack}
-        className="rounded-[24px] opacity-10 w-full absolute h-full"
+        className="rounded-[24px] opacity-10 left-0 top-0 w-full absolute h-full"
         alt={""}
       />
       <Image
@@ -25,40 +26,10 @@ const SubScriptionCardDesktop = () => {
         className="rounded-[24px] right-0 bottom-[-13vh] absolute z-1000 mt-[1vh] ml-[6.4vw] opacity-100"
         alt={""}
       />
-      <div className="rounded-[50%] w-[48px] h-[48px] bg-[#e8e8e8] right-0 m-10 absolute flex items-center justify-center">
+      <div className="rounded-[50%] w-[36px] h-[36px] md:w-[48px] md:h-[48px] bg-[#e8e8e8] right-0 top-0 m-[5%] absolute flex items-center justify-center">
         <Image src={arrow} alt={""} className="w-1/3 h-1/3" />
       </div>
     </Link>
-  )
-}
-
-const SubScriptionCardMobile = () => {
-  return (
-    <Link
-      className="rounded-[24px] w-full min-h-[132px] xl:hidden flex bg-[#0c0c0c] active:opacity-85 transition-all relative overflow-hidden"
-      href={""}
-    >
-      <p className="text-white text-[1.5rem] py-6 px-[24px] leading-8 font-cygre font-medium">
-        Активировать <br /> подписку
-      </p>
-      <Image
-        src={termwardBack}
-        className="rounded-[24px] opacity-10 w-full absolute h-full"
-        alt={""}
-      />
-      <div className="rounded-[50%] w-[36px] h-[36px] bg-[#e8e8e8] right-0 m-[24px] absolute flex items-center justify-center">
-        <Image src={arrow} alt={""} className="w-1/3 h-1/3" />
-      </div>
-    </Link>
-  )
-}
-
-const SubScriptionCard = () => {
-  return (
-    <>
-      <SubScriptionCardDesktop />
-      <SubScriptionCardMobile />
-    </>
   )
 }
 

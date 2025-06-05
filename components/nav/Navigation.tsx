@@ -6,10 +6,10 @@ import DesktopNav from "./DesktopNav"
 import MobileNav from "./MobileNav"
 
 const navItems = [
-  { href: "/app/home", icon: home, alt: "Home" },
-  { href: "/app/chat", icon: chat, alt: "Chat" },
-  { href: "/app/history", icon: history, alt: "History" },
-  { href: "/app/profile", icon: profile, alt: "Profile" }
+  { href: "/WebApp/", icon: home, alt: "Home" },
+  { href: "/WebApp/chat", icon: chat, alt: "Chat" },
+  { href: "/WebApp/history", icon: history, alt: "History" },
+  { href: "/WebApp/profile", icon: profile, alt: "Profile" }
 ]
 
 const Navigation = () => {

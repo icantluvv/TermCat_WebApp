@@ -5,7 +5,7 @@ import lightning from "@/public/images/header/lightning.svg"
 
 const PcHeaderButtons = () => {
   return (
-    <div className="h-[48px] hidden xl:flex gap-x-4">
+    <div className="h-[48px] hidden md:flex gap-x-4">
       <button className="px-[28px] py-4 active:bg-activeGrayButton hover:bg-[#e8e8e8]/75 bg-grayButton rounded-[50px] h-[48px] items-center flex gap-2 transition-all">
         <Image src={lightning} alt={lightning}></Image>
         <p>Upgrade now</p>

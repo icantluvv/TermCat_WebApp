@@ -4,12 +4,9 @@ import Image from "next/image"
 import SignInYandexButton from "../../components/SignInYandexButton"
 import { useState } from "react"
 import { AuthService } from "@/lib/services/auth.service"
-import { useRouter } from "next/navigation"
 import eye from "@/public/images/auth/eye.png"
 
 const LogInForm = () => {
-  const router = useRouter()
-
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
@@ -19,7 +16,7 @@ const LogInForm = () => {
 
     const success = await AuthService.getInstance().login({ email, password })
     if (success) {
-      router.push("/WebApp")
+      window.location.href = "/WebApp"
     } else {
       alert("Неверный логин или пароль")
     }
