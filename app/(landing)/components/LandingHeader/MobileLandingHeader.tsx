@@ -10,6 +10,17 @@ const MobileLandingHeader = ({ navLinks }: LandingLinksProps) => {
   const { toggleNav, isNavOpen } = useLandingMobileHeaderStore()
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isNavOpen) {
+        toggleNav()
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [isNavOpen, toggleNav])
+
+  useEffect(() => {
     if (isNavOpen) {
       document.body.classList.add("overflow-hidden")
     } else {
@@ -22,7 +33,7 @@ const MobileLandingHeader = ({ navLinks }: LandingLinksProps) => {
 
   return (
     <>
-      <div className="flex xl:hidden w-full h-[60px] justify-center relative items-center z-[5000]">
+      <div className="flex lg:hidden w-full h-[60px] justify-center relative items-center z-[5000]">
         <Image
           src={landing_header_logo}
           alt="landing header logo"

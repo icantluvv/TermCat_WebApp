@@ -35,7 +35,7 @@ const Footer = () => {
               bg-LightGray xl:flex-[0] flex-1 focus:outline-none"
             />
           </div>
-          <button className="bg-PrimaryGreen min-h-[40px] py-[8px] px-[16px] lg:py-[16px] lg:px-[28px] rounded-[32px] text-[0.875rem] lg:text-[1rem] text-PrimaryBlack">
+          <button className="bg-PrimaryGreen active:bg-PrimaryGreenActive min-h-[40px] py-[8px] px-[16px] lg:py-[16px] lg:px-[28px] rounded-[32px] text-[14px] lg:text-[16px] text-PrimaryBlack">
             Отправить
           </button>
         </div>
@@ -43,12 +43,12 @@ const Footer = () => {
 
       <div className="w-full h-[1px] bg-Gray02"></div>
       <div className="flex w-full justify-between flex-col-reverse gap-y-[40px] md:flex-row">
-        <p className="text-WhiteDefault text-[0.875rem]">
+        <p className="text-WhiteDefault text-[14px]">
           TermCAT @ 2024. All rights reserved.
         </p>
         <Link
           href={"/documents"}
-          className="text-LightGray hover:text-PrimaryGreen transition-colors text-[1rem] md:text-[0.875rem]"
+          className="text-LightGray hover:text-PrimaryGreen text-[16px] md:text-[14px]"
         >
           Документы
         </Link>

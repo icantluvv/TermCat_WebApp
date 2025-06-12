@@ -1,6 +1,6 @@
 const StepItem = ({ id, title, text, reverse = false }: StepItemProps) => (
   <div
-    className={`w-[90vw] md:w-[90%] xl:w-full 2xl:w-[70%] flex h-1/4 ${
+    className={`w-[90vw] xl:w-full 2xl:w-[70%] flex h-1/4 ${
       reverse
         ? "md:justify-start justify-end"
         : "justify-start pl-[10vw] md:pl-0 md:justify-end"
@@ -19,7 +19,9 @@ const StepItem = ({ id, title, text, reverse = false }: StepItemProps) => (
       </div>
       <div className="flex flex-col gap-[8px]">
         <h3 className="text-LightGray text-[22px] font-bold">{title}</h3>
-        <p className="text-[16px] lg:text-[18px] text-Gray02 ">{text}</p>
+        <p className="text-[16px] xl:text-[18px] text-Gray02 xl:max-w-[450px]">
+          {text}
+        </p>
       </div>
     </div>
   </div>

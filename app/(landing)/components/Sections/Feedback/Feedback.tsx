@@ -54,7 +54,7 @@ const feedbacks = [
 
 const Feedback = () => {
   return (
-    <section className="flex flex-col items-center w-full gap-[40px]">
+    <section className="flex flex-col items-center w-full gap-[40px] lg:gap-[80px]">
       <h3 className="text-[26px] lg:text-[42px] text-LightGray w-[70vw] xl:w-auto text-center font-medium">
         Отзывы наших пользователей
       </h3>
@@ -63,6 +63,7 @@ const Feedback = () => {
         <div className="flex gap-4 w-max">
           {feedbacks.map((item, index) => (
             <FeedbackCard
+              key={index}
               name={item.name}
               status={item.status}
               text={item.text}

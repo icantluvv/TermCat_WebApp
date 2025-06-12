@@ -14,7 +14,7 @@ const TariffSection = () => {
           </h2>
         </div>
 
-        <p className="text-[16px] lg:text-[18px] text-Gray02 font-thin text-center">
+        <p className="text-[16px] lg:text-[18px] text-Gray02 font-thin md:px-[1vw] lg:px-[8vw] text-center">
           Наш нейросетевой CAT-Tool инструмент предлагает несколько тарифных
           планов, <br />
           чтобы удовлетворить различные потребности пользователей,{" "}

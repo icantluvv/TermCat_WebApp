@@ -56,6 +56,13 @@ h6 {
   @apply font-cygre;
 }
 
+@layer components {
+  a,
+  button {
+    @apply transition-colors duration-300;
+  }
+}
+
 button {
   @apply font-cygre;
   font-weight: 500;
@@ -74,8 +81,8 @@ p {
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #050505;
+  font-family: sans-serif;
 }
 
 @layer utilities {
@@ -87,6 +94,96 @@ body {
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  @keyframes floatXY1 {
+    0%,
+    100% {
+      transform: translate(0px, 0px) rotate(-2deg);
+    }
+    50% {
+      transform: translate(6vw, 13vh) rotate(3deg);
+    }
+  }
+
+  @keyframes floatXY2 {
+    0%,
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+    50% {
+      transform: translate(13vw, -10vh) rotate(-2.5deg);
+    }
+  }
+
+  @keyframes floatXY3 {
+    0%,
+    100% {
+      transform: translate(0px, 0px) rotate(0deg);
+    }
+    50% {
+      transform: translate(-9vw, 8vh) rotate(2deg);
+    }
+  }
+
+  /* версии для xl — дистанции уменьшены на 1.5x */
+
+  @keyframes floatXY1-xl {
+    0%,
+    100% {
+      transform: translate(0px, 0px) rotate(-2deg);
+    }
+    50% {
+      transform: translate(4vw, 8.6vh) rotate(3deg);
+    }
+  }
+
+  @keyframes floatXY2-xl {
+    0%,
+    100% {
+      transform: translate(0%, 0%) rotate(0deg);
+    }
+    50% {
+      transform: translate(8.6vw, -6.6vh) rotate(-2.5deg);
+    }
+  }
+
+  @keyframes floatXY3-xl {
+    0%,
+    100% {
+      transform: translate(0px, 0px) rotate(0deg);
+    }
+    50% {
+      transform: translate(-6vw, 5.3vh) rotate(2deg);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .animate-floatXY1 {
+      animation: floatXY1-xl 10s ease-in-out infinite;
+    }
+
+    .animate-floatXY2 {
+      animation: floatXY2-xl 12s ease-in-out infinite;
+    }
+
+    .animate-floatXY3 {
+      animation: floatXY3-xl 8s ease-in-out infinite;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .animate-floatXY1 {
+      animation: floatXY1 10s ease-in-out infinite;
+    }
+
+    .animate-floatXY2 {
+      animation: floatXY2 12s ease-in-out infinite;
+    }
+
+    .animate-floatXY3 {
+      animation: floatXY3 8s ease-in-out infinite;
+    }
   }
 }
 

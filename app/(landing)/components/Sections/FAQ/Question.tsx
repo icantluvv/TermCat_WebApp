@@ -11,7 +11,7 @@ const Question = ({ title, text }: QuestionProps) => {
         isOpen ? "gap-[12px] delay-0 " : "gap-[0px] delay-200"
       } relative rounded-[24px] bg-[#f4f4f4] hover:bg-[#eaeaea] border-[#dde1e6] border p-[24px] transition-all duration-300`}
     >
-      <h5 className="text-[1.125rem] lg:text-[1.5rem] font-semibold font-cygre w-[90%] text-start text-PrimaryBlack">
+      <h5 className="text-[18px] lg:text-[24px] font-semibold font-cygre w-[90%] text-start text-PrimaryBlack">
         {title}
       </h5>
 
@@ -19,7 +19,7 @@ const Question = ({ title, text }: QuestionProps) => {
         className="overflow-hidden transition-all duration-500 ease-in-out text-start w-[95%] xl:w-[90%]"
         style={{ maxHeight: isOpen ? "500px" : "0px", opacity: isOpen ? 1 : 0 }}
       >
-        <p className="text-[1rem] lg:text-[1.125rem] text-PrimaryBlack/60">
+        <p className="text-[16px] lg:text-[18px] text-PrimaryBlack/60">
           {text}
         </p>
       </div>

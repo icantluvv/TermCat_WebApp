@@ -10,17 +10,13 @@ const MobileLandingNav = ({ navLinks }: LandingLinksProps) => {
 
   return (
     <div
-      className={`fixed left-0 top-0 w-[80%] h-[100svh] bg-PrimaryBlack flex px-[5%] z-[9000] transition-transform duration-300 ease-in-out ${
+      className={`fixed left-0 top-0 w-[80%] h-[100svh] bg-PrimaryBlack flex px-[5%] z-[9000] transition-transform duration-300 ease-in-out lg:hidden ${
         isNavOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
       <nav className="text-white flex flex-col gap-[24px] mt-[20vh] text-[18px]">
         {navLinks.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className="transition-colors duration-200 hover:text-PrimaryGreen"
-          >
+          <Link key={href} href={href} className="hover:text-PrimaryGreen">
             {label}
           </Link>
         ))}

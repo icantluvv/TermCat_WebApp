@@ -7,16 +7,20 @@ const cardData: CardItem[] = [
   {
     id: 1,
     middleText: "Ежедневно",
-    bigText: "2.5K+",
+    bigText: "25+",
     smallText: "Прирост новых пользователей",
     extraContent: (
-      <Image src={people} className="w-[85px]" alt={"people"}></Image>
+      <Image
+        src={people}
+        className="w-[85px] xl:w-[120px]"
+        alt={"people"}
+      ></Image>
     )
   },
   {
     id: 2,
     middleText: "TermCAT знает",
-    bigText: "10K+",
+    bigText: "50K+",
     smallText: "Терминов из разных областей"
   },
   {
@@ -35,24 +39,28 @@ const cardData: CardItem[] = [
 
 const Stats = () => {
   return (
-    <section className=" w-full flex flex-col items-center gap-[24px] md:gap-[40px] lg:gap-[80px] ">
-      <div className="w-full flex flex-col md:flex-row items-start gap-[24px] px-[4vw] xl:px-0 xl:justify-between">
-        <h3 className="text-LightGray text-[26px] lg:text-[42px] font-medium">
-          Интеллектуальная <br className="hidden xl:flex" />
-          терминологическая <br className="hidden xl:flex" />
+    <section className=" w-full flex flex-col items-center gap-[24px] md:gap-[40px] xl:gap-[80px] ">
+      <div className="w-full flex flex-col md:flex-row md:w-full items-start gap-[24px] px-[4vw] xl:px-0 md:justify-between">
+        <h3 className="text-LightGray text-[26px] lg:text-[42px] font-medium leading-tight">
+          Интеллектуальная <br className="hidden md:flex" />
+          терминологическая <br className="hidden md:flex" />
           база данных
         </h3>
-        <div className="flex lg:flex-2 flex-col gap-[12px] lg:gap-[40px] xl:w-1/2">
-          <p className="text-[16px] lg:text-[18px] text-Gray02">
-            Инструмент автоматически распознает и выделяет ключевые{" "}
-            <br className="hidden 2xl:flex" /> термины в тексте, предлагая
-            наиболее подходящие переводы <br className="hidden 2xl:flex" />{" "}
-            на основе контекста и ранее проверенных переводов
+        <div className="flex lg:flex-2 flex-col gap-[12px] lg:gap-[40px] md:w-1/2 mt-3">
+          <p className="text-[18px] hidden xl:flex text-Gray02">
+            Инструмент автоматически распознает и выделяет ключевые <br />
+            термины в тексте, предлагая наиболее подходящие переводы <br />{" "}
+            на основе контекста и ранее проверенных переводов
+          </p>
+          <p className="flex xl:hidden text-[16px] lg:text-[18px] text-Gray02">
+            Инструмент автоматически распознает <br /> ключевые термины в
+            тексте, предлагая <br />
+            переводы на основе контекста
           </p>
           <div className="">
             <button
               className="flex items-center rounded-[48px] text-[14px] lg:text-[16px] text-LightGray border-[1.5px]
-             border-PrimaryGreen p-[7px] pl-[16px] lg:pl-[28px] lg:py-[12px] gap-[12px]"
+             border-PrimaryGreen p-[7px] pl-[16px] xl:pl-[28px] xl:py-[12px] gap-[12px] hover:text-PrimaryGreen"
             >
               Узнать больше
               <div className="w-[24px] h-[24px] lg:w-[36px] lg:h-[36px] bg-PrimaryGreen rounded-full flex items-center justify-center">
@@ -67,7 +75,10 @@ const Stats = () => {
         </div>
       </div>
 
-      <div className="w-full flex overflow-x-auto lg:overflow-hidden gap-[24px] md:gap-[18px] lg:gap-0 lg:justify-between px-[4vw] no-scrollbar">
+      <div
+        className="w-full flex overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-[24px] md:gap-[18px] lg:gap-0 
+      lg:justify-between px-[4vw] xl:px-0 no-scrollbar"
+      >
         {cardData.map((item) => (
           <StatCard key={item.id} item={item} />
         ))}
