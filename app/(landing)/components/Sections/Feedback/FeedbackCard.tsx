@@ -1,12 +1,7 @@
 import Image, { StaticImageData } from "next/image"
 import feedback_back_mobile from "@/public/images/feedback/feedback_back_mobile.svg"
 
-interface FeedbackCardProps {
-  name: string
-  status: string
-  text: string
-  image: StaticImageData | string
-}
+
 
 const FeedbackCard = ({ name, status, text, image }: FeedbackCardProps) => {
   return (

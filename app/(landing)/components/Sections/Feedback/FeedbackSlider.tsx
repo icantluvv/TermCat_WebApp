@@ -1,3 +1,8 @@
+"use client"
+
+import Image from "next/image"
+import { useFeedbackStore } from "@/store/LandingFeedbackPeopleStore"
+
 import human1 from "@/public/images/landing/feedback/human1.png"
 import human2 from "@/public/images/landing/feedback/human2.png"
 import human3 from "@/public/images/landing/feedback/human3.png"
@@ -5,8 +10,8 @@ import human4 from "@/public/images/landing/feedback/human4.png"
 import human5 from "@/public/images/landing/feedback/human5.png"
 import human6 from "@/public/images/landing/feedback/human6.png"
 import human7 from "@/public/images/landing/feedback/human7.png"
-import FeedbackCard from "./FeedbackCard"
-import FeedbackSlider from "./FeedbackSlider"
+
+import arrow from "@/public/images/landing/arrow.svg"
 
 const feedbacks = [
   {
@@ -30,7 +35,7 @@ const feedbacks = [
   {
     name: "Виктория Лазаренко",
     status: "Лингвист-переводчик, фрилансер",
-    text: "Я очень довольна, что оформила подписку на TermCAT, так как он учитывает контекст и предлагает наиболее точный и подходящий перевод, что позволяет мне избежать ошибок и не тратить время на поиск терминов в глоссариях. Так как мне проходится работать с текстами разных областей, TermCAT незаменимый инструмент для меня.",
+    text: "Я очень довольна, что оформила подписку на TermCAT, так как он учитывает контекст и предлагает наиболее точный и подходящий перевод, что позволяет мне избежать ошибок и не тратить время на поиск терминов в глоссариях. Так как мне приходится работать с текстами разных областей, TermCAT незаменимый инструмент для меня.",
     image: human4
   },
   {
@@ -53,30 +58,97 @@ const feedbacks = [
   }
 ]
 
-const Feedback = () => {
-  return (
-    <section className="flex flex-col items-center w-full gap-[40px]">
-      <h3 className="text-[26px] lg:text-[42px] text-LightGray w-[70vw] xl:w-auto text-center font-medium">
-        Отзывы наших пользователей
-      </h3>
+const FeedbackSlider = () => {
+  const { activeIndex, next, prev, setActiveIndex } = useFeedbackStore()
 
-      <div className="w-[100vw] px-[4vw] xl:px-0 overflow-x-auto no-scrollbar xl:hidden">
-        <div className="flex gap-4 w-max">
-          {feedbacks.map((item, index) => (
-            <FeedbackCard
-              key={index}
-              name={item.name}
-              status={item.status}
-              text={item.text}
-              image={item.image}
-            />
-          ))}
+  const getShiftedArray = () => {
+    const len = feedbacks.length
+    const centerIndex = Math.floor(len / 2)
+    const result = []
+    for (let i = -centerIndex; i <= centerIndex; i++) {
+      const index = (activeIndex + i + len) % len
+      result.push({ ...feedbacks[index], realIndex: index })
+    }
+    return result
+  }
+
+  const visibleFeedbacks = getShiftedArray()
+  const activeFeedback = feedbacks[activeIndex]
+
+  return (
+    <div className="w-full flex-col relative items-center gap-[40px] hidden xl:flex">
+      {/* Текст активного отзыва */}
+      <div className="text-center max-w-[850px] flex flex-col gap-[40px]">
+        <p className="text-LightGray text-[18px] h-[100px]">
+          {activeFeedback.text}
+        </p>
+        <div className="flex flex-col gap-[6px]">
+          <h4 className="font-semibold text-LightGray text-[24px]">
+            {activeFeedback.name}
+          </h4>
+          <p className="text-[18px] text-Gray02">{activeFeedback.status}</p>
         </div>
       </div>
 
-      <FeedbackSlider />
-    </section>
+      {/* Аватарки */}
+      <div className="flex items-start h-[270px] overflow-hidden">
+        {visibleFeedbacks.map((item, idx) => {
+          const isActive = item.realIndex === activeIndex
+
+          // позиция относительно центра (0 — центр)
+          const distanceFromCenter = Math.abs(
+            idx - Math.floor(visibleFeedbacks.length / 2)
+          )
+
+          // масштаб
+          const scale = isActive ? 1 : 1.75 - distanceFromCenter * 0.26
+
+          // смещение сверху (чем дальше от центра — тем больше)
+          const marginTop = isActive ? 0 : 70 + distanceFromCenter * 40
+
+          return (
+            <div
+              key={idx}
+              onClick={() => setActiveIndex(item.realIndex)}
+              className={`overflow-hidden ${
+                isActive ? "w-[314px] h-[314px]" : "w-[150px] h-[150px]"
+              } rounded-full cursor-pointer transition-all duration-300 ${
+                isActive ? "bg-PrimaryGreen z-[1000]" : "bg-LightGray"
+              }`}
+              style={{
+                transform: `scale(${scale})`,
+                marginTop: `${marginTop}px`
+              }}
+            >
+              <Image
+                src={item.image}
+                alt={item.name}
+                className="object-cover w-full h-full"
+                width={isActive ? 314 : 150}
+                height={isActive ? 314 : 150}
+              />
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Кнопки */}
+      <div className="flex w-full absolute justify-between">
+        <button
+          onClick={() => prev(feedbacks.length)}
+          className="w-[48px] h-[48px] bg-LightGray hover:bg-PrimaryGreen active:bg-PrimaryGreenActive rounded-full flex items-center justify-center rotate-[224deg]"
+        >
+          <Image src={arrow} alt="" />
+        </button>
+        <button
+          onClick={() => next(feedbacks.length)}
+          className="w-[48px] h-[48px] bg-LightGray hover:bg-PrimaryGreen active:bg-PrimaryGreenActive rounded-full flex items-center justify-center rotate-[44deg]"
+        >
+          <Image src={arrow} alt="" />
+        </button>
+      </div>
+    </div>
   )
 }
 
-export default Feedback
+export default FeedbackSlider

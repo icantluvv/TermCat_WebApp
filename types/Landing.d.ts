@@ -43,3 +43,10 @@ interface TariffCardProps {
 }
 
 type CardProps = { href: string }
+
+interface FeedbackCardProps {
+  name: string
+  status: string
+  text: string
+  image: StaticImageData | string
+}
