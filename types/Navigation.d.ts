@@ -6,5 +6,13 @@ interface NavigationItem {
 
 interface NavigationProps {
   links: NavigationItem[]
-  
+}
+
+interface LandingLinksProps {
+  navLinks: headerLink[]
+}
+
+interface headerLink {
+  href: string
+  label: string
 }

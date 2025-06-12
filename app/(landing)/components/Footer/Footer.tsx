@@ -1,80 +1,57 @@
 import React from "react"
 import Image from "next/image"
-import Text from "@/ui/Text"
-import footerlogo from "@/public/images/landing/footer_logo.svg"
-import Button from "@/ui/Button"
-import BlockURL from "./BlockURL"
-
-import mail from "@/public/images/landing/mail.svg"
+import footerlogo from "@/public/images/landing/footer/footer_logo.svg"
+import email from "@/public/images/landing/footer/email.svg"
 import Link from "next/link"
+
 const Footer = () => {
   return (
-    <footer className="hidden xl:flex flex-col justify-center mt-[5vh] gap-x-6 gap-y-[5vh] mb-[5vh] w-full">
-      <div className="w-full flex justify-between">
+    <footer className="flex flex-col justify-center gap-x-6 gap-y-[20px] xl:gap-y-[40px]  w-full z-[9000] px-[4vw] xl:px-0">
+      <div className="flex justify-between flex-col md:flex-row gap-y-[20px] xl:gap-y-[40px] lg:items-center items-start">
         <Link href={"/"}>
-          <Image src={footerlogo} alt={""}></Image>
+          <Image
+            src={footerlogo}
+            alt={"footerlogo"}
+            className="w-[130px] md:w-[150px] xl:w-[193px] "
+          ></Image>
         </Link>
-        <div className="w-1/2 flex gap-x-6 justify-end relative">
-          <div className="relative flex items-center">
+
+        <div className="w-full h-[1px] bg-Gray02 md:hidden"></div>
+
+        <div className="flex gap-[12px] items-center">
+          <div className="relative flex flex-1 items-center">
             <Image
-              src={mail}
+              className="absolute left-[14px] lg:left-[28px] w-[20px] lg:w-[24px]"
+              src={email}
               alt={""}
-              width={24}
-              height={24}
-              className="absolute ml-3"
             ></Image>
             <input
               type="text"
-              className="pl-11 w-1/4 min-w-[300px] bg-white py-[12px] px-[16px] rounded-[32px]"
-              placeholder="Задайте нам вопросы, если они остались..."
+              name="ask_questions"
+              id="ask_quetions"
+              placeholder="Задайте нам вопросы, если они остались"
+              className="placeholder:text-[0.875rem] lg:placeholder:text-[1rem] 
+              pl-[45px] pr-[10px] py-[8px] lg:px-[60px] lg:py-[16px] rounded-[32px] xl:min-w-[430px] 
+              bg-LightGray xl:flex-[0] flex-1 focus:outline-none"
             />
           </div>
-
-          <Button type={"primary"} text={"Отправить"}></Button>
+          <button className="bg-PrimaryGreen min-h-[40px] py-[8px] px-[16px] lg:py-[16px] lg:px-[28px] rounded-[32px] text-[0.875rem] lg:text-[1rem] text-PrimaryBlack">
+            Отправить
+          </button>
         </div>
       </div>
-      <div className="h-[0.5px] w-full bg-white"></div>
 
-      <div className="flex">
-        <BlockURL
-          text1={"first"}
-          text2={"first2"}
-          text3={"first3"}
-          text4={"first4"}
-        ></BlockURL>
-        <BlockURL
-          text1={"first"}
-          text2={"first2"}
-          text3={"first3"}
-          text4={"first4"}
-        ></BlockURL>
-        <BlockURL
-          text1={"first"}
-          text2={"first2"}
-          text3={"first3"}
-          text4={"first4"}
-        ></BlockURL>
-        <BlockURL
-          text1={"first"}
-          text2={"first2"}
-          text3={"first3"}
-          text4={"first4"}
-        ></BlockURL>
-      </div>
-
-      <div className="h-[0.5px] w-full bg-white"></div>
-
-      <div className="flex justify-between">
-        <Text
-          text={"TermCAT @ 2024. All rights reserved."}
-          tag={"p-footer"}
-        ></Text>
-
-        <div className="flex gap-x-4">
-          <Text text={"Button"} tag={"p-footer"}></Text>
-          <Text text={"Button"} tag={"p-footer"}></Text>
-          <Text text={"Button"} tag={"p-footer"}></Text>
-        </div>
+      <div className="w-full h-[1px] bg-Gray02"></div>
+      <div className="flex w-full justify-between flex-col-reverse gap-y-[40px] md:flex-row">
+        <p className="text-WhiteDefault text-[0.875rem]">
+          TermCAT @ 2024. All rights reserved.
+        </p>
+        <Link
+          href={"/documents"}
+          className="text-LightGray hover:text-PrimaryGreen transition-colors text-[1rem] md:text-[0.875rem]"
+        >
+          Документы
+        </Link>
       </div>
     </footer>
   )

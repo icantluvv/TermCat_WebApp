@@ -1,14 +1,8 @@
 import axios from "axios"
 import { NextResponse } from "next/server"
 
-interface LoginBody {
-  email: string
-  password: string
-}
-
 export async function POST(req: Request) {
   const body: LoginBody = await req.json()
-
   try {
     const res = await axios.post(
       `${process.env.BACKEND_URL}/auth/login`,
@@ -53,4 +47,8 @@ export async function POST(req: Request) {
       { status: error.response?.status || 401 }
     )
   }
+}
+interface LoginBody {
+  email: string
+  password: string
 }

@@ -1,45 +1,53 @@
-import React from "react"
+"use client"
+
 import Image from "next/image"
-import logo from "@/public/images/landing/logo.svg"
-import burger from "@/public/images/landing/burger.svg"
+import landing_header_logo from "@/public/images/landing/logo.svg"
+import { useLandingMobileHeaderStore } from "@/store/LandingMobileHeaderStore"
+import MobileLandingNav from "./MobileLandingNav"
+import { useEffect } from "react"
 
-const MobileLandingHeader = () => {
+const MobileLandingHeader = ({ navLinks }: LandingLinksProps) => {
+  const { toggleNav, isNavOpen } = useLandingMobileHeaderStore()
+
+  useEffect(() => {
+    if (isNavOpen) {
+      document.body.classList.add("overflow-hidden")
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [isNavOpen])
+
   return (
-    <header className="w-full h-[10vh] justify-center flex items-centers lg:hidden">
-      <Image src={logo} width={104} alt={""}></Image>
+    <>
+      <div className="flex xl:hidden w-full h-[60px] justify-center relative items-center z-[5000]">
+        <Image
+          src={landing_header_logo}
+          alt="landing header logo"
+          className="w-[104px]"
+        />
 
-      <button className="fixed w-[36px] right-[5%] top-[10%]">
-        <Image src={burger} alt={""}></Image>
-      </button>
+        <button
+          onClick={toggleNav}
+          className="flex flex-col gap-[6px] absolute h-full justify-center px-[5vw] right-0"
+        >
+          <div
+            className={`w-[11px] h-[1px] bg-Gray02 transition-transform ${
+              isNavOpen ? "rotate-45" : "rotate-0"
+            } `}
+          ></div>
+          <div
+            className={`w-[11px] h-[1px]  transition-all ${
+              isNavOpen ? "rotate-[-45deg] bg-Gray02" : "rotate-0 bg-LightGray"
+            } `}
+          ></div>
+        </button>
+      </div>
 
-      {/* <div className="w-full flex items-center justify-between">
-        <nav className="text-white flex gap-[1.5vw] text-[16px] ">
-          <Link
-            href={"#prices"}
-            className="hover:text-primaryGreen active:text-primaryGreenActive transition-all"
-          >
-            Цены
-          </Link>
-          <Link
-            href={"#services"}
-            className="hover:text-primaryGreen active:text-primaryGreenActive transition-all"
-          >
-            Услуги
-          </Link>
-          <Link
-            href={"#help"}
-            className="hover:text-primaryGreen active:text-primaryGreenActive transition-all"
-          >
-            Поддержка
-          </Link>
-        </nav>
-
-        <div className="flex gap-[1vw]">
-          <Button type={"secondary"} text={"Зарегистрироваться"}></Button>
-          <Button type={"primary-action"} text={"Войти"}></Button>
-        </div>
-      </div> */}
-    </header>
+      <MobileLandingNav navLinks={navLinks} />
+    </>
   )
 }
 

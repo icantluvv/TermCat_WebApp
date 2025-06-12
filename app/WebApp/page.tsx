@@ -42,23 +42,6 @@ const CardsLayout = () => {
       <TabsCardsLayout />
       <ComputerCardsLayout />
     </>
-
-    // <div className="flex flex-col xl:flex-row w-full gap-y-[24px] xl:gap-[40px]">
-    //   <div className="w-full xl:w-[calc(66.666%-20px)] flex flex-wrap gap-x-[12px] gap-y-[24px] xl:gap-[40px]">
-    //     <ChatCard href={webAppLinks.chat} />
-    //     <BuyCard href={webAppLinks.profile} />
-    //     <CommentCard />
-    //     <SubScriptionCard href={webAppLinks.profile} />
-    //     <IntroduceCard href={webAppLinks.introduce} />
-    //     <PlanCard href={webAppLinks.profile} />
-    //     <HistoryCard href={webAppLinks.history} />
-    //   </div>
-
-    //   <div className="flex-1 hidden xl:flex flex-col gap-y-[24px] xl:gap-[40px]">
-    //     <HistoryCard href={webAppLinks.history} />
-    //     <PlanCard href={webAppLinks.profile} />
-    //   </div>
-    // </div>
   )
 }
 

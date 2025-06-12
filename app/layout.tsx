@@ -1,7 +1,5 @@
-// app/layout.tsx
 import { Poppins } from "next/font/google"
 import "../globals.css"
-// import { AuthProvider } from "@/lib/context/ContextProvider"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -11,12 +9,12 @@ const poppins = Poppins({
 
 export default function RootLayout({
   children
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="ru" className={poppins.variable}>
-      <body>{children}</body>
+      <body className="">{children}</body>
     </html>
   )
 }

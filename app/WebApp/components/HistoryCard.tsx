@@ -5,6 +5,7 @@ import background from "@/public/images/homepage/history_back.svg"
 import arrow from "@/public/images/homepage/Arrow.png"
 import folder from "@/public/images/homepage/clock.svg"
 import elemetn_plus from "@/public/images/homepage/elements-plus.svg"
+import mobile_back from "@/public/images/homepage/history_mobile_back.svg"
 
 const HistoryCard = ({ href }: CardProps) => {
   return (
@@ -81,7 +82,13 @@ const HistoryMobile = ({ href }: CardProps) => {
           </div>
         </div>
 
-        <div className="w-full relative flex bg-black rounded-[25px] z-[5000]">
+        <div className="w-full relative flex rounded-[25px] ">
+          <Image
+            src={mobile_back}
+            alt={"mobile_back_history_card"}
+            className="absolute"
+          ></Image>
+
           <div className="flex z-[1000] p-5 flex-col gap-[2vh]">
             <Image
               src={folder}

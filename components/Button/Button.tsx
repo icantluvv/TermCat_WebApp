@@ -14,6 +14,9 @@ const Button: React.FC<ButtonProps> = ({
   let variantClasses = ""
 
   switch (variant) {
+    case "full-green":
+      variantClasses = "px-[28px] py-[16px] bg-PrimaryGreen rounded-[32px]"
+
     case "submit":
       variantClasses =
         "text-black bg-[#C2F041] active:bg-black/10 h-[48px] w-full"
@@ -50,11 +53,10 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   )
 }
-
 export default Button
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "submit" | "main" | "upgrade" | "text"
+  variant?: "submit" | "main" | "upgrade" | "text" | "full-green"
   text: string
   href?: string
 }

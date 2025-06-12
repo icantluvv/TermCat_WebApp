@@ -9,10 +9,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        WhiteDefault: "#F5F5F5",
         PageBG: "#F5F5F5",
         PrimaryBlack: "#050505",
         PrimaryGreen: "#c2f041",
-        Gray02: "#a1a1a1",
+        Gray02: "#A1A1A1",
         GrayDark: "#1F1F1F",
         Purpl: "#D3A2FB",
         LightGray: "#E8E8E8",
