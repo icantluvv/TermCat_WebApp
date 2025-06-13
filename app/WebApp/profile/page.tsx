@@ -18,25 +18,37 @@ async function Profile() {
     }
   })
 
-  const User: User = await res.json()
+  const user: User = await res.json()
 
   return (
-    <>
+    <div className="flex flex-col gap-[24px]">
       <HeaderLayout
         title="Личный профиль"
         text="Здесь хранятся все ваши данные"
       />
       <main className="w-full flex gap-4 lg:gap-6 flex-col md:flex-row flex-wrap lg:pb-0">
-        <section className="flex lg:flex-col gap-4 lg:gap-6 md:w-1/2 lg:min-w-[700px]">
-          <ProfileInfo User={User} />
-          <SubscriptionStatus />
-        </section>
-        <section className="xl:w-1/3 md:flex-1 flex flex-col gap-4 lg:gap-6 lg:flex-row flex-wrap ">
-          <LinkedServices />
-          <SubscriptionStatusMobile />
-        </section>
+        <ProfileForm user={user} />
+        <ProfileServices />
       </main>
-    </>
+    </div>
   )
 }
 export default Profile
+
+const ProfileForm = ({ user }: UserProps) => {
+  return (
+    <section className="flex lg:flex-col gap-[12px] lg:gap-6 md:w-1/2 lg:min-w-[700px]">
+      <ProfileInfo user={user} />
+      <SubscriptionStatus />
+    </section>
+  )
+}
+
+const ProfileServices = () => {
+  return (
+    <section className="xl:w-1/3 md:flex-1 flex flex-col gap-4 lg:gap-6 lg:flex-row flex-wrap ">
+      <LinkedServices />
+      <SubscriptionStatusMobile />
+    </section>
+  )
+}

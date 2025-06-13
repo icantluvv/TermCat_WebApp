@@ -6,5 +6,5 @@ interface User {
 }
 
 interface UserProps {
-  User: User
+  user: User
 }

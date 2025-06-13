@@ -5,7 +5,7 @@ import back from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import InputField from "@/components/input/InputField"
 import Button from "@/components/Button/Button"
 
-const ProfileInfo = ({ User }: UserProps) => (
+const ProfileInfo = ({ user }: UserProps) => (
   <>
     <div className="bg-[#E8E8E8] flex rounded-[24px] w-full relative ">
       {/* info block */}
@@ -17,11 +17,11 @@ const ProfileInfo = ({ User }: UserProps) => (
 
         {/* input places*/}
         <div className="flex w-full flex-col gap-y-[24px]">
-          <InputField label="Имя" type="text" placeholder={`${User.name}`} />
+          <InputField label="Имя" type="text" placeholder={`${user.name}`} />
           <InputField
             label="E-mail"
             type="email"
-            placeholder={`${User.email}`}
+            placeholder={`${user.email}`}
           />
           <InputField label="Старый пароль" type="password" placeholder="" />
           <InputField label="Новый пароль" type="password" placeholder="" />
