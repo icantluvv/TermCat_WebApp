@@ -5,14 +5,16 @@ import SignUpForm from "./components/SignUpForm"
 
 const SignUp = () => {
   return (
-    <main className="w-full min-h-[100vh] flex flex-col items-center  relative bg-[#e8e8e8] overflow-auto">
-      <SignUpForm />
-      <Image
-        src={back}
-        alt=""
-        className="w-full h-full top-0 left-0 absolute opacity-30"
-      />
-    </main>
+    <>
+      <main className="w-full flex flex-1 items-center justify-center relative bg-[#e8e8e8] py-[8vh] 2xl:py-[4vh]">
+        <SignUpForm />
+        <Image
+          src={back}
+          alt=""
+          className="w-full h-full top-0 left-0 absolute opacity-30"
+        />
+      </main>
+    </>
   )
 }
 export default SignUp

@@ -26,7 +26,7 @@ const LogInForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col w-[85vw] md:w-[55vw] lg:w-auto lg:max-w-[518px] py-[3vh] px-[3vw] 
+      className="flex flex-col w-[85vw] md:w-[55vw] lg:w-[518px] py-[3vh] px-[3vw] xl:px-[2vw]
       bg-white rounded-[24px] gap-[12px] md:gap-[18px] lg:gap-[24px] z-[1000] text-PrimaryBlack"
     >
       <div className="flex flex-col items-center w-full text-center mt-[3vh] gap-[12px] md:gap-[18px] lg:gap-[40px]">
@@ -43,7 +43,7 @@ const LogInForm = () => {
         <SignInYandexButton />
       </div>
 
-      <div className="flex flex-col gap-[12px] md:gap-[18px] lg:gap-[24px] px-[2vw] xl:px-[1vw]">
+      <div className="flex flex-col gap-[12px] md:gap-[18px] lg:gap-[24px] px-[2vw] xl:px-[0vw]">
         <div className="flex flex-col w-full gap-[6px]">
           <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">
             E-mail
@@ -81,23 +81,11 @@ const LogInForm = () => {
           </div>
         </div>
 
-        {/* <label className="flex items-center gap-[6px] w-full">
-        <input
-          type="checkbox"
-          className="w-[18px] h-[18px] border-[#a1a1a1] accent-[#C2F041] cursor-pointer"
-        />
-        <span className="text-Gray02 text-[12px]">Запомнить меня</span>
-      </label> */}
-
         <div className="w-full mt-[1vh]">
           <Button variant="submit" text="Войти" />
         </div>
 
         <div className="flex flex-col items-center">
-          {/* <div className="flex gap-x-1">
-          <p className="text-Gray02 text-[12px]">Забыли пароль?</p>
-          <Button variant="text" text="Обновите пароль"></Button>
-        </div> */}
           <div className="flex flex-col gap-[3px] items-center">
             <p className="text-Gray02 text-[12px] md:text-[14px]">
               У вас нет аккаунта?
