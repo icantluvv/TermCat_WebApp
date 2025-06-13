@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
 
     case "submit":
       variantClasses =
-        "text-black bg-[#C2F041] active:bg-black/10 h-[48px] w-full"
+        "text-black bg-[#C2F041] active:bg-black/10 py-[12px] text-[14px] md:text-[16px] w-full"
       break
     case "main":
       variantClasses =

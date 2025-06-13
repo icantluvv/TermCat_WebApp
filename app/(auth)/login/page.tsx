@@ -5,7 +5,7 @@ import LogInForm from "./components/LogInForm"
 
 const Login = () => {
   return (
-    <main className="w-full min-h-[100vh] flex flex-col items-center justify-center relative bg-[#e8e8e8] pt-[50px] xl:pt-[70px] 2xl:pt-[80px] overflow-auto">
+    <main className="w-full min-h-[100svh] flex items-center justify-center relative bg-[#e8e8e8] lg:py-[10vh] xl:py-0">
       <LogInForm />
       <Image
         src={back}
