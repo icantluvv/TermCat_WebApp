@@ -10,26 +10,26 @@ const Button: React.FC<ButtonProps> = ({
   const router = useRouter()
 
   const baseClasses =
-    "transition-colors rounded-[24px] flex items-center justify-center select-none"
+    "rounded-full flex items-center justify-center select-none font-medium"
   let variantClasses = ""
 
   switch (variant) {
     case "full-green":
-      variantClasses = "px-[28px] py-[16px] bg-PrimaryGreen rounded-[32px]"
+      variantClasses = "px-[28px] py-[16px] bg-PrimaryGreen"
 
     case "submit":
       variantClasses =
-        "text-black bg-[#C2F041] active:bg-black/10 py-[12px] text-[14px] md:text-[16px] w-full"
+        "text-PrimaryBlack bg-PrimaryGreen active:bg-PrimaryGreenActive py-[12px] text-[14px] md:text-[16px] w-full"
       break
     case "main":
       variantClasses =
-        "bg-[#C2F041] hover:bg-[#B9E53E] active:bg-[#B0D93C] px-[28px] py-[16px] font-cygre font-medium"
+        "bg-PrimaryGreen hover:bg-PrimaryGreenActive active:bg-PrimaryGreenActive px-[28px] py-[16px]"
       break
     case "upgrade":
       variantClasses = "px-[28px] py-4 bg-[#E8E8E8] h-[48px] gap-[20px]"
       break
     case "text":
-      variantClasses = "text-[#0c0c0c] font-semibold bg-transparent"
+      variantClasses = "text-[#0c0c0c] bg-transparent"
       break
     default:
       variantClasses = ""
