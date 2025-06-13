@@ -11,7 +11,8 @@ const HistoryCard = ({ href }: CardProps) => {
   return (
     <>
       <Link
-        className=" rounded-[24px] flex-1 hidden xl:flex w-full bg-[#a1a1a1]/60 text-white px-8 py-10 hover:opacity-85 transition-all relative overflow-hidden"
+        className=" rounded-[24px] flex-1 hidden xl:flex w-full bg-[#a1a1a1]/60 text-white px-8 py-10 active:opacity-90 
+        select-none  relative overflow-hidden"
         href={href}
       >
         <div className="flex flex-col w-full h-full gap-6 items-center justify-between ">
@@ -69,7 +70,7 @@ const HistoryMobile = ({ href }: CardProps) => {
   return (
     <Link
       className="order-[2] md:order-[3] rounded-[24px] w-full bg-[#a1a1a1]/60 text-white p-[24px] 
-      hover:opacity-85 transition-all relative overflow-hidden xl:hidden"
+      active:opacity-90 relative overflow-hidden xl:hidden"
       href={href}
     >
       <div className="flex flex-col w-full h-full gap-6 items-center justify-between ">

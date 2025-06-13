@@ -8,7 +8,7 @@ const PlanCard = ({ href }: CardProps) => {
   return (
     <>
       <Link
-        className="order-[3] rounded-[24px] w-full md:min-h-[132px] lg:min-h-[194px] relative overflow-hidden flex"
+        className="order-[3] rounded-[24px] w-full md:min-h-[132px] lg:min-h-[194px] active:opacity-90 relative overflow-hidden select-none flex"
         href={href}
       >
         <p

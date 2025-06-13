@@ -8,7 +8,7 @@ import Link from "next/link"
 const SubScriptionCard = ({ href }: CardProps) => {
   return (
     <Link
-      className="order-[2] md:order-[3] lg:order-4 w-full md:w-full xl:w-[calc(50%-20px)] p-[24px] pb-[48px] xl:min-h-[194px]
+      className="order-[2] md:order-[3] lg:order-4 w-full md:w-full xl:w-[calc(50%-20px)] p-[24px] pb-[48px] xl:min-h-[194px] select-none 
        rounded-[24px] flex bg-PrimaryBlack active:opacity-85 transition-all relative overflow-hidden"
       href={href}
     >

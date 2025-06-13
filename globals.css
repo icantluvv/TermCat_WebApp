@@ -59,7 +59,7 @@ h6 {
 @layer components {
   a,
   button {
-    @apply transition-colors duration-300;
+    @apply transition-all duration-200;
   }
 }
 

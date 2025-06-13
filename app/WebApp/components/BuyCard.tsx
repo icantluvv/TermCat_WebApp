@@ -18,7 +18,8 @@ export default BuyCard
 const BigBuyCard = ({ href }: CardProps) => {
   return (
     <Link
-      className="w-[calc(50%-20px)] rounded-[24px] xl:flex bg-[#e8e8e8] hidden text-white active:opacity-85 transition-all relative overflow-hidden"
+      className="w-[calc(50%-20px)] rounded-[24px] xl:flex bg-[#e8e8e8] hidden text-white active:opacity-90 
+      select-none transition-all relative overflow-hidden"
       href={href}
     >
       <div className="w-full p-[24px] xl:py-[48px] z-[1000]">

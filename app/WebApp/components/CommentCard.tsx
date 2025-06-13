@@ -4,7 +4,7 @@ const CommentCard = () => {
   return (
     <button
       className="order-[4]  rounded-[24px] w-full flex bg-black p-[24px] text-white active:opacity-85 transition-all 
-      items-start lg:items-center flex-col lg:flex-row gap-[24px]"
+      items-start lg:items-center flex-col lg:flex-row gap-[24px] select-none "
     >
       <div className="w-full flex flex-col items-start gap-[12px]">
         <p className="hidden xl:flex text-[2rem] font-cygre font-medium">

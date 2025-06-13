@@ -8,7 +8,7 @@ import introduce_back_mobile from "@/public/images/homepage/introduce_back_mobil
 const IntroduceCard = ({ href }: CardProps) => {
   return (
     <Link
-      className="order-1 xl:order-[4] w-[calc(50%-12px)] p-[12px] lg:p-[24px] md:w-[calc(50%-8px)]
+      className="order-1 xl:order-[4] w-[calc(50%-12px)] p-[12px] lg:p-[24px] md:w-[calc(50%-8px)] select-none 
       lg:w-[calc(50%-8px)] xl:w-[calc(50%-20px)] rounded-[24px] flex bg-[#e8e8e8] active:opacity-85 transition-all relative overflow-hidden"
       href={href}
     >

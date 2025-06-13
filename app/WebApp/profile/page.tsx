@@ -5,8 +5,21 @@ import LinkedServices from "./components/LinkedServices"
 import SubscriptionStatusMobile from "./components/SubscriptionStatusMobile"
 import SubscriptionStatus from "./components/SubscriptionStatus"
 import ProfileInfo from "./components/ProfileInfo"
+import { cookies } from "next/headers"
 
 async function Profile() {
+  const cookieStore = await cookies()
+  const accessToken = cookieStore.get("accessToken")?.value
+  const res = await fetch(`${process.env.BACKEND_URL}/users/getMe`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`
+    }
+  })
+
+  const User: User = await res.json()
+
   return (
     <>
       <HeaderLayout
