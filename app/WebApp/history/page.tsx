@@ -1,6 +1,6 @@
 import NotReadyPage from "@/components/NotReadyPage"
 import Image from "next/image"
-import back from "@/public/images/404/background_404.svg"
+import NotReadyBack from "@/public/images/not_ready/NotReadyBack.png"
 
 const History = () => {
   return (
@@ -8,11 +8,11 @@ const History = () => {
       <NotReadyPage></NotReadyPage>
 
       <Image
-        src={back}
-        alt={back}
+        src={NotReadyBack}
+        alt="NotReadyBack"
         fill
         objectFit="cover"
-        className="absolute top-0 left-0"
+        className="absolute top-0 left-0 z-[0]"
       ></Image>
     </>
   )
