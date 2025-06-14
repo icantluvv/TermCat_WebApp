@@ -45,9 +45,9 @@ const SmallBuyCard = ({ href }: CardProps) => {
       href={href}
     >
       <div className="w-full z-[1000] flex-col flex gap-[12px]">
-        <span className="text-[1.375rem] leading-[120%] text-[#1F1F1F] font-cygre font-bold flex gap-x-[12px]">
+        <span className="text-[1.375rem] leading-[120%] text-[#1F1F1F] font-cygre font-bold flex gap-x-[6px]">
           TERMX
-          <Image src={copyIcon} alt="copyIcon" />
+          <Image src={copyIcon} alt="copyIcon" className="w-[32px]" />
         </span>
         <p className="text-[0.625rem] text-[#A1A1A1] font-poppins">
           Промокод для получения <br /> termwords в профиле

@@ -1,24 +1,15 @@
-import Image from "next/image"
-import React from "react"
-import back from "@/public/images/404/background_404.svg"
-
 const NotReadyPage = () => {
   return (
-    <div className="flex flex-col h-screen w-full bg-PageBG relative">
-      <div className="pl-[10vw] flex flex-col gap-6 pt-[15vh]">
-        <h2 className="text-PrimaryBlack font-cygre text-[42px] font-medium">
+    <div className="flex flex-col h-full w-full bg-PageBG relative">
+      <div className="flex flex-col p-[5%] lg:p-[10%] h-full w-full gap-[12px] lg:gap-[24px] z-[1000]">
+        <h2 className="text-PrimaryBlack font-cygre text-[28px] xl:text-[42px] font-medium">
           Страница не доступна
         </h2>
-        <div className="flex flex-col text-Gray02 font-poppins text-[1.125rem]">
-          <p>
-            Эта страница в данный момент недоступна, так как находится в
-            разработке
-          </p>
-          <p>Приносим свои извинения</p>
-        </div>
+        <p className="flex flex-col text-Gray02 text-[14px] xl:text-[16px]">
+          В данный момент ведется разработка данной части веб-приложения TermCAT{" "}
+          <br /> Приносим свои извинения
+        </p>
       </div>
-
-      <Image src={back} alt={back} className="absolute bottom-0"></Image>
     </div>
   )
 }
