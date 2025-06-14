@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
       break
     case "main":
       variantClasses =
-        "bg-PrimaryGreen hover:bg-PrimaryGreenActive active:bg-PrimaryGreenActive text-[14px] lg:text-[16px] px-[28px] py-[16px]"
+        "text-PrimaryBlack bg-PrimaryGreen hover:bg-PrimaryGreenActive active:bg-PrimaryGreenActive text-[14px] lg:text-[16px] px-[28px] py-[16px]"
       break
     case "upgrade":
       variantClasses = "px-[28px] py-4 bg-[#E8E8E8] h-[48px] gap-[20px]"

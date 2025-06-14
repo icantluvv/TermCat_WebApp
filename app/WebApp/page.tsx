@@ -91,8 +91,8 @@ const TabsCardsLayout = () => {
 
 const ComputerCardsLayout = () => {
   return (
-    <div className="flex-col xl:flex-row w-full gap-y-[24px] hidden xl:flex xl:gap-[40px]">
-      <div className="w-full xl:w-[calc(66.666%-20px)] flex flex-wrap gap-x-[12px] gap-y-[24px] xl:gap-[40px]">
+    <div className="flex-col xl:flex-row w-full gap-[24px] hidden xl:flex 2xl:gap-[40px]">
+      <div className="w-full xl:w-[calc(64%-20px)] flex flex-wrap  gap-[24px] 2xl:gap-[40px]">
         <ChatCard href={webAppLinks.chat} />
         <BuyCard href={webAppLinks.profile} />
         <CommentCard />
@@ -100,7 +100,7 @@ const ComputerCardsLayout = () => {
         <SubScriptionCard href={webAppLinks.profile} />
       </div>
 
-      <div className="flex-1 hidden xl:flex flex-col gap-y-[24px] xl:gap-[40px]">
+      <div className="flex-1 hidden xl:flex flex-col gap-[24px] 2xl:gap-[40px]">
         <HistoryCard href={webAppLinks.history} />
         <PlanCard href={webAppLinks.profile} />
       </div>

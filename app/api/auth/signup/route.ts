@@ -1,18 +1,15 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import { NextResponse } from "next/server"
 import { decodeToken } from "@/utils/decodeJWT"
 import { setTokensInCookies } from "@/utils/setTokens"
 
 export async function POST(req: Request) {
-  // Check if environment variables are set
   if (!process.env.JWT_SECRET) {
     throw new Error("environment has not been configured")
   }
 
-  // Create Body of request
   const body = await req.json()
 
-  // make request to backend
   try {
     const res = await axios.post(
       `${process.env.BACKEND_URL}/auth/register`,
@@ -25,7 +22,6 @@ export async function POST(req: Request) {
       }
     )
 
-    //    // get tokens from response
     const { accessToken, refreshToken } = res.data
     if (!accessToken || !refreshToken) {
       return NextResponse.json(
@@ -34,12 +30,12 @@ export async function POST(req: Request) {
       )
     }
 
-    // decode tokens to get expiration time
     const decodedAccess = decodeToken(accessToken, process.env.JWT_SECRET)
     const decodedRefresh = decodeToken(refreshToken, process.env.JWT_SECRET)
 
     const accessMaxAge = decodedAccess.exp * 1000 - Date.now()
     const refreshMaxAge = decodedRefresh.exp * 1000 - Date.now()
+
     if (accessMaxAge <= 0 || refreshMaxAge <= 0) {
       return NextResponse.json(
         { message: "Token already expired" },
@@ -52,7 +48,6 @@ export async function POST(req: Request) {
       { status: 200 }
     )
 
-    // set tokens in cookies
     setTokensInCookies(
       response,
       accessToken,
@@ -62,11 +57,15 @@ export async function POST(req: Request) {
     )
 
     return response
-  } catch (error: any) {
-    console.error("Registration error:", error.response?.data || error.message)
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message: string }>
+    console.error(
+      "Registration error:",
+      axiosError.response?.data || axiosError.message
+    )
     return NextResponse.json(
-      { message: error.response?.data?.message || "Invalid credentials" },
-      { status: error.response?.status || 401 }
+      { message: axiosError.response?.data?.message || "Invalid credentials" },
+      { status: axiosError.response?.status || 401 }
     )
   }
 }

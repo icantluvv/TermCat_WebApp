@@ -51,8 +51,12 @@ h2,
 h3,
 h4,
 h5,
-a,
 h6 {
+  @apply font-cygre;
+  font-weight: 500;
+}
+
+a {
   @apply font-cygre;
 }
 

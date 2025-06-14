@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import { NextResponse } from "next/server"
 import { decodeToken } from "@/utils/decodeJWT"
 import { setTokensInCookies } from "@/utils/setTokens"
@@ -60,11 +60,15 @@ export async function POST(req: Request) {
     )
 
     return response
-  } catch (error: any) {
-    console.error("Login error:", error.response?.data || error.message)
+  } catch (error) {
+    const axiosError = error as AxiosError<{ message: string }>
+    console.error(
+      "Registration error:",
+      axiosError.response?.data || axiosError.message
+    )
     return NextResponse.json(
-      { message: error.response?.data?.message || "Invalid credentials" },
-      { status: error.response?.status || 401 }
+      { message: axiosError.response?.data?.message || "Invalid credentials" },
+      { status: axiosError.response?.status || 401 }
     )
   }
 }

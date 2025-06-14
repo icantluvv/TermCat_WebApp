@@ -1,5 +1,3 @@
-import React from "react"
-
 const TariffLayout = () => {
   const tariffs = [
     { label: "Тариф Индивидуальный", active: true },
@@ -7,14 +5,14 @@ const TariffLayout = () => {
   ]
 
   return (
-    <div className="flex gap-x-3 overflow-x-auto w-full text-sm xl:text-base no-scrollbar font-cygre font-medium">
+    <div className="flex gap-x-[12px] overflow-x-auto w-full no-scrollbar">
       {tariffs.map(({ label, active }, i) => (
         <button
           key={i}
-          className={`text-nowrap rounded-[24px] px-[16px] py-[7px] xl:px-[28px] xl:py-[12px] transition-all text-[0.875rem] xl:text-[1rem] ${
+          className={`text-nowrap rounded-full px-[16px] py-[8px] xl:px-[28px] xl:py-[12px] text-[14px] xl:text-[16px] ${
             active
-              ? "bg-black text-white active:opacity-50"
-              : "bg-black text-white opacity-30"
+              ? "bg-PrimaryBlack text-LightGray active:opacity-90"
+              : "bg-PrimaryBlack text-LightGray opacity-30"
           }`}
         >
           {label}

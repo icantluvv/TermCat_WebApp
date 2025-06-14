@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import feedback_back_mobile from "@/public/images/feedback/feedback_back_mobile.svg"
 
 

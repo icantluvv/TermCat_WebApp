@@ -1,6 +1,3 @@
-import Image from "next/image"
-import background from "@/public/images/landing/background.svg"
-
 import Footer from "./components/Footer/Footer"
 import TermCat from "./components/Sections/TermCat/TermCat"
 import Stats from "./components/Sections/Stats/Stats"
