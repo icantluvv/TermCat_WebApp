@@ -18,14 +18,14 @@ export default BuyCard
 const BigBuyCard = ({ href }: CardProps) => {
   return (
     <Link
-      className="w-[calc(50%-20px)] rounded-[24px] xl:flex bg-[#e8e8e8] hidden text-white active:opacity-90 
+      className="w-[calc(50%-20px)] rounded-[24px] xl:flex bg-[#e8e8e8] hidden text-white active:opacity-90
       select-none transition-all relative overflow-hidden"
       href={href}
     >
-      <div className="w-full p-[24px] xl:py-[48px] z-[1000]">
-        <p className="text-[2rem] leading-[120%] text-[#1F1F1F] font-cygre font-medium">
+      <div className="w-full p-[24px] xl:py-10 z-[1000]">
+        <h3 className="text-[2rem] leading-[120%] text-[#1F1F1F] font-medium">
           Заберите <br /> ваш подарок!
-        </p>
+        </h3>
         <p className="text-[4rem] text-[#1F1F1F] font-cygre font-bold">2025T</p>
         <p className="text-[1.125rem] text-[#A1A1A1] font-poppins">
           Используйте промокод <br />
@@ -40,7 +40,8 @@ const BigBuyCard = ({ href }: CardProps) => {
 const SmallBuyCard = ({ href }: CardProps) => {
   return (
     <Link
-      className="order-[1] w-[calc(50%-8px)] lg:w-[calc(50%-8px)] p-[12px] lg:p-[24px] rounded-[24px] xl:hidden bg-[#e8e8e8] relative overflow-hidden"
+      className="order-[1] w-[calc(50%-8px)] lg:w-[calc(50%-8px)] p-[12px] lg:p-[24px] rounded-[24px] xl:hidden bg-[#e8e8e8] relative 
+      active:opacity-90 overflow-hidden"
       href={href}
     >
       <div className="w-full z-[1000] flex-col flex gap-[12px]">

@@ -1,8 +1,18 @@
 import axios from "axios"
 import { NextResponse } from "next/server"
+import { decodeToken } from "@/utils/decodeJWT"
+import { setTokensInCookies } from "@/utils/setTokens"
 
 export async function POST(req: Request) {
+  // if no ENV at project
+  if (!process.env.JWT_SECRET) {
+    throw new Error("environment has not been configured")
+  }
+
+  // create Body of request
   const body: LoginBody = await req.json()
+
+  // make request to backend
   try {
     const res = await axios.post(
       `${process.env.BACKEND_URL}/auth/login`,
@@ -15,8 +25,8 @@ export async function POST(req: Request) {
       }
     )
 
+    // get tokens from response
     const { accessToken, refreshToken } = res.data
-
     if (!accessToken || !refreshToken) {
       return NextResponse.json(
         { message: "Invalid tokens from server" },
@@ -24,21 +34,31 @@ export async function POST(req: Request) {
       )
     }
 
+    // decode tokens to get expiration time
+    const decodedAccess = decodeToken(accessToken, process.env.JWT_SECRET)
+    const decodedRefresh = decodeToken(refreshToken, process.env.JWT_SECRET)
+
+    const accessMaxAge = decodedAccess.exp * 1000 - Date.now()
+    const refreshMaxAge = decodedRefresh.exp * 1000 - Date.now()
+
+    if (accessMaxAge <= 0 || refreshMaxAge <= 0) {
+      return NextResponse.json(
+        { message: "Token already expired" },
+        { status: 401 }
+      )
+    }
+
     const response = NextResponse.json({ message: "Login successful" })
 
-    response.cookies.set("accessToken", accessToken, {
-      httpOnly: true,
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 10
-    })
+    // set tokens in cookies
+    setTokensInCookies(
+      response,
+      accessToken,
+      accessMaxAge,
+      refreshToken,
+      refreshMaxAge
+    )
 
-    response.cookies.set("refreshToken", refreshToken, {
-      httpOnly: true,
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 7
-    })
     return response
   } catch (error: any) {
     console.error("Login error:", error.response?.data || error.message)
@@ -47,8 +67,4 @@ export async function POST(req: Request) {
       { status: error.response?.status || 401 }
     )
   }
-}
-interface LoginBody {
-  email: string
-  password: string
 }

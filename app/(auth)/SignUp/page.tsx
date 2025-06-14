@@ -1,6 +1,5 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Image from "next/image"
 import SignInYandexButton from "@/components/YandexButton/SignInYandexButton"
@@ -10,7 +9,6 @@ import Link from "next/link"
 import { AuthService } from "@/lib/services/auth.service"
 
 const SignUp = () => {
-  const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
@@ -18,14 +16,16 @@ const SignUp = () => {
   const [name, setName] = useState("")
   const [agreeToTerms, setAgreeToTerms] = useState(false)
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
     const register = await AuthService.getInstance().signup({
       email,
       password,
       name
     })
     if (register) {
-      router.push("/WebApp")
+      window.location.href = "/WebApp"
     } else {
       alert("Ошибка регистрации")
     }
@@ -60,8 +60,8 @@ const SignUp = () => {
             <input
               onChange={(e) => setName(e.target.value)}
               value={name}
-              type="email"
-              placeholder="Введите почту"
+              type="text"
+              placeholder="Введите имя"
               className="border border-Gray02 px-[18px] py-[12px] md:px-[24px] rounded-full focus:border-PrimaryGreen focus:ring-2
           focus:ring-PrimaryGreen outline-none transition-colors placeholder:text-[14px] md:placeholder:text-[16px]"
             />

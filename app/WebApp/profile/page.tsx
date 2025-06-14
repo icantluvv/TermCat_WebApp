@@ -21,7 +21,7 @@ async function Profile() {
   const user: User = await res.json()
 
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col gap-[24px] ">
       <HeaderLayout
         title="Личный профиль"
         text="Здесь хранятся все ваши данные"
