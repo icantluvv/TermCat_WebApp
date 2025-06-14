@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import AI from "@/public/images/homepage/ai.png"
+import AI from "@/public/images/homepage/neiro.png"
 
 const ChatCard = ({ href }: CardProps) => {
   return (
