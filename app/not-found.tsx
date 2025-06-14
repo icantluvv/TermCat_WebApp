@@ -1,20 +1,18 @@
 import notfound from "@/public/images/404/404.svg"
-import back from "@/public/images/404/background_404.svg"
+import NotReadyBack from "@/public/images/not_ready/NotReadyBack.png"
 import Image from "next/image"
 
 export default function NotFound() {
   return (
-    <main className="flex flex-col h-screen w-full bg-PageBG relative">
-      <div className="pl-[10vw] pt-[15vh]">
-        <h2 className="text-PrimaryBlack font-cygre text-[42px] font-medium">
-          Страница не найдена
+    <main className="w-full h-screen bg-PageBG relative">
+      <div className="flex flex-col p-[5%] lg:p-[10%] h-full w-full gap-[12px] lg:gap-[24px] z-[1000]">
+        <h2 className="text-PrimaryBlack text-[28px] xl:text-[42px] ">
+          Страница не доступна
         </h2>
-        <div className="flex flex-col text-Gray02 font-poppins text-[1.125rem]">
-          <p>
-            Эта страница в данный момент недоступна или находится в разработке
-          </p>
-          <p>Приносим свои извинения</p>
-        </div>
+        <p className="flex flex-col text-Gray02 text-[14px] xl:text-[16px]">
+          В данный момент ведется разработка данной части веб-приложения TermCAT{" "}
+          <br /> Приносим свои извинения
+        </p>
       </div>
 
       <Image
@@ -22,7 +20,11 @@ export default function NotFound() {
         alt={"notfound"}
         className="absolute left-[30vw] top-[35vh] z-[10]"
       ></Image>
-      <Image src={back} alt={back} className="absolute bottom-0"></Image>
+      <Image
+        src={NotReadyBack}
+        alt="NotReadyBack"
+        className="absolute bottom-0"
+      ></Image>
     </main>
   )
 }
