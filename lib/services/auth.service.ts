@@ -1,5 +1,3 @@
-type LoginData = { email: string; password: string }
-type SignupData = { email: string; password: string; name: string }
 
 export class AuthService {
   private static instance: AuthService

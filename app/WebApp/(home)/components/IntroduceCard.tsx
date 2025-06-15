@@ -4,12 +4,12 @@ import instruction_back from "@/public/images/homepage/instruction_back.png"
 import arrow from "@/public/images/homepage/Arrow.png"
 import introduce_back_mobile from "@/public/images/homepage/introduce_back_mobile.png"
 
-const IntroduceCard = ({ href }: CardProps) => {
+const IntroduceCard = () => {
   return (
     <Link
       className="order-1 xl:order-[4] w-[calc(50%-12px)] p-[12px] lg:p-[24px] md:w-[calc(50%-8px)] select-none 
       lg:w-[calc(50%-8px)] xl:w-[calc(50%-20px)] rounded-[24px] flex bg-[#e8e8e8] active:opacity-90 transition-all relative overflow-hidden"
-      href={href}
+      href={"/WebApp/introduce"}
     >
       <div className="text-black lex flex-col leading-6 xl:leading-10 font-cygre font-medium gap-[12px] z-[1000]">
         <h6 className="text-[1.125rem] xl:text-[2rem]">

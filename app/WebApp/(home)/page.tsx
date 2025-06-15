@@ -1,14 +1,13 @@
 import HeaderLayout from "@/components/header/HeaderLayout"
-import TariffLayout from "./components/TariffLayout"
 import { cookies } from "next/headers"
 import ChatCard from "./components/ChatCard"
-import BuyCard from "./components/BuyCard"
 import CommentCard from "./components/CommentCard"
 import HistoryCard from "./components/HistoryCard"
 import IntroduceCard from "./components/IntroduceCard"
 import PlanCard from "./components/PlanCard"
 import SubScriptionCard from "./components/SubcriptionCard"
-import { webAppLinks } from "@/constants/webAppLink"
+import TariffLayout from "./components/TariffLayout"
+import BuyCard from "./components/BuyCard"
 
 export default async function Home() {
   const cookieStore = await cookies()
@@ -49,13 +48,13 @@ const MobileCardsLayout = () => {
   return (
     <div className="flex flex-col md:hidden w-full gap-y-[24px]">
       <div className="w-full flex flex-wrap gap-x-[12px] gap-y-[24px] ">
-        <ChatCard href={webAppLinks.chat} />
-        <BuyCard href={webAppLinks.profile} />
+        <ChatCard />
+        <BuyCard />
         <CommentCard />
-        <SubScriptionCard href={webAppLinks.profile} />
-        <IntroduceCard href={webAppLinks.introduce} />
-        <PlanCard href={webAppLinks.profile} />
-        <HistoryCard href={webAppLinks.history} />
+        <SubScriptionCard />
+        <IntroduceCard />
+        <PlanCard />
+        <HistoryCard />
       </div>
     </div>
   )
@@ -66,18 +65,18 @@ const TabsCardsLayout = () => {
     <div className="flex-col w-full gap-[16px] hidden md:flex xl:hidden">
       <div className="w-full gap-[16px] flex">
         <div className="w-[calc(50%-8px)] flex flex-col gap-[16px]">
-          <ChatCard href={webAppLinks.chat} />
-          <HistoryCard href={webAppLinks.history} />
+          <ChatCard />
+          <HistoryCard />
         </div>
         <div className="w-[calc(50%-8px)] flex flex-col gap-[16px]">
           <div className="flex w-full gap-[16px] ">
-            <BuyCard href={webAppLinks.profile} />
-            <IntroduceCard href={webAppLinks.introduce} />
+            <BuyCard />
+            <IntroduceCard />
           </div>
 
           <div className="flex flex-col w-full gap-[16px]">
-            <SubScriptionCard href={webAppLinks.profile} />
-            <PlanCard href={webAppLinks.profile} />
+            <SubScriptionCard />
+            <PlanCard />
           </div>
         </div>
       </div>
@@ -93,16 +92,16 @@ const ComputerCardsLayout = () => {
   return (
     <div className="flex-col xl:flex-row w-full gap-[24px] hidden xl:flex 2xl:gap-[40px]">
       <div className="w-full xl:w-[calc(64%-20px)] flex flex-wrap  gap-[24px] 2xl:gap-[40px]">
-        <ChatCard href={webAppLinks.chat} />
-        <BuyCard href={webAppLinks.profile} />
+        <ChatCard />
+        <BuyCard />
         <CommentCard />
-        <IntroduceCard href={webAppLinks.introduce} />
-        <SubScriptionCard href={webAppLinks.profile} />
+        <IntroduceCard />
+        <SubScriptionCard />
       </div>
 
       <div className="flex-1 hidden xl:flex flex-col gap-[24px] 2xl:gap-[40px]">
-        <HistoryCard href={webAppLinks.history} />
-        <PlanCard href={webAppLinks.profile} />
+        <HistoryCard />
+        <PlanCard />
       </div>
     </div>
   )

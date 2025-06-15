@@ -12,7 +12,7 @@ const PcHeaderButtons = () => {
       </button>
       <Link
         href={"/WebApp/profile"}
-        className="rounded-[50%] w-[48px] h-[48px] bg-[#c2f041]"
+        className="rounded-[50%] w-[48px] h-[48px] active:opacity-90 bg-[#c2f041]"
       ></Link>
     </div>
   )

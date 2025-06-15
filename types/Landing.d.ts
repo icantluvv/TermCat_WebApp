@@ -18,7 +18,7 @@ interface InfoCardProps {
 }
 
 interface NavigationItem {
-  href: string
+  href: string | unknown
   icon: string
   alt: string
 }

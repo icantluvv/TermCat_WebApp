@@ -2,7 +2,7 @@ import BigLandingHeader from "./BigLandingHeader"
 import MobileLandingHeader from "./MobileLandingHeader"
 
 const navLinks = [
-  { href: "/login", label: "Войти" },
+  { href: "/WebApp", label: "Войти" },
   { href: "/signup", label: "Зарегистрироваться" },
   { href: "/about", label: "О компании" },
   { href: "/services", label: "Услуги" }

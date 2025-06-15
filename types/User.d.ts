@@ -19,3 +19,6 @@ interface SignUpBody {
   password: string
   name: string
 }
+
+type LoginData = { email: string; password: string }
+type SignupData = { email: string; password: string; name: string }

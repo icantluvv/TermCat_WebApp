@@ -4,12 +4,12 @@ import arrow from "@/public/images/homepage/Arrow.png"
 import termwardBack from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import background from "@/public/images/homepage/d20c90509061782c2cbc21e06ccf4ce1.png"
 
-const SubScriptionCard = ({ href }: CardProps) => {
+const SubScriptionCard = () => {
   return (
     <Link
       className="order-[2] md:order-[3] lg:order-4 w-full md:w-full xl:flex-1 p-[24px] pb-[48px] xl:min-h-[194px] select-none 
        rounded-[24px] flex bg-PrimaryBlack active:opacity-90 relative overflow-hidden"
-      href={href}
+      href={"/WebApp/profile"}
     >
       <h3 className="text-white text-[24px] xl:text-[32px] flex z-[1000]">
         Активировать

@@ -14,16 +14,10 @@ const BigLandingHeader = () => (
 
     <nav className="flex w-full justify-between items-center">
       <div className="flex text-LightGray gap-[24px]">
-        <Link
-          href={"/"}
-          className="hover:text-PrimaryGreen"
-        >
+        <Link href={"/"} className="hover:text-PrimaryGreen">
           О компании
         </Link>
-        <Link
-          className="hover:text-PrimaryGreen"
-          href={"/"}
-        >
+        <Link className="hover:text-PrimaryGreen" href={"/"}>
           Партнеры
         </Link>
       </div>
@@ -38,7 +32,7 @@ const BigLandingHeader = () => (
         <Link
           className="border-[1.5px] h-[48px] pr-[6px] pl-[24px] rounded-full border-PrimaryGreen text-LightGray
            hover:text-PrimaryGreen text-[16px] flex items-center gap-[12px] font-medium"
-          href={"/login"}
+          href={"/WebApp"}
         >
           Войти
           <div className="rounded-full w-[36px] h-[36px] bg-PrimaryGreen flex items-center justify-center">

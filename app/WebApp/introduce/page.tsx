@@ -1,7 +1,12 @@
+import NotReadyPage from "@/components/NotReadyPage"
 import React from "react"
 
 const IntroducePage = () => {
-  return <div>IntroducePage</div>
+  return (
+    <>
+      <NotReadyPage></NotReadyPage>
+    </>
+  )
 }
 
 export default IntroducePage

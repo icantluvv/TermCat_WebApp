@@ -5,12 +5,12 @@ import arrow from "@/public/images/homepage/Arrow.png"
 import folder from "@/public/images/homepage/folder.png"
 import element_plus from "@/public/images/homepage/plus.png"
 
-const HistoryCard = ({ href }: CardProps) => {
+const HistoryCard = () => {
   return (
     <Link
       className="rounded-[24px] xl:flex-1 w-full text-LightGray active:opacity-90 
       select-none relative overflow-hidden"
-      href={href}
+      href={"WebApp/dialogs"}
     >
       <div className="flex flex-col w-full h-full gap-[24px] items-center justify-between z-[10] p-[20px] xl:p-[40px] relative">
         <div className="flex justify-between w-full">

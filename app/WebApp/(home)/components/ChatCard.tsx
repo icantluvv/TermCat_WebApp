@@ -1,26 +1,41 @@
-import Link from "next/link"
+"use client"
+
 import Image from "next/image"
 import AI from "@/public/images/homepage/neiro.png"
+import { TranslateService } from "@/lib/services/translate.service"
+import { useRouter } from "next/navigation"
 
-const ChatCard = ({ href }: CardProps) => {
+const ChatCard = () => {
+  const translateService = TranslateService.getInstance()
+  const router = useRouter()
+
+  const handleClick = async () => {
+    try {
+      const newDialog = await translateService.createDialog()
+      router.push("/WebApp/dialogs/" + newDialog.id)
+    } catch (error) {
+      console.error("Ошибка при создании диалога:", error)
+    }
+  }
+
   return (
-    <>
-      <ChatCardFormMobile href={href} />
-      <ChatCardFormRegular href={href} />
-    </>
+    <button
+      onClick={handleClick}
+      className="active:opacity-90 select-none flex flex-1"
+    >
+      <ChatCardFormMobile />
+      <ChatCardFormRegular />
+    </button>
   )
 }
 
 export default ChatCard
 
-const ChatCardFormMobile = ({ href }: CardProps) => {
+const ChatCardFormMobile = () => {
   return (
-    <Link
-      className="w-full flex xl:hidden active:opacity-90 select-none relative"
-      href={href}
-    >
+    <div className="w-full flex xl:hidden relative">
       <div className="absolute w-full h-full top-0 left-0 z-10 flex p-[24px] xl:py-10 ">
-        <h3 className="text-[24px] font-medium text-LightGray">
+        <h3 className="text-[24px] font-medium text-LightGray text-start">
           Чат для перевода <br />
           терминов
         </h3>
@@ -41,18 +56,15 @@ const ChatCardFormMobile = ({ href }: CardProps) => {
           fill="#0C0C0C"
         />
       </svg>
-    </Link>
+    </div>
   )
 }
 
-const ChatCardFormRegular = ({ href }: CardProps) => {
+const ChatCardFormRegular = () => {
   return (
-    <Link
-      className="w-full hidden xl:flex flex-1 active:opacity-90 select-none relative"
-      href={href}
-    >
+    <div className="w-full hidden xl:flex flex-1 relative">
       <div className="absolute w-full h-full top-0 left-0 z-10 flex p-[24px] xl:py-10 ">
-        <h3 className="lg:text-[32px] 2xl:text-[42px] font-medium text-LightGray">
+        <h3 className="lg:text-[32px] 2xl:text-[42px] font-medium text-start text-LightGray">
           Чат для перевода терминов
         </h3>
       </div>
@@ -73,6 +85,6 @@ const ChatCardFormRegular = ({ href }: CardProps) => {
           d="M520 24C520 10.7452 509.255 0 496 0H24C10.7452 0 0 10.7452 0 24V310C0 323.255 10.7452 334 24 334H308C321.255 334 332 323.255 332 310V309.041C332 290.816 346.775 276.041 365 276.041H496C509.255 276.041 520 265.296 520 252.041V24Z"
         />
       </svg>
-    </Link>
+    </div>
   )
 }
