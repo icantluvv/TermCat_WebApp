@@ -23,7 +23,7 @@ const MobileNav = () => {
 
   return (
     <nav className="w-full bg-black xl:hidden h-[60px] rounded-t-[25px] fixed bottom-0 z-[8000] items-center flex">
-      <div className="flex w-full justify-around px-[5vw] md:px-[10vw]">
+      <div className="flex w-full justify-around px-[5vw] md:justify-center md:gap-[5vw]">
         {navItems.slice(1, 5).map(({ href, icon, alt, action }, i) => (
           <NavItem
             key={i}
