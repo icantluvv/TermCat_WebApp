@@ -21,34 +21,53 @@ async function Profile() {
   const user: User = await res.json()
 
   return (
-    <div className="flex flex-col gap-[24px] ">
+    <div className="flex flex-col gap-[24px] lg:gap-[40px]">
       <HeaderLayout
         title="Личный профиль"
         text="Здесь хранятся все ваши данные"
       />
-      <main className="w-full flex gap-4 lg:gap-6 flex-col md:flex-row flex-wrap lg:pb-0">
-        <ProfileForm user={user} />
-        <ProfileServices />
+      <main className="w-full">
+        <ComputerSection user={user} />
+        <TableSection user={user} />
+        <MobileSection user={user} />
       </main>
     </div>
   )
 }
 export default Profile
 
-const ProfileForm = ({ user }: UserProps) => {
+const ComputerSection = ({ user }: UserProps) => {
   return (
-    <section className="flex lg:flex-col gap-[12px] lg:gap-6 md:w-1/2 lg:min-w-[700px]">
-      <ProfileInfo user={user} />
-      <SubscriptionStatus />
-    </section>
+    <div className="w-full flex-col gap-[40px] hidden xl:flex">
+      <div className="w-full flex gap-[40px]">
+        <ProfileInfo user={user} />
+        <LinkedServices />
+      </div>
+      <div className="w-[calc(55%-20px)]">
+        <SubscriptionStatus />
+      </div>
+    </div>
   )
 }
 
-const ProfileServices = () => {
+const TableSection = ({ user }: UserProps) => {
   return (
-    <section className="xl:w-1/3 md:flex-1 flex flex-col gap-4 lg:gap-6 lg:flex-row flex-wrap ">
-      <LinkedServices />
+    <div className="w-full gap-[20px] hidden md:flex xl:hidden">
+      <ProfileInfo user={user} />
+      <div className="w-[calc(50%-10px)] flex flex-col gap-[20px]">
+        <SubscriptionStatusMobile />
+        <LinkedServices />
+      </div>
+    </div>
+  )
+}
+
+const MobileSection = ({ user }: UserProps) => {
+  return (
+    <div className="w-full gap-[20px] flex flex-col md:hidden">
+      <ProfileInfo user={user} />
       <SubscriptionStatusMobile />
-    </section>
+      <LinkedServices />
+    </div>
   )
 }

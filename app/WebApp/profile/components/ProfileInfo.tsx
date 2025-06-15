@@ -7,7 +7,7 @@ import Button from "@/components/Button/Button"
 
 const ProfileInfo = ({ user }: UserProps) => (
   <>
-    <div className="bg-[#E8E8E8] flex rounded-[24px] w-full relative ">
+    <div className="bg-[#E8E8E8] flex rounded-[24px] w-full md:w-[calc(50%-10px)] xl:w-[calc(55%-20px)] relative">
       {/* info block */}
       <div className="z-[5000] p-[24px] lg:p-[40px] flex flex-col lg:flex-row gap-y-[24px] lg:gap-x-4 2xl:gap-x-10 lg:gap-y-0 w-full">
         {/* profile image */}
@@ -25,7 +25,7 @@ const ProfileInfo = ({ user }: UserProps) => (
           />
           <InputField label="Старый пароль" type="password" placeholder="" />
           <InputField label="Новый пароль" type="password" placeholder="" />
-          <div className="max-w-[300px]">
+          <div>
             <Button text={"Сохранить"} variant="main" type="button"></Button>
           </div>
         </div>
