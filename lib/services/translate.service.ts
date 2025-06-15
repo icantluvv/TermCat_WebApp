@@ -30,25 +30,9 @@ export class TranslateService {
     }
   }
 
-  async createDialog() {
-    const now = new Date()
-
-    // Форматируем дату по московскому времени
-    const formattedDate = now
-      .toLocaleString("ru-RU", {
-        timeZone: "Europe/Moscow",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-      })
-      .replace(",", "") // убираем запятую между датой и временем
-      .replace(/\./g, "-") // меняем точки на дефисы
-
+  async createDialog(title: string) {
     const body = {
-      title: `Диалог от ${formattedDate}`,
+      title,
       dialog: []
     }
 
@@ -62,6 +46,36 @@ export class TranslateService {
 
     if (!response.ok) {
       throw new Error("Ошибка при создании диалога")
+    }
+
+    return await response.json()
+  }
+
+  async sendPrompt(prompt: string, dialogId: number, title: string) {
+    const response = await fetch("/api/translate/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        prompt,
+        dialogId,
+        title
+      })
+    })
+
+    if (!response.ok) {
+      throw new Error("Ошибка при отправке сообщения")
+    }
+
+    return await response.json()
+  }
+
+  async fetchDialog(dialogId: string) {
+    const response = await fetch(`/api/translate/get-dialog/${dialogId}`)
+
+    if (!response.ok) {
+      throw new Error("Ошибка при получении диалога")
     }
 
     return await response.json()

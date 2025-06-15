@@ -1,31 +1,16 @@
-"use client"
-
 import Image from "next/image"
 import AI from "@/public/images/homepage/neiro.png"
-import { TranslateService } from "@/lib/services/translate.service"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 const ChatCard = () => {
-  const translateService = TranslateService.getInstance()
-  const router = useRouter()
-
-  const handleClick = async () => {
-    try {
-      const newDialog = await translateService.createDialog()
-      router.push("/WebApp/dialogs/" + newDialog.id)
-    } catch (error) {
-      console.error("Ошибка при создании диалога:", error)
-    }
-  }
-
   return (
-    <button
-      onClick={handleClick}
+    <Link
       className="active:opacity-90 select-none flex flex-1"
+      href={`WebApp/dialogs/create`}
     >
       <ChatCardFormMobile />
       <ChatCardFormRegular />
-    </button>
+    </Link>
   )
 }
 

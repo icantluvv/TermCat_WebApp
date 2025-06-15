@@ -22,13 +22,27 @@ export default async function Home() {
 
   const User: User = await res.json()
 
+  const getSub = await fetch(
+    `${process.env.BACKEND_URL}/subscriptions/getInfoSub/${User.id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+  )
+
+  const isActive = await getSub.json()
+
   return (
     <div className="flex flex-col gap-y-[24px] lg:gap-y-[40px] ">
       <HeaderLayout
         title={"Привет, " + User.name}
         text={"Начни переводить текст прямо сейчас"}
       />
-      <TariffLayout />
+      {isActive === true && <TariffLayout />}
+
       <CardsLayout />
     </div>
   )

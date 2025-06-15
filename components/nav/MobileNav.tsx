@@ -1,19 +1,17 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { TranslateService } from "@/lib/services/translate.service"
 import { navItems } from "@/constants/navItems"
 import NavItem from "./NavItem"
 import { AuthService } from "@/lib/services/auth.service"
 
 const MobileNav = () => {
   const router = useRouter()
-  const translateService = TranslateService.getInstance()
 
   const actions: Record<string, () => void> = {
     newDialog: async () => {
-      const dialog = await translateService.createDialog()
-      router.push(`/WebApp/dialogs/${dialog.id}`)
+  
+      router.push(`/WebApp/dialogs/create`)
     },
     logout: async () => {
       await AuthService.getInstance().logout()
