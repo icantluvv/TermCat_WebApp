@@ -1,6 +1,6 @@
 const TariffLayout = () => {
   const tariffs = [
-    { label: "Тариф Индивидуальный", active: true },
+    { label: "Тариф Старт", active: true },
     { label: "Тариф Команда", active: false }
   ]
 
