@@ -33,7 +33,7 @@ const BigTariffCard = ({
         />
       </svg>
       <Link
-        href="/paying"
+        href="/signup"
         className="text-PrimaryBlack bg-PrimaryGreen active:bg-PrimaryGreenActive flex z-[1000] absolute px-[40px] py-[12px] rounded-[32px] bottom-0 right-0 font-medium"
       >
         К продукту

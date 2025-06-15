@@ -9,7 +9,7 @@ const CommentCard = () => {
           Помогите<span className="hidden 2xl:flex">нам</span> стать лучше
         </h3>
 
-        <p className="text-[12px] xl:text-[14px] 2xl:text-[18px] text-start text-nowrap text-Gray02">
+        <p className="text-[12px] xl:text-[14px] 2xl:text-[18px] text-start md:text-nowrap text-Gray02">
           Пройдите опрос для улучшения нашего сервиса
         </p>
       </div>
