@@ -46,7 +46,7 @@ const Message = ({ role, text }: MessageProps) => {
             }`}
           >
             <p
-              className="text-PrimaryBlack text-[12px] md:text-[14px] lg:text-[16px]"
+              className="text-PrimaryBlack text-[12px] md:text-[14px] lg:text-[16px] break-words"
               dangerouslySetInnerHTML={{ __html: formattedMainText || "" }}
             />
           </div>
@@ -72,7 +72,7 @@ const Message = ({ role, text }: MessageProps) => {
 
           <div className="flex flex-col max-w-[80vw] justify-start">
             <div className="px-6 py-4 lg:p-6 max-w-[90%] md:max-w-[70%] xl:max-w-[65%] rounded-[24px] bg-BotMessageBG">
-              <p className="text-PrimaryBlack text-[12px] md:text-[14px] lg:text-[16px]">
+              <p className="text-PrimaryBlack text-[12px] md:text-[14px] lg:text-[16px] break-words">
                 {metaText}
               </p>
             </div>

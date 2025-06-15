@@ -13,7 +13,7 @@ const MobileHeaderButtons = () => {
         <Image src={nav_logo} className="w-[75%]" alt={""}></Image>
       </Link>
       <Link
-        href={"/app/profile"}
+        href={"/WebApp/profile"}
         className="rounded-[50%] w-[36px] h-[36px] bg-[#c2f041]"
       ></Link>
     </div>

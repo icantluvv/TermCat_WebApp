@@ -38,8 +38,10 @@ export async function middleware(request: NextRequest) {
           sameSite: "lax"
         })
         return response
+      } else {
+        return NextResponse.redirect(new URL("/login", request.url))
       }
-    } catch (error) {
+    } catch {
       return NextResponse.redirect(new URL("/login", request.url))
     }
   }
