@@ -94,7 +94,7 @@ const Login = () => {
                 У вас нет аккаунта?
               </p>
               <Link
-                href={"/signup"}
+                href={"/registration"}
                 className="font-medium text-[14px] md:text-[16px]"
               >
                 Создать бесплатный аккаунт

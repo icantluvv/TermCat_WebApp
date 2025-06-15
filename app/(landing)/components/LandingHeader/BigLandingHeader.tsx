@@ -25,7 +25,7 @@ const BigLandingHeader = () => (
         <Link
           className="border-[1.5px] px-[24px] h-[48px] rounded-full border-LightGray text-LightGray 
           hover:text-PrimaryGreen text-[16px] flex items-center font-medium"
-          href={"/signup"}
+          href={"/registration"}
         >
           Зарегистрироваться
         </Link>
