@@ -26,7 +26,7 @@ export default async function Home() {
     <div className="flex flex-col gap-y-[24px] lg:gap-y-[40px] ">
       <HeaderLayout
         title={"Привет, " + User.name}
-        text={"Начни редактировать проект прямо сейчас"}
+        text={"Начни переводить текст прямо сейчас"}
       />
       <TariffLayout />
       <CardsLayout />
