@@ -42,10 +42,12 @@ export async function POST(request: Request) {
 
     const data: Dialog = await response.json()
     return NextResponse.json(data, { status: 200 })
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message || "Неизвестная ошибка" },
-      { status: 500 }
-    )
+  } catch (error: unknown) {
+    let errorMessage = "Неизвестная ошибка"
+    if (error instanceof Error) {
+      errorMessage = error.message
+    }
+
+    return NextResponse.json({ error: errorMessage }, { status: 500 })
   }
 }

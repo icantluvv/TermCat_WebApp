@@ -2,13 +2,14 @@ import { NextRequest, NextResponse } from "next/server"
 import { cookies } from "next/headers"
 import axios from "axios"
 
-export async function GET(
-  request: NextRequest,
-  context: { params: { id: string } }
-) {
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url)
+
   try {
-    const { params } = context
-    const { id } = await params
+    const id = url.pathname.split("/").pop()
+    // const { id } = context.params
+    // const { params } = context
+    // const { id } = params
 
     if (!id) {
       return NextResponse.json(
@@ -30,8 +31,19 @@ export async function GET(
     )
 
     return NextResponse.json(response.data, { status: 200 })
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Ошибка при получении диалога:", error)
-    return NextResponse.json({ error: "Ошибка сервера" }, { status: 500 })
+
+    if (axios.isAxiosError(error)) {
+      return NextResponse.json(
+        { error: error.response?.data || "Ошибка сервера" },
+        { status: error.response?.status || 500 }
+      )
+    }
+
+    return NextResponse.json(
+      { error: "Неизвестная ошибка сервера" },
+      { status: 500 }
+    )
   }
 }

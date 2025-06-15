@@ -63,7 +63,7 @@ const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
           onChange={(e) => setPrompt(e.target.value)}
           type="text"
           placeholder="Ваш текст..."
-          className="flex-1 bg-transparent outline-none text-PrimaryBlack placeholder:text-Gray02 text-[14px] lg:text-[16px]"
+          className="flex-1 bg-transparent outline-none text-PrimaryBlack placeholder:text-Gray02 text-[16px]"
         />
         <button
           type="submit"

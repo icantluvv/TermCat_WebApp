@@ -19,19 +19,28 @@ export class PaymentService {
         success: true,
         data: response.data
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Ошибка при активации подписки по промокоду:", error)
 
-      if (error.response?.status === 400) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 400) {
+          return {
+            success: false,
+            message: error.response.data.message || "Подписка уже активирована"
+          }
+        }
+
         return {
           success: false,
-          message: error.response.data.message || "Подписка уже активирована"
+          message:
+            error.response?.data?.message ||
+            "Произошла ошибка при активации подписки"
         }
       }
 
       return {
         success: false,
-        message: "Произошла ошибка при активации подписки"
+        message: "Неизвестная ошибка при активации подписки"
       }
     }
   }

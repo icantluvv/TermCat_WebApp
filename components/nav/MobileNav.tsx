@@ -10,12 +10,11 @@ const MobileNav = () => {
 
   const actions: Record<string, () => void> = {
     newDialog: async () => {
-  
       router.push(`/WebApp/dialogs/create`)
     },
     logout: async () => {
       await AuthService.getInstance().logout()
-      window.location.href = "/login"
+      window.location.reload()
     }
   }
 

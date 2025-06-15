@@ -13,7 +13,7 @@ const DesktopNav = () => {
     },
     logout: async () => {
       await AuthService.getInstance().logout()
-      window.location.href = "/login"
+      window.location.reload()
     }
   }
 

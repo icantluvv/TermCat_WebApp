@@ -34,7 +34,8 @@ export async function middleware(request: NextRequest) {
         response.cookies.set("accessToken", newAccessToken, {
           httpOnly: true,
           path: "/",
-          maxAge: 60 * 10
+          maxAge: 60 * 13,
+          sameSite: "lax"
         })
         return response
       }

@@ -1,4 +1,3 @@
-
 export class AuthService {
   private static instance: AuthService
   private constructor() {}
@@ -31,6 +30,14 @@ export class AuthService {
   }
 
   async logout(): Promise<void> {
-    await fetch("/api/auth/logout", { method: "POST" })
+    const res = await fetch("/api/auth/revoke", {
+      method: "POST"
+    })
+
+    if (!res.ok) {
+      const errorData = await res.json()
+      console.error("Ошибка выхода из аккаунта:", errorData)
+      throw new Error(errorData.error || "Не удалось выйти из аккаунта")
+    }
   }
 }

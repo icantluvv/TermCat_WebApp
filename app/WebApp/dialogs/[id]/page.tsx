@@ -3,7 +3,7 @@ import { TranslateService } from "@/lib/services/translate.service"
 import HeaderLayout from "@/components/header/HeaderLayout"
 import Chat from "./components/Chat"
 
-const DialogPage = async ({ params }: { params: { id: string } }) => {
+const DialogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params
 
   const cookieStore = await cookies()
