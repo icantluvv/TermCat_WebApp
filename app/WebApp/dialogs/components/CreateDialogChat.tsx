@@ -41,7 +41,7 @@ const CreateDialogChat = () => {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           type="text"
-          placeholder="Напишите сообщение..."
+          placeholder="Ваш текст..."
           className="flex-1 bg-transparent outline-none text-PrimaryBlack placeholder:text-Gray02 text-[14px] lg:text-[16px]"
         />
 

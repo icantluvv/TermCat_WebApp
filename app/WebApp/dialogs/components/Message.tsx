@@ -1,11 +1,6 @@
 import Image from "next/image"
 import navLogo from "@/public/images/sidebar/nav_logo.svg"
 
-interface MessageProps {
-  role: "user" | "assistant"
-  text: string
-}
-
 const Message = ({ role, text }: MessageProps) => {
   const isAssistant = role === "assistant"
 

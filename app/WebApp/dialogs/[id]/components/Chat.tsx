@@ -4,13 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { TranslateService } from "@/lib/services/translate.service"
 import Message from "../../components/Message"
 
-interface Props {
-  dialogId: string
-  title: string
-  initialMessages: { text: string; role: "user" | "assistant" }[]
-}
-
-const Chat = ({ dialogId, title, initialMessages }: Props) => {
+const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const [prompt, setPrompt] = useState("")
@@ -68,7 +62,7 @@ const Chat = ({ dialogId, title, initialMessages }: Props) => {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           type="text"
-          placeholder="Напишите сообщение..."
+          placeholder="Ваш текст..."
           className="flex-1 bg-transparent outline-none text-PrimaryBlack placeholder:text-Gray02 text-[14px] lg:text-[16px]"
         />
         <button

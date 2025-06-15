@@ -16,3 +16,14 @@ type DialogType = {
   id: string
   title: string
 }
+
+interface ChatProps {
+  dialogId: string
+  title: string
+  initialMessages: { text: string; role: "user" | "assistant" }[]
+}
+
+interface MessageProps {
+  role: "user" | "assistant"
+  text: string
+}
