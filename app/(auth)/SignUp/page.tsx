@@ -134,7 +134,11 @@ const SignUp = () => {
             </p>
           </div>
 
-          <Button variant="submit" text="Зарегистрироваться" />
+          <Button
+            variant="submit"
+            text="Зарегистрироваться"
+            disabled={!agreeToTerms}
+          />
 
           <div className="flex gap-[6px] items-center mt-[1vh] justify-center">
             <p className="text-Gray02 text-[12px] md:text-[14px]">

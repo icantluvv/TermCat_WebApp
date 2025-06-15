@@ -1,16 +1,13 @@
 "use client"
-import { TranslateService } from "@/lib/services/translate.service"
 import { useRouter } from "next/navigation"
 import Dialog from "./DialogListElement"
 
 const DialogsArray = ({ dialogs }: { dialogs: DialogType[] }) => {
-  const translateService = TranslateService.getInstance()
   const router = useRouter()
 
   const handleClick = async () => {
     try {
-      const newDialog = await translateService.createDialog()
-      router.push("/WebApp/dialogs/" + newDialog.id)
+      router.push("/WebApp/dialogs/create")
     } catch (error) {
       console.error("Ошибка при создании диалога:", error)
     }

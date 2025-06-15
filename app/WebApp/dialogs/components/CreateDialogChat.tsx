@@ -17,7 +17,7 @@ const CreateDialogChat = () => {
     if (!trimmedPrompt) return
 
     // Формируем заголовок из первых 4 слов
-    const title = trimmedPrompt.split(" ").slice(0, 10).join(" ")
+    const title = trimmedPrompt.split(" ").slice(0, 5).join(" ")
 
     try {
       // Создаем диалог
@@ -36,7 +36,7 @@ const CreateDialogChat = () => {
     <>
       <main className="flex-1 w-full flex flex-col overflow-auto no-scrollbar gap-[24px] relative items-center "></main>
 
-      <div className="flex items-center mb-[80px] xl:mb-[2svh] w-full xl:w-[65%] bg-LightGray rounded-full px-[24px] py-[12px] shadow-md">
+      <div className="flex items-center mb-[80px] xl:mb-[2svh] w-full xl:w-[65%] bg-LightGray rounded-full px-[24px] py-[12px] ">
         <input
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}

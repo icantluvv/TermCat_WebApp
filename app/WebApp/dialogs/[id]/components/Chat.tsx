@@ -33,7 +33,7 @@ const Chat = ({ dialogId, title, initialMessages }: Props) => {
     try {
       const response = await TranslateService.getInstance().sendPrompt(
         userMessage,
-        Number(dialogId),
+        dialogId,
         title
       )
 
@@ -43,18 +43,12 @@ const Chat = ({ dialogId, title, initialMessages }: Props) => {
         dialogId
       )
       setMessages(updatedDialog.dialog)
-
-      setMessages((prev) => [
-        ...prev,
-        { text: response.message, role: "assistant" }
-      ])
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error)
     } finally {
       setLoading(false)
     }
   }
-
   return (
     <>
       <main className="flex-1 w-full flex flex-col  overflow-auto no-scrollbar gap-[24px] relative items-center ">
@@ -62,7 +56,7 @@ const Chat = ({ dialogId, title, initialMessages }: Props) => {
           {messages.map((msg, index) => (
             <Message key={index} role={msg.role} text={msg.text} />
           ))}
-          <div className="w-full h-[0px]" ref={messagesEndRef} />
+          <div className="w-full h-[px]" ref={messagesEndRef} />
         </section>
       </main>
 

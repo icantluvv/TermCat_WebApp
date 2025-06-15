@@ -51,7 +51,7 @@ export class TranslateService {
     return await response.json()
   }
 
-  async sendPrompt(prompt: string, dialogId: number, title: string) {
+  async sendPrompt(prompt: string, dialogId: string, title: string) {
     const response = await fetch("/api/translate/generate", {
       method: "POST",
       headers: {

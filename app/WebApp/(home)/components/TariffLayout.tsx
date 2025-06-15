@@ -1,6 +1,8 @@
-const TariffLayout = () => {
+
+const TariffLayout = async ({activeAcc}) => {
+
   const tariffs = [
-    { label: "Тариф Старт", active: true },
+    { label: "Тариф Старт", active: activeAcc },
     { label: "Тариф Команда", active: false }
   ]
 

@@ -12,6 +12,7 @@ import BuyCard from "./components/BuyCard"
 export default async function Home() {
   const cookieStore = await cookies()
   const accessToken = cookieStore.get("accessToken")?.value
+
   const res = await fetch(`${process.env.BACKEND_URL}/users/getMe`, {
     method: "GET",
     headers: {
@@ -33,15 +34,15 @@ export default async function Home() {
     }
   )
 
-  const isActive = await getSub.json()
+  const sub = await getSub.json()
 
   return (
     <div className="flex flex-col gap-y-[24px] lg:gap-y-[40px] ">
       <HeaderLayout
-        title={"Привет, " + User.name}
+        title={"Привет, " + User.name + "!"}
         text={"Начни переводить текст прямо сейчас"}
       />
-      {isActive === true && <TariffLayout />}
+      <TariffLayout activeAcc={sub.isActive} />
 
       <CardsLayout />
     </div>
