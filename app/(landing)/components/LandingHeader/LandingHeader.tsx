@@ -4,8 +4,7 @@ import MobileLandingHeader from "./MobileLandingHeader"
 const navLinks = [
   { href: "/WebApp", label: "Войти" },
   { href: "/signup", label: "Зарегистрироваться" },
-  { href: "/about", label: "О компании" },
-  { href: "/services", label: "Услуги" }
+  { href: "/", label: "О компании" }
 ]
 
 const LandingHeader = () => (
