@@ -8,7 +8,7 @@ const navLinks = [
 ]
 
 const LandingHeader = () => (
-  <header className="fixed top-0 left-0 w-full bg-PrimaryBlack flex z-[5000]">
+  <header className="fixed top-0 left-0 w-full bg-PrimaryBlack flex z-[9999]">
     <BigLandingHeader />
     <MobileLandingHeader navLinks={navLinks} />
   </header>

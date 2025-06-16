@@ -60,6 +60,14 @@ a {
   @apply font-cygre;
 }
 
+input,
+textarea,
+select,
+button {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 @layer components {
   a,
   button {

@@ -23,8 +23,18 @@ const ProfileInfo = ({ user }: UserProps) => (
             type="email"
             placeholder={`${user.email}`}
           />
-          <InputField label="Старый пароль" type="password" placeholder="" />
-          <InputField label="Новый пароль" type="password" placeholder="" />
+          <InputField
+            disabled
+            label="Старый пароль"
+            type="password"
+            placeholder=""
+          />
+          <InputField
+            disabled
+            label="Новый пароль"
+            type="password"
+            placeholder=""
+          />
           <div>
             <Button text={"Сохранить"} variant="main" type="button"></Button>
           </div>
