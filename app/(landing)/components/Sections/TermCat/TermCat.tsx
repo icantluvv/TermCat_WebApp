@@ -1,6 +1,7 @@
 import Image from "next/image"
 import FirstBlockImage from "@/public/images/landing/termcat/people.png"
 import termcat_webapp from "@/public/images/landing/termcat/termcat_webapp.png"
+import Link from "next/link"
 
 const FirstSection = () => {
   return (
@@ -37,9 +38,12 @@ const FirstSection = () => {
           TermCAT сделает всю работу за вас!
         </p>
         <div className="hidden md:flex">
-          <button className="rounded-full bg-PrimaryGreen text-PrimaryBlack px-[16px] py-[8px] xl:px-[28px] xl:py-[16px] active:bg-PrimaryGreenActive">
+          <Link
+            href={"/registration"}
+            className="rounded-full bg-PrimaryGreen text-PrimaryBlack px-[16px] py-[8px] xl:px-[28px] xl:py-[16px] active:bg-PrimaryGreenActive"
+          >
             Попробовать
-          </button>
+          </Link>
         </div>
       </div>
 

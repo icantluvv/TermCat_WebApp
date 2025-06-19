@@ -6,20 +6,22 @@ import landing_header_logo from "@/public/images/landing/logo.svg"
 
 const BigLandingHeader = () => (
   <div className="hidden lg:flex w-full h-[80px] px-[4vw] xl:px-[6.5vw] justify-center relative items-center z-[5000]">
-    <Image
-      src={landing_header_logo}
-      alt="landing header logo"
-      className="w-[104px] absolute"
-    />
+    <Link href={"/"} className="absolute">
+      <Image
+        src={landing_header_logo}
+        alt="landing header logo"
+        className="w-[104px]"
+      />
+    </Link>
 
     <nav className="flex w-full justify-between items-center">
       <div className="flex text-LightGray gap-[24px]">
-        <Link href={"/"} className="hover:text-PrimaryGreen">
+        {/* <Link href={"/"} className="hover:text-PrimaryGreen">
           О компании
         </Link>
         <Link className="hover:text-PrimaryGreen" href={"/"}>
           Партнеры
-        </Link>
+        </Link> */}
       </div>
       <div className="flex gap-[12px]">
         <Link

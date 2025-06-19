@@ -47,7 +47,7 @@ const Footer = () => {
           TermCAT @ 2024. All rights reserved.
         </p>
         <Link
-          href={"/documents"}
+          href={"/"}
           className="text-LightGray hover:text-PrimaryGreen text-[16px] md:text-[14px]"
         >
           Документы
