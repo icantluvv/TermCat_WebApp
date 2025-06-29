@@ -2,6 +2,7 @@ import Image from "next/image"
 import FirstBlockImage from "@/public/images/landing/termcat/people.png"
 import termcat_webapp from "@/public/images/landing/termcat/termcat_webapp.png"
 import Link from "next/link"
+import Typography from "@/core/typography/Typography"
 
 const FirstSection = () => {
   return (
@@ -10,7 +11,8 @@ const FirstSection = () => {
         <h1 className="flex flex-col text-[32px] xl:text-[54px] text-PrimaryGreen leading-8 font-semibold">
           TermCAT —
         </h1>
-        <h2 className="text-[28px] xl:text-[48px] text-LightGray">
+
+        <Typography variants="h2" weight="medium" color="lightGray">
           верный помощник <br />
           <div className="flex gap-[12px] xl:gap-[16px] items-center">
             <>
@@ -22,7 +24,7 @@ const FirstSection = () => {
             </>
             переводчиков
           </div>
-        </h2>
+        </Typography>
 
         <div className="h-[0.5px] w-full bg-Gray02 hidden md:flex"></div>
 

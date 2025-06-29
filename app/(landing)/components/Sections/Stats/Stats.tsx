@@ -2,6 +2,7 @@ import StatCard from "./StatCard"
 import Image from "next/image"
 import people from "@/public/images/landing/termcat/people.png"
 import arrow from "@/public/images/landing/arrow.svg"
+import Typography from "@/core/typography/Typography"
 
 const cardData: CardItem[] = [
   {
@@ -41,11 +42,14 @@ const Stats = () => {
   return (
     <section className=" w-full flex flex-col items-center gap-[24px] md:gap-[40px] xl:gap-[80px] ">
       <div className="w-full flex flex-col md:flex-row md:w-full items-start gap-[24px] px-[4vw] xl:px-0 md:justify-between">
-        <h3 className="text-LightGray text-[26px] lg:text-[42px] font-medium leading-tight">
-          Интеллектуальная <br className="hidden md:flex" />
-          терминологическая <br className="hidden md:flex" />
-          база данных
-        </h3>
+        <>
+          <Typography variants="h3" weight="medium" color={"lightGray"}>
+            Интеллектуальная <br className="hidden md:flex" />
+            терминологическая <br className="hidden md:flex" />
+            база данных
+          </Typography>
+        </>
+
         <div className="flex lg:flex-2 flex-col gap-[12px] lg:gap-[40px] md:w-1/2 mt-3">
           <p className="text-[18px] hidden xl:flex text-Gray02">
             Инструмент автоматически распознает и выделяет ключевые <br />

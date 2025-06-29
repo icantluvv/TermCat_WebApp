@@ -1,3 +1,4 @@
+import Typography from "@/core/typography/Typography"
 import TariffCard from "./TariffCard"
 
 const TariffSection = () => {
@@ -8,10 +9,10 @@ const TariffSection = () => {
           <p className="text-[12px] lg:text-[18px] text-LightGray">
             Тарифные планы
           </p>
-          <h2 className="text-LightGray text-[26px] lg:text-[42px] font-medium leading-14 xl:leading-[1.5] text-center">
+          <Typography variants="h2" color="lightGray" className="text-center">
             Совсем <span className="text-PrimaryGreen">немного</span> <br />
             за профессиональный инструмент
-          </h2>
+          </Typography>
         </div>
 
         <p className="text-[16px] lg:text-[18px] text-Gray02 font-thin md:px-[1vw] lg:px-[8vw] text-center">

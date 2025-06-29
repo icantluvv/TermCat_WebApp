@@ -1,5 +1,6 @@
 import React from "react"
 import Question from "./Question"
+import Typography from "@/core/typography/Typography"
 
 const questions = [
   {
@@ -28,9 +29,10 @@ const questions = [
 
 const FAQ = () => (
   <section className="flex flex-col gap-[40px] lg:gap-[80px] w-full items-center px-[4vw] xl:px-0">
-    <h3 className="text-LightGray  md:max-w-auto text-[26px] lg:text-[42px] text-center font-medium">
+    <Typography variants="h3" center color="lightGray">
       Часто задаваемые <br className="md:hidden" /> вопросы
-    </h3>
+    </Typography>
+    
     <div className="w-full xl:w-[70vw] flex flex-col gap-6">
       {questions.map((q, i) => (
         <Question key={i} title={q.title} text={q.text} />

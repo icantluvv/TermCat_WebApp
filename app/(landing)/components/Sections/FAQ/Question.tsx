@@ -1,4 +1,5 @@
 "use client"
+import Typography from "@/core/typography/Typography"
 import React, { useState } from "react"
 
 const Question = ({ title, text }: QuestionProps) => {
@@ -11,9 +12,9 @@ const Question = ({ title, text }: QuestionProps) => {
         isOpen ? "gap-[12px] delay-0 " : "gap-[0px] delay-200"
       } relative rounded-[24px] bg-[#f4f4f4] hover:bg-[#eaeaea] border-[#dde1e6] border p-[24px] transition-all duration-300`}
     >
-      <h5 className="text-[18px] lg:text-[24px] font-semibold font-cygre w-[90%] text-start text-PrimaryBlack">
+      <Typography className="w-[90%]" variants="h5" weight="medium">
         {title}
-      </h5>
+      </Typography>
 
       <div
         className="overflow-hidden transition-all duration-500 ease-in-out text-start w-[95%] xl:w-[90%]"

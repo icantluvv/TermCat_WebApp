@@ -7,6 +7,7 @@ import human6 from "@/public/images/landing/feedback/human6.png"
 import human7 from "@/public/images/landing/feedback/human7.png"
 import FeedbackCard from "./FeedbackCard"
 import FeedbackSlider from "./FeedbackSlider"
+import Typography from "@/core/typography/Typography"
 
 const feedbacks = [
   {
@@ -56,9 +57,15 @@ const feedbacks = [
 const Feedback = () => {
   return (
     <section className="flex flex-col items-center w-full gap-[40px]">
-      <h3 className="text-[26px] lg:text-[42px] text-LightGray w-[70vw] xl:w-auto text-center font-medium">
+      <div className="px-[4vw] xl:px-0">
+        <Typography variants="h3" center color="lightGray" className="">
+          Отзывы наших пользователей
+        </Typography>
+      </div>
+
+      {/* <h3 className="text-[26px] lg:text-[42px] text-LightGray w-[70vw] xl:w-auto text-center font-medium">
         Отзывы наших пользователей
-      </h3>
+      </h3> */}
 
       <div className="w-[100vw] px-[4vw] xl:px-0 overflow-x-auto no-scrollbar xl:hidden">
         <div className="flex gap-4 w-max">

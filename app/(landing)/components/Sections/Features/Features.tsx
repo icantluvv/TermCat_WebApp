@@ -3,17 +3,19 @@ import apadtation from "@/public/images/landing/features/adaptation.svg"
 import usability from "@/public/images/landing/features/usability.svg"
 import analysis from "@/public/images/landing/features/analysis.svg"
 import star_data_chat from "@/public/images/landing/features/star_data_chat.png"
+import Typography from "@/core/typography/Typography"
 
 const FourthSection = () => {
   return (
     <section className="w-full text-center items-center flex flex-col gap-y-[40px] lg:gap-0 px-[4vw] xl:px-[0vw] lg:px-0 md:py-[170px] relative">
       <div className=" flex flex-col gap-[24px] xl:gap-[40px] items-center">
-        <h3 className=" text-LightGray text-[26px] lg:text-[42px] font-medium">
+        <Typography variants="h3" color="lightGray" weight="medium">
           ИИ-платформа для
-          <span className="text-PrimaryGreen"> aвтоматизированного </span>
+          <span className="text-PrimaryGreen"> aвтоматизированного</span>
           <br />
           перевода любого контента
-        </h3>
+        </Typography>
+
         <p className="w-full max-w-[80vw] lg:max-w-[37vw] text-[16px] lg:text-[18px] text-Gray02 font-thin">
           Платформа для переводов TermCAT позволяет выполнять переводы терминов
           быстрее и точнее в рамках вашего бюджета. Лучше всего то,

@@ -2,6 +2,7 @@ import Image from "next/image"
 import line_third from "@/public/images/landing/line_third.svg"
 import StepItem from "./StepItem"
 import shadow from "@/public/images/landing/points/text-shadow.svg"
+import Typography from "@/core/typography/Typography"
 
 const steps = [
   {
@@ -30,11 +31,10 @@ const ThirdSection = () => {
   return (
     <section className="flex flex-col gap-[60px] xl:gap-[80px] w-full items-center px-[4vw] xl:px-0">
       <div className="w-full flex-col text-center flex items-center">
-        <h3 className="text-LightGray text-[24px] lg:text-[42px] w-full font-medium">
+        <Typography variants="h3" color="lightGray" weight="medium">
           Каким стал перевод текстов <br className="md:flex" />
-          с инструментом
+          с инструментом{" "}
           <span className="relative">
-            {" "}
             TermCAT
             <Image
               src={shadow}
@@ -42,7 +42,7 @@ const ThirdSection = () => {
               className="w-[120px] md:w-[150px] lg:w-[200px] absolute bottom-[-50%] right-0"
             ></Image>
           </span>
-        </h3>
+        </Typography>
       </div>
 
       <div className="relative w-full flex md:justify-center h-[834px]">
