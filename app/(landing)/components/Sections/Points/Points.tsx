@@ -29,7 +29,7 @@ const steps = [
 
 const ThirdSection = () => {
   return (
-    <section className="flex flex-col gap-[60px] xl:gap-[80px] w-full items-center px-[4vw] xl:px-0">
+    <section className="flex flex-col gap-[60px] xl:gap-[80px] container items-center px-[4vw] xl:px-0">
       <div className="w-full flex-col text-center flex items-center">
         <Typography variants="h3" color="lightGray" weight="medium">
           Каким стал перевод текстов <br className="md:flex" />

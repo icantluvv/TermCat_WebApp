@@ -69,6 +69,10 @@ button {
 }
 
 @layer components {
+  .container {
+    @apply w-full max-w-[1600px];
+  }
+
   a,
   button {
     @apply transition-all duration-200;
@@ -92,7 +96,7 @@ p {
 }
 
 html,
- body {
+body {
   scroll-behavior: smooth;
   color: var(--foreground);
   background-color: #050505;

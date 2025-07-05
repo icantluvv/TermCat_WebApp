@@ -28,7 +28,7 @@ const questions = [
 ]
 
 const FAQ = () => (
-  <section className="flex flex-col gap-[40px] lg:gap-[80px] w-full items-center px-[4vw] xl:px-0">
+  <section className="flex flex-col gap-[40px] lg:gap-[80px] container items-center px-[4vw] xl:px-0">
     <Typography variants="h3" center color="lightGray">
       Часто задаваемые <br className="md:hidden" /> вопросы
     </Typography>

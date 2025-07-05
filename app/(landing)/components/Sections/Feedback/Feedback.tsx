@@ -56,16 +56,12 @@ const feedbacks = [
 
 const Feedback = () => {
   return (
-    <section className="flex flex-col items-center w-full gap-[40px] max-w-[1400px]">
+    <section className="flex flex-col items-center container gap-[40px]">
       <div className="px-[4vw] xl:px-0">
         <Typography variants="h3" center color="lightGray" className="">
           Отзывы наших пользователей
         </Typography>
       </div>
-
-      {/* <h3 className="text-[26px] lg:text-[42px] text-LightGray w-[70vw] xl:w-auto text-center font-medium">
-        Отзывы наших пользователей
-      </h3> */}
 
       <div className="w-[100vw] px-[4vw] xl:px-0 overflow-x-auto no-scrollbar xl:hidden">
         <div className="flex gap-4 w-max">

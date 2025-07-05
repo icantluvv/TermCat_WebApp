@@ -9,7 +9,7 @@ const FirstSection = () => {
   return (
     <section
       id="termcat"
-      className="flex scroll-mt-[200px] flex-col md:flex-row w-full justify-between px-[4vw] gap-[24px] md:gap-[48px] xl:px-0 xl:py-[4vh]"
+      className="flex scroll-mt-[200px] flex-col md:flex-row container justify-between px-[4vw] gap-[24px] md:gap-[48px] xl:px-0 xl:py-[4vh]"
     >
       <div className="flex flex-col md:gap-[12px] md:w-auto xl:gap-[24px]">
         <h1 className="flex flex-col text-[32px] xl:text-[54px] text-PrimaryGreen leading-8 font-semibold">
