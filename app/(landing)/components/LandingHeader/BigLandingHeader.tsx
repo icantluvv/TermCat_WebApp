@@ -8,7 +8,7 @@ import Button from "@/core/button/Button"
 
 const BigLandingHeader = () => (
   <div className="hidden lg:flex w-full h-[80px] px-[4vw] xl:px-[6.5vw] justify-center relative items-center z-[5000]">
-    <Link href={"/"} className="absolute">
+    <Link href={"/#termcat"} className="absolute active:opacity-80">
       <Image
         src={landing_header_logo}
         alt="landing header logo"
@@ -26,24 +26,28 @@ const BigLandingHeader = () => (
         </Link> */}
       </div>
       <div className="flex gap-[12px]">
-        <Link className="hover:text-PrimaryGreen" href={"/registration"}>
-          <Button size="big" form="rounded" variant="empty">
+        <Link href={"/registration"}>
+          <Button size="middle" form="rounded" variant="empty">
             <Typography variants="button" center color="lightGray">
               Зарегистрироваться
             </Typography>
           </Button>
         </Link>
 
-        <Link
-          className="border-[1.5px] h-[48px] pr-[6px] pl-[24px] rounded-full border-PrimaryGreen  flex items-center gap-[12px]"
-          href={"/WebApp"}
-        >
-          <Typography variants="button" center color="lightGray">
-            Войти
-          </Typography>
-          <div className="rounded-full min-w-[36px] h-[36px] bg-PrimaryGreen flex items-center justify-center">
-            <Image src={arrow} alt={"arrow"}></Image>
-          </div>
+        <Link href={"/WebApp"}>
+          <Button
+            size="middle"
+            variant="emptyGreen"
+            form="rounded"
+            className="pr-[6px]"
+          >
+            <Typography variants="button" center color="lightGray">
+              Войти
+            </Typography>
+            <div className="rounded-full min-w-[36px] h-[36px] bg-PrimaryGreen flex items-center justify-center">
+              <Image src={arrow} alt={"arrow"}></Image>
+            </div>
+          </Button>
         </Link>
       </div>
     </nav>

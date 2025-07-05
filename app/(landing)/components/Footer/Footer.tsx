@@ -3,6 +3,8 @@ import Image from "next/image"
 import footerlogo from "@/public/images/landing/footer/footer_logo.svg"
 import email from "@/public/images/landing/footer/email.svg"
 import Link from "next/link"
+import Button from "@/core/button/Button"
+import Typography from "@/core/typography/Typography"
 
 const Footer = () => {
   return (
@@ -35,9 +37,11 @@ const Footer = () => {
               bg-LightGray xl:flex-[0] flex-1 focus:outline-none"
             />
           </div>
-          <button className="bg-PrimaryGreen active:bg-PrimaryGreenActive min-h-[40px] py-[8px] px-[16px] lg:py-[16px] lg:px-[28px] rounded-[32px] text-[14px] lg:text-[16px] text-PrimaryBlack">
-            Отправить
-          </button>
+          <Button type="button" variant="primary" size="big" form="rounded">
+            <Typography variants={"button"} color="black" weight="medium">
+              Отправить
+            </Typography>
+          </Button>
         </div>
       </div>
 

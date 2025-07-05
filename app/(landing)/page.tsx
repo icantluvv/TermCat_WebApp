@@ -6,13 +6,10 @@ import Features from "./components/Sections/Features/Features"
 import TariffSection from "./components/Sections/Tariffs/TariffSection"
 import FAQ from "./components/Sections/FAQ/FAQ"
 import Feedback from "./components/Sections/Feedback/Feedback"
-import LandingHeader from "./components/LandingHeader/LandingHeader"
 
 export default function LandingPage() {
   return (
     <div className="w-full flex flex-col items-center bg-PrimaryBlack xl:px-[6.5vw] gap-[80px] xl:gap-[160px] relative py-[100px]">
-      {/* <Image src={background} alt="" fill className="absolute  top-0 left-0" /> */}
-      <LandingHeader />
       <main className="flex flex-col w-full gap-[40px] xl:gap-[80px] row-start-2 items-center z-[1000] ">
         <TermCat />
         <Stats />

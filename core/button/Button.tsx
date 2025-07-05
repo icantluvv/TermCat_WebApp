@@ -4,12 +4,13 @@ import clsx from "clsx"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 
 const defaultButtonVariants =
-  "transition-colors duration-[.3] cursor-pointer flex items-center justify-center"
+  "transition-colors duration-[.3] cursor-pointer flex gap-[12px] items-center justify-center "
 
 const variantsButton = {
   size: {
     default: "",
-    big: "px-[24px] h-[48px]"
+    middle: "h-[48px] px-[24px]",
+    big: "min-h-[40px] py-[8px] px-[16px] lg:py-[16px] lg:px-[28px]"
   },
   form: {
     default: "",
