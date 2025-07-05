@@ -91,7 +91,9 @@ p {
   --activeGrayButton: #eeeeee;
 }
 
-body {
+html,
+ body {
+  scroll-behavior: smooth;
   color: var(--foreground);
   background-color: #050505;
   font-family: sans-serif;
