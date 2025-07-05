@@ -3,7 +3,10 @@ import TariffCard from "./TariffCard"
 
 const TariffSection = () => {
   return (
-    <section className="w-full flex flex-col items-center gap-y-[40px] lg:gap-y-[80px] px-[4vw] xl:px-0">
+    <section
+      id="tariff"
+      className="w-full scroll-mt-[125px] flex flex-col items-center gap-y-[40px] lg:gap-y-[80px] px-[4vw] xl:px-0"
+    >
       <div className="flex flex-col gap-[24px] xl:gap-[40px] items-center">
         <div className="flex flex-col gap-[6px] items-center">
           <p className="text-[12px] lg:text-[18px] text-LightGray">

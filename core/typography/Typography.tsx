@@ -5,7 +5,8 @@ const variantsTypography = {
   family: {
     default: "font-inter",
     inter: "font-inter",
-    poppins: "font-poppins"
+    poppins: "font-poppins",
+    cygre: "font-cygre"
   },
 
   weight: {
@@ -22,6 +23,7 @@ const variantsTypography = {
   },
 
   center: "w-full text-center",
+  start: "text-start w-full",
 
   variant: {
     h1: "text-[2rem] xl:text-[54px]",
@@ -32,7 +34,7 @@ const variantsTypography = {
     h6: "text-lg",
     accent: "text-lg xl:text-[4rem]",
     p: "text-xs lg:text-base ",
-    button: "text-base lg:text-xl ",
+    button: "text-[14px] lg:text-[16px] font-medium font-cygre",
     custom: "",
     span: ""
   }
@@ -46,6 +48,7 @@ type TypographyProps = {
   weight?: keyof typeof variantsTypography.weight
   color?: keyof typeof variantsTypography.color
   center?: boolean
+  start?: boolean
   variants: TypographyVariants
   as?: keyof React.JSX.IntrinsicElements
 }
@@ -56,6 +59,7 @@ function Typography({
   children,
   className,
   variants,
+  start,
   weight,
   color,
   center
@@ -82,6 +86,7 @@ function Typography({
         variantsTypography.variant[variants],
         color && variantsTypography.color[color],
         center && variantsTypography.center,
+        start && variantsTypography.start,
         weight && variantsTypography.weight,
         className
       )}

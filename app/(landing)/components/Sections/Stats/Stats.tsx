@@ -3,6 +3,7 @@ import Image from "next/image"
 import people from "@/public/images/landing/termcat/people.png"
 import arrow from "@/public/images/landing/arrow.svg"
 import Typography from "@/core/typography/Typography"
+import Link from "next/link"
 
 const cardData: CardItem[] = [
   {
@@ -40,7 +41,7 @@ const cardData: CardItem[] = [
 
 const Stats = () => {
   return (
-    <section className=" w-full flex flex-col items-center gap-[24px] md:gap-[40px] xl:gap-[80px] ">
+    <section className=" w-full flex flex-col items-center gap-[24px] md:gap-[40px] xl:gap-[80px] 2xl:max-w-[1400px]">
       <div className="w-full flex flex-col md:flex-row md:w-full items-start gap-[24px] px-[4vw] xl:px-0 md:justify-between">
         <>
           <Typography variants="h3" weight="medium" color={"lightGray"}>
@@ -62,11 +63,18 @@ const Stats = () => {
             переводы на основе контекста
           </p>
           <div className="">
+            <Link href="/"></Link>
             <button
-              className="flex items-center rounded-[48px] text-[14px] lg:text-[16px] text-LightGray border-[1.5px]
-             border-PrimaryGreen p-[7px] pl-[16px] xl:pl-[28px] xl:py-[12px] gap-[12px] hover:text-PrimaryGreen"
+              className="flex items-center rounded-full border-[1.5px]
+             border-PrimaryGreen p-[7px] pl-[16px] xl:pl-[28px] xl:py-[12px] gap-[12px]"
             >
-              Узнать больше
+              <Typography
+                variants="button"
+                color="lightGray"
+                className="hover:text-PrimaryGreen"
+              >
+                Узнать больше
+              </Typography>
               <div className="w-[24px] h-[24px] lg:w-[36px] lg:h-[36px] bg-PrimaryGreen rounded-full flex items-center justify-center">
                 <Image
                   src={arrow}

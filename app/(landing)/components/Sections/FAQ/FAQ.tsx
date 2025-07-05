@@ -32,8 +32,8 @@ const FAQ = () => (
     <Typography variants="h3" center color="lightGray">
       Часто задаваемые <br className="md:hidden" /> вопросы
     </Typography>
-    
-    <div className="w-full xl:w-[70vw] flex flex-col gap-6">
+
+    <div className="w-full xl:w-[70vw] flex flex-col gap-6 ">
       {questions.map((q, i) => (
         <Question key={i} title={q.title} text={q.text} />
       ))}

@@ -7,7 +7,7 @@ import Typography from "@/core/typography/Typography"
 
 const FourthSection = () => {
   return (
-    <section className="w-full text-center items-center flex flex-col gap-y-[40px] lg:gap-0 px-[4vw] xl:px-[0vw] lg:px-0 md:py-[170px] relative">
+    <section className="w-full text-center items-center flex flex-col gap-y-[40px] lg:gap-0 px-[4vw] xl:px-[0vw] lg:px-0 md:py-[170px] relative max-w-[1600px]">
       <div className=" flex flex-col gap-[24px] xl:gap-[40px] items-center">
         <Typography variants="h3" color="lightGray" weight="medium">
           ИИ-платформа для

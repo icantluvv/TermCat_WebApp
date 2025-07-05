@@ -13,6 +13,7 @@ export default {
         PageBG: "#F5F5F5",
         PrimaryBlack: "#050505",
         PrimaryGreen: "#c2f041",
+        PrimaryGreenHover: "#B9E53E",
         PrimaryGreenActive: "#B0D93C",
         Gray02: "#A1A1A1",
         GrayDark: "#1F1F1F",

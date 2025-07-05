@@ -3,10 +3,14 @@ import FirstBlockImage from "@/public/images/landing/termcat/people.png"
 import termcat_webapp from "@/public/images/landing/termcat/termcat_webapp.png"
 import Link from "next/link"
 import Typography from "@/core/typography/Typography"
+import Button from "@/core/button/Button"
 
 const FirstSection = () => {
   return (
-    <section className="flex flex-col md:flex-row w-full justify-between px-[4vw] gap-[24px] md:gap-[48px] xl:px-0 xl:py-[4vh]">
+    <section
+      id="termcat"
+      className="flex scroll-mt-[200px] flex-col md:flex-row w-full justify-between px-[4vw] gap-[24px] md:gap-[48px] xl:px-0 xl:py-[4vh]"
+    >
       <div className="flex flex-col md:gap-[12px] md:w-auto xl:gap-[24px]">
         <h1 className="flex flex-col text-[32px] xl:text-[54px] text-PrimaryGreen leading-8 font-semibold">
           TermCAT —
@@ -40,12 +44,14 @@ const FirstSection = () => {
           TermCAT сделает всю работу за вас!
         </p>
         <div className="hidden md:flex">
-          <Link
-            href={"/registration"}
-            className="rounded-full bg-PrimaryGreen text-PrimaryBlack px-[16px] py-[8px] xl:px-[28px] xl:py-[16px] active:bg-PrimaryGreenActive"
-          >
-            Попробовать
+          <Link href={"/#tariff"}>
+            <Button variant="primary" form="rounded" size="big">
+              <Typography variants="button" color="black">
+                Попробовать
+              </Typography>
+            </Button>
           </Link>
+          <Link href={"/registration"}></Link>
         </div>
       </div>
 

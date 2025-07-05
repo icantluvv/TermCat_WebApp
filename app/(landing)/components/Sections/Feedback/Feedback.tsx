@@ -56,7 +56,7 @@ const feedbacks = [
 
 const Feedback = () => {
   return (
-    <section className="flex flex-col items-center w-full gap-[40px]">
+    <section className="flex flex-col items-center w-full gap-[40px] max-w-[1400px]">
       <div className="px-[4vw] xl:px-0">
         <Typography variants="h3" center color="lightGray" className="">
           Отзывы наших пользователей

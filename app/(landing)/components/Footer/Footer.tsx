@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="flex flex-col justify-center gap-x-6 gap-y-[20px] xl:gap-y-[40px]  w-full z-[9000] px-[4vw] xl:px-0">
       <div className="flex justify-between flex-col md:flex-row gap-y-[20px] xl:gap-y-[40px] lg:items-center items-start">
-        <Link href={"/"}>
+        <Link href={"/#termcat"}>
           <Image
             src={footerlogo}
             alt={"footerlogo"}
@@ -47,7 +47,7 @@ const Footer = () => {
           TermCAT @ 2024. All rights reserved.
         </p>
         <Link
-          href={"/"}
+          href={"/privacy"}
           className="text-LightGray hover:text-PrimaryGreen text-[16px] md:text-[14px]"
         >
           Документы
