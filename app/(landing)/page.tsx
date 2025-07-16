@@ -16,7 +16,7 @@ export default function LandingPage() {
         <Points />
         <Features />
         <TariffSection />
-        <Feedback></Feedback>
+        <Feedback/>
         <FAQ></FAQ>
       </main>
       <Footer />

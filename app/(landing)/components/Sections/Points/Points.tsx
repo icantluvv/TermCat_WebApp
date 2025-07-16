@@ -3,29 +3,7 @@ import line_third from "@/public/images/landing/line_third.svg"
 import StepItem from "./StepItem"
 import shadow from "@/public/images/landing/points/text-shadow.svg"
 import Typography from "@/core/typography/Typography"
-
-const steps = [
-  {
-    id: "01",
-    title: "Учетная запись",
-    text: "Создайте или войдите в свой аккаунт TermCAT"
-  },
-  {
-    id: "02",
-    title: "Подготовка к переводу",
-    text: "Загрузите свой исходный текст или файл с текстом на английском языке во вкладке «перевод»"
-  },
-  {
-    id: "03",
-    title: "Работа нейросети",
-    text: "Получите наиболее точные и контекстуальные результаты для любого типа текста"
-  },
-  {
-    id: "04",
-    title: "Работа нейросети",
-    text: "Воспользуйтесь предложенными нейросетью терминами для дальнейшего перевода"
-  }
-]
+import {steps} from "@/app/(landing)/constants";
 
 const ThirdSection = () => {
   return (

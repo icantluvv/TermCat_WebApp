@@ -26,7 +26,7 @@ const TariffSection = () => {
           от фрилансеров до крупных корпоративных клиентов.
         </p>
       </div>
-      <TariffCard></TariffCard>
+      <TariffCard/>
     </section>
   )
 }
