@@ -26,14 +26,14 @@ const variantsTypography = {
   start: "text-start w-full",
 
   variant: {
-    h1: "text-[2rem] xl:text-[54px]",
+    h1: "text-[32px] xl:text-[54px]",
     h2: "text-[28px] xl:text-[48px]",
     h3: "text-[26px] xl:text-[42px]",
-    h4: "text-2xl xl:text-[2rem]",
-    h5: "text-[22px] xl:text-2xl",
-    h6: "text-lg",
-    accent: "text-lg xl:text-[4rem]",
-    p: "text-xs lg:text-base ",
+    h4: "text-[24px] xl:text-[32px]",
+    h5: "text-[22px] xl:text-[24px]",
+    h6: "text-[18px]",
+    accent: "text-[18px] xl:text-[64px]",
+    p: "text-[16px] lg:text-[18px]",
     button: "text-[14px] lg:text-[16px] font-medium font-cygre",
     custom: "",
     span: ""
