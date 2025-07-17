@@ -20,13 +20,13 @@ const variantsButton = {
     default: "",
 
     primary:
-      "bg-PrimaryGreen hover:bg-PrimaryGreenHover active:bg-[#B0D93C] text-PrimaryBlack",
+      "bg-PrimaryGreen hover:bg-PrimaryGreenHover active:bg-PrimaryGreenActive text-PrimaryBlack",
 
     empty:
       "border-[1.5px] border-lightGray text-LightGray hover:text-PrimaryGreen active:border-[#DDDDDD]",
 
     emptyGreen:
-      "border-[1.5px] border-black text-LightGray hover:text-PrimaryGreen hover:border-PrimaryGreenHover",
+      "border-[1.5px] border-PrimaryGreen text-LightGray hover:text-PrimaryGreen hover:border-PrimaryGreenHover",
 
     black:
       "border-[1.5px] text-PrimaryBlack border-PrimaryBlack hover:bg-PrimaryBlack active:text-PrimaryGreen hover:text-LightGray",
@@ -61,11 +61,11 @@ function Button<T extends ElementType = "button">({
   return (
     <Component
       className={clsx(
+        className,
         defaultButtonVariants,
         variantsButton.size[size],
         variantsButton.form[form],
-        variantsButton.variant[variant],
-        className
+        variantsButton.variant[variant]
       )}
       {...props}
     >

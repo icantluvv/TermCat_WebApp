@@ -53,28 +53,36 @@ const Stats = () => {
         </>
 
         <div className="flex lg:flex-2 flex-col gap-[12px] lg:gap-[40px] md:w-1/2 mt-3">
-          <p className="text-[18px] hidden xl:flex text-Gray02">
+          <Typography className="hidden xl:flex" variants="p" color="darkGray">
             Инструмент автоматически распознает и выделяет ключевые <br />
             термины в тексте, предлагая наиболее подходящие переводы <br />{" "}
             на основе контекста и ранее проверенных переводов
-          </p>
-          <p className="flex xl:hidden text-[16px] lg:text-[18px] text-Gray02">
-            Инструмент автоматически распознает <br /> ключевые термины в
-            тексте, предлагая <br />
-            переводы на основе контекста
-          </p>
-          <div className="">
-            <Link href="/"></Link>
-            <Button variant="emptyGreen">
-              <Typography variants="button">Узнать больше</Typography>
-              <div className="w-[24px] h-[24px] lg:w-[36px] lg:h-[36px] bg-PrimaryGreen rounded-full flex items-center justify-center">
-                <Image
-                  src={arrow}
-                  className="w-[13px] xl:w-[19px]"
-                  alt={""}
-                ></Image>
-              </div>
-            </Button>
+          </Typography>
+
+          <Typography className="flex xl:hidden" variants="p" color="darkGray">
+            Инструмент автоматически распознает и выделяет ключевые <br />
+            термины в тексте, предлагая наиболее подходящие переводы <br />{" "}
+            на основе контекста и ранее проверенных переводов
+          </Typography>
+
+          <div>
+            <Link href={"/#points"}>
+              <Button
+                size="big"
+                form="rounded"
+                className="pr-[4px]"
+                variant="emptyGreen"
+              >
+                <Typography variants="button">Узнать больше</Typography>
+                <div className="w-[24px] h-[24px] lg:w-[36px] lg:h-[36px] bg-PrimaryGreen rounded-full flex items-center justify-center">
+                  <Image
+                    src={arrow}
+                    className="w-[13px] xl:w-[19px]"
+                    alt={""}
+                  ></Image>
+                </div>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
