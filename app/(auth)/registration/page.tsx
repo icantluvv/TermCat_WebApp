@@ -213,7 +213,7 @@ const SignUp = () => {
               </p>
               <Link
                 href={"/login"}
-                className="font-medium text-[14px] md:text-[16px]"
+                className="font-medium text-[14px] md:text-[16px] hover:opacity-75 active:opacity-60"
               >
                 Войти
               </Link>

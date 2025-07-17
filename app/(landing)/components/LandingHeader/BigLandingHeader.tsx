@@ -7,47 +7,43 @@ import Typography from "@/core/typography/Typography"
 import Button from "@/core/button/Button"
 
 const BigLandingHeader = () => (
-    <div
-        className="hidden lg:flex w-full h-[80px] px-[4vw] xl:px-[6.5vw] justify-center relative items-center z-[5000]">
-        <Link href={"/#termcat"} className="absolute active:opacity-80">
-            <Image
-                src={landing_header_logo}
-                alt="landing header logo"
-                className="w-[104px]"
-            />
+  <div className="hidden lg:flex w-full h-[80px] px-[4vw] xl:px-[6.5vw] justify-center relative items-center z-[5000]">
+    <Link href={"/#termcat"} className="absolute active:opacity-80">
+      <Image
+        src={landing_header_logo}
+        alt="landing header logo"
+        className="w-[104px]"
+      />
+    </Link>
+
+    <nav className="flex w-full justify-between items-center">
+      <div className="flex gap-[24px]"></div>
+      <div className="flex gap-[12px]">
+        <Link href={"/registration"}>
+          <Button size="big" form="rounded" variant="empty">
+            <Typography variants="button" center>
+              Зарегистрироваться
+            </Typography>
+          </Button>
         </Link>
 
-        <nav className="flex w-full justify-between items-center">
-            <div className="flex gap-[24px]">
-            </div>
-            <div className="flex gap-[12px]">
-                <Link href={"/registration"}>
-                    <Button size="middle" form="rounded" variant="empty">
-                        <Typography variants="button" center color="lightGray">
-                            Зарегистрироваться
-                        </Typography>
-                    </Button>
-                </Link>
+        <Link href={"/WebApp"}>
+          <Button
+            size="big"
+            variant="emptyGreen"
+            form="rounded"
+            className="pr-[6px]"
+          >
+            <Typography variants="button">Войти</Typography>
 
-                <Link href={"/WebApp"}>
-                    <Button
-                        size="middle"
-                        variant="emptyGreen"
-                        form="rounded"
-                        className="pr-[6px]"
-                    >
-                        <Typography variants="button" center color="lightGray">
-                            Войти
-                        </Typography>
-                        <div
-                            className="rounded-full min-w-[36px] h-[36px] bg-PrimaryGreen flex items-center justify-center">
-                            <Image src={arrow} alt={"arrow"}></Image>
-                        </div>
-                    </Button>
-                </Link>
+            <div className="rounded-full min-w-[36px] h-[36px] bg-PrimaryGreen flex items-center justify-center">
+              <Image src={arrow} alt={"arrow"}></Image>
             </div>
-        </nav>
-    </div>
+          </Button>
+        </Link>
+      </div>
+    </nav>
+  </div>
 )
 
 export default BigLandingHeader

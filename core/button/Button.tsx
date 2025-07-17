@@ -4,13 +4,13 @@ import clsx from "clsx"
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 
 const defaultButtonVariants =
-  "transition-colors duration-[.3] cursor-pointer flex gap-[12px] items-center justify-center "
+  "transition-colors duration-[.3] cursor-pointer flex items-center justify-center "
 
 const variantsButton = {
   size: {
     default: "",
-    middle: "h-[48px] px-[24px]",
-    big: "min-h-[40px] py-[8px] px-[16px] lg:py-[16px] lg:px-[28px]"
+    small: "px-[16px] py-[8px]",
+    big: "px-[28px] py-[16px] h-[48px] gap-[12px]"
   },
   form: {
     default: "",
@@ -18,11 +18,19 @@ const variantsButton = {
   },
   variant: {
     default: "",
-    primary: "bg-PrimaryGreen hover:bg-black active:bg-PrimaryGreenActive",
-    empty: "border-[1.5px] border-lightGray",
-    emptyGreen: "border-[1.5px] border-PrimaryGreen",
-    secondary: "bg-PrimaryBlack",
-    disable: "bg-lightGray"
+
+    primary:
+      "bg-PrimaryGreen hover:bg-PrimaryGreenHover active:bg-[#B0D93C] text-PrimaryBlack",
+
+    empty:
+      "border-[1.5px] border-lightGray text-LightGray hover:text-PrimaryGreen active:border-[#DDDDDD]",
+
+    emptyGreen:
+      "border-[1.5px] border-black text-LightGray hover:text-PrimaryGreen hover:border-PrimaryGreenHover",
+
+    black:
+      "border-[1.5px] text-PrimaryBlack border-PrimaryBlack hover:bg-PrimaryBlack active:text-PrimaryGreen hover:text-LightGray",
+    disable: "bg-[#E8E8E8] text-PrimaryBlack cursor-not-allowed"
   }
 } as const
 

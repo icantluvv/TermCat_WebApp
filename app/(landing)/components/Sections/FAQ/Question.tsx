@@ -25,7 +25,12 @@ const Question = ({ title, text }: QuestionProps) => {
         isOpen ? "gap-[12px] delay-0 " : "gap-[0px] delay-200"
       } relative rounded-[24px] bg-[#f4f4f4] hover:bg-[#eaeaea] border-[#dde1e6] border p-[24px] `}
     >
-      <Typography className="w-[90%]" start variants="h5" weight="medium">
+      <Typography
+        className="w-[90%] text-PrimaryBlack"
+        start
+        variants="h5"
+        weight="medium"
+      >
         {title}
       </Typography>
 
@@ -33,9 +38,12 @@ const Question = ({ title, text }: QuestionProps) => {
         className="overflow-hidden transition-all duration-500 ease-in-out text-start"
         style={{ maxHeight: isOpen ? "500px" : "0px", opacity: isOpen ? 1 : 0 }}
       >
-        <p className="text-[16px] lg:text-[18px] text-PrimaryBlack/60 max-w-[95%]">
+        <Typography
+          className="text-[16px] lg:text-[18px] text-PrimaryBlack/60 max-w-[95%]"
+          variants={"button"}
+        >
           {text}
-        </p>
+        </Typography>
       </div>
 
       <div className="absolute w-full h-full left-0 top-0 rounded-[24px] transition-all group">
