@@ -71,7 +71,7 @@ const Stats = () => {
                 size="big"
                 form="rounded"
                 className="pr-[4px]"
-                variant="emptyGreen"
+                variant='emptyGreen'
               >
                 <Typography variants="button">Узнать больше</Typography>
                 <div className="w-[24px] h-[24px] lg:w-[36px] lg:h-[36px] bg-PrimaryGreen rounded-full flex items-center justify-center">

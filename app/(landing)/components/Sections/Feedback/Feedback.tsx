@@ -1,8 +1,7 @@
-
 import FeedbackCard from "./FeedbackCard"
 import FeedbackSlider from "./FeedbackSlider"
 import Typography from "@/core/typography/Typography"
-import {feedbacks} from "@/app/(landing)/constants";
+import { feedbacks } from "@/app/(landing)/constants"
 
 
 const Feedback = () => {

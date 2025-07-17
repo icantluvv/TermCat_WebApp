@@ -61,7 +61,7 @@ function Button<T extends ElementType = "button">({
   return (
     <Component
       className={clsx(
-        className,
+        className,  
         defaultButtonVariants,
         variantsButton.size[size],
         variantsButton.form[form],
