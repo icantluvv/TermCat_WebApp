@@ -1,0 +1,13 @@
+# / this is Enviroment file for APIs, keys, tokens and other resources
+#
+#
+#
+#
+
+
+BACKEND_URL = 'http://89.169.177.199:7777/api'
+BACKEND_URL_SECOND = 'http://term-cat.ru:7777/api'
+JWT_SECRET = '123' 
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+
+WEBAPP_URL = "/WebApp/"

@@ -1,11 +1,11 @@
 export const revalidate = 60
 
-import HeaderLayout from "@/components/header/HeaderLayout"
-import LinkedServices from "./components/LinkedServices"
-import SubscriptionStatus from "./components/SubscriptionStatus"
-import ProfileInfo from "./components/ProfileInfo"
+import HeaderLayout from "@/components/shared/header/HeaderLayout"
+import LinkedServices from "../../../components/feature/WebApp-pages/profile/LinkedServices"
+import SubscriptionStatus from "../../../components/feature/WebApp-pages/profile/SubscriptionStatus"
+import ProfileInfo from "../../../components/feature/WebApp-pages/profile/ProfileInfo"
 import { cookies } from "next/headers"
-import PromoModal from "./components/PromoModal"
+import PromoModal from "../../../components/feature/WebApp-pages/profile/PromoModal"
 
 async function Profile() {
   const cookieStore = await cookies()
@@ -55,6 +55,7 @@ async function Profile() {
     </div>
   )
 }
+
 export default Profile
 
 const ResponsiveProfileSections = ({ user, subscribe }: ProfilePageProps) => {
@@ -106,9 +107,9 @@ const ResponsiveProfileSections = ({ user, subscribe }: ProfilePageProps) => {
 }
 
 const SectionWrapper = ({
-  className,
-  layout
-}: {
+                          className,
+                          layout
+                        }: {
   className: string
   layout: React.ReactNode
 }) => <div className={className}>{layout}</div>

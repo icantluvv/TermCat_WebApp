@@ -7,14 +7,10 @@ const poppins = Poppins({
   variable: "--font-poppins"
 })
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={poppins.variable}>
-      <body className="">{children}</body>
+    <body>{children}</body>
     </html>
   )
 }

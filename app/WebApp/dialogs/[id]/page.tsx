@@ -1,7 +1,7 @@
 import { cookies } from "next/headers"
 import { TranslateService } from "@/lib/services/translate.service"
-import HeaderLayout from "@/components/header/HeaderLayout"
-import Chat from "./components/Chat"
+import HeaderLayout from "@/components/shared/header/HeaderLayout"
+import Chat from "../../../../components/feature/WebApp-pages/dialogs/dialog/Chat"
 
 const DialogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params

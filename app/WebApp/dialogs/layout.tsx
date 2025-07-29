@@ -1,8 +1,8 @@
-import Navigation from "@/components/nav/Navigation"
+import Navigation from "@/components/shared/nav/Navigation"
 
 export default function DialogsLayout({
-  children
-}: Readonly<{
+                                        children
+                                      }: Readonly<{
   children: React.ReactNode
 }>) {
   return (

@@ -1,5 +1,5 @@
-import CreateDialogChat from "../components/CreateDialogChat"
-import InstructionChatModile from "../components/InstructionChatModal"
+import CreateDialogChat from "../../../../components/feature/WebApp-pages/dialogs/CreateDialogChat"
+import InstructionChatModile from "../../../../components/feature/WebApp-pages/dialogs/InstructionChatModal"
 
 const CreateDialogPage = async () => {
   return (

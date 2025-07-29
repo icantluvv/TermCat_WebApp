@@ -1,4 +1,4 @@
-import NotReadyPage from "@/components/NotReadyPage"
+import NotReadyPage from "@/components/feature/not-ready-page/NotReadyPage"
 import React from "react"
 
 const IntroducePage = () => {

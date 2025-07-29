@@ -1,10 +1,10 @@
-import Navigation from "@/components/nav/Navigation"
+import Navigation from "@/components/shared/nav/Navigation"
 import NotReadyBack from "@/public/images/not_ready/NotReadyBack.png"
 import Image from "next/image"
 
 export default function IntroduceLayout({
-  children
-}: Readonly<{
+                                          children
+                                        }: Readonly<{
   children: React.ReactNode
 }>) {
   return (

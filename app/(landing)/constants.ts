@@ -99,3 +99,26 @@ export const questions = [
     text: "Технология перевода AI гарантирует качественный перевод любого типа контента. Однако точность может варьироваться в зависимости от языковой пары. Виджет выше позволит вам оценить точность предлагаемого перевода."
   }
 ]
+
+
+export const PageSchema =
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ООО «Термкэт»",
+    "url": "https://term-cat.ru",
+    "image": "https://term-cat.ru/_next/static/media/logo.6b56f61b.svg",
+    "telephone": "+7 928 753-12-67",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Страны Советов, д. 42б, офис 102",
+      "addressLocality": "г. Ростов-На-Дону",
+      "addressRegion": "Ростовская область",
+      "postalCode": "344023",
+      "addressCountry": "RU"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Демьянова Елизавета Алексеевна"
+    }
+  }

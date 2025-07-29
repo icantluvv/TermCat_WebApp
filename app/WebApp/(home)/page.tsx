@@ -1,13 +1,13 @@
-import HeaderLayout from "@/components/header/HeaderLayout"
+import HeaderLayout from "@/components/shared/header/HeaderLayout"
 import { cookies } from "next/headers"
-import ChatCard from "./components/ChatCard"
-import CommentCard from "./components/CommentCard"
-import HistoryCard from "./components/HistoryCard"
-import IntroduceCard from "./components/IntroduceCard"
-import PlanCard from "./components/PlanCard"
-import SubScriptionCard from "./components/SubcriptionCard"
-import TariffLayout from "./components/TariffLayout"
-import BuyCard from "./components/BuyCard"
+import ChatCard from "../../../components/feature/WebApp-pages/index/ChatCard"
+import CommentCard from "../../../components/feature/WebApp-pages/index/CommentCard"
+import HistoryCard from "../../../components/feature/WebApp-pages/index/HistoryCard"
+import IntroduceCard from "../../../components/feature/WebApp-pages/index/IntroduceCard"
+import PlanCard from "../../../components/feature/WebApp-pages/index/PlanCard"
+import SubScriptionCard from "../../../components/feature/WebApp-pages/index/SubcriptionCard"
+import TariffLayout from "../../../components/feature/WebApp-pages/index/TariffLayout"
+import BuyCard from "../../../components/feature/WebApp-pages/index/BuyCard"
 
 export default async function Home() {
   const cookieStore = await cookies()

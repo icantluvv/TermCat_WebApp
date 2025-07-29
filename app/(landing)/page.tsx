@@ -1,25 +1,34 @@
-import Footer from "./components/Footer/Footer"
-import TermCat from "./components/Sections/TermCat/TermCat"
-import Stats from "./components/Sections/Stats/Stats"
-import Points from "./components/Sections/Points/Points"
-import Features from "./components/Sections/Features/Features"
-import TariffSection from "./components/Sections/Tariffs/TariffSection"
-import FAQ from "./components/Sections/FAQ/FAQ"
-import Feedback from "./components/Sections/Feedback/Feedback"
+import TermCat from "@/components/feature/landing-page/Sections/TermCat/TermCat"
+import Stats from "@/components/feature/landing-page/Sections/Stats/Stats"
+import Points from "@/components/feature/landing-page/Sections/Points/Points"
+import Features from "@/components/feature/landing-page/Sections/Features/Features"
+import TariffSection from "@/components/feature/landing-page/Sections/Tariffs/TariffSection"
+import FAQ from "@/components/feature/landing-page/Sections/FAQ/FAQ"
+import Feedback from "@/components/feature/landing-page/Sections/Feedback/Feedback"
+import Script from "next/script"
+import { PageSchema } from "@/app/(landing)/constants"
+import { Metadata } from "next"
+import { getStaticMeta } from "@/utils/getStaticMeta"
+
+export const metadata: Metadata = { ...getStaticMeta("/") }
 
 export default function LandingPage() {
   return (
-    <div className="w-full flex flex-col items-center bg-PrimaryBlack xl:px-[6.5vw] gap-[80px] xl:gap-[160px] relative py-[100px]">
-      <main className="flex flex-col w-full gap-[40px] xl:gap-[80px] row-start-2 items-center z-[1000] ">
+    <>
+      {/* eslint-disable-next-line @next/next/inline-script-id */}
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(PageSchema)
+        }}
+      />
         <TermCat />
         <Stats />
         <Points />
         <Features />
         <TariffSection />
-        <Feedback/>
+        <Feedback />
         <FAQ></FAQ>
-      </main>
-      <Footer />
-    </div>
+    </>
   )
 }

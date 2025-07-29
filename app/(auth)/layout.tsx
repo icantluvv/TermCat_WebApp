@@ -1,19 +1,16 @@
 import Image from "next/image"
 import back from "@/public/images/auth/back.png"
+import PageWrapper from "@/components/shared/PageWrapper/PageWrapper"
 
-export default function AuthLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function AuthLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="flex flex-col min-h-[100svh] relative">
+    <PageWrapper className="bg-[#e8e8e8] flex items-center justify-center">
       {children}
       <Image
         src={back}
         alt=""
         className="w-full h-full top-0 left-0 absolute opacity-30"
       />
-    </div>
+    </PageWrapper>
   )
 }
