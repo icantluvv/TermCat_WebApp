@@ -33,7 +33,7 @@ const FeedbackSlider = () => {
     const activeFeedback = feedbacks[activeIndex]
 
     return (
-        <div className="w-full flex-col relative items-center gap-[40px] hidden xl:flex">
+        <div className="w-full mt-[40px] flex-col relative items-center gap-[40px] hidden xl:flex">
             <div className="text-center max-w-[850px] flex flex-col gap-[40px]">
                 <p className="text-LightGray text-[18px] h-[100px]">
                     {activeFeedback.text}

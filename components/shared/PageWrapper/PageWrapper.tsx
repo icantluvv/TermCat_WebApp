@@ -8,8 +8,7 @@ type PageWrapperProps = {
 
 const PageWrapper = ({ children, className }: PageWrapperProps) => {
   return (
-    <main
-      className={clsx("min-h-[100svh] w-full relative px-[16px] md:px-[32px] xl:px-[80px] flex justify-center", className)}>
+    <main className={clsx("min-h-[100svh] flex flex-col items-center relative overflow-hidden", className)}>
       {children}
     </main>
   )

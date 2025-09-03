@@ -22,13 +22,13 @@ export default function LandingPage() {
           __html: JSON.stringify(PageSchema)
         }}
       />
-        <TermCat />
-        <Stats />
-        <Points />
-        <Features />
-        <TariffSection />
-        <Feedback />
-        <FAQ></FAQ>
+      <TermCat />
+      <Stats />
+      <Points />
+      <Features />
+      <TariffSection />
+      <Feedback />
+      <FAQ></FAQ>
     </>
   )
 }

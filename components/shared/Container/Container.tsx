@@ -7,11 +7,7 @@ type ContainerProps = {
 }
 
 const Container = ({ children, className }: ContainerProps) => {
-  return (
-    <div className={clsx("max-w-[1300px] w-full", className)}>
-      {children}
-    </div>
-  )
+  return <div className={clsx("max-w-[1440px] w-full px-[16px] md:px-[32px] xl:px-[80px]", className)}>{children}</div>
 }
 
 export default Container

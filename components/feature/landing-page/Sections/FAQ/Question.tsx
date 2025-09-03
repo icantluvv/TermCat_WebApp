@@ -21,7 +21,7 @@ const Question = ({ title, text }: QuestionProps) => {
       form="default"
       size="default"
       onClick={openQuestion}
-      className={`w-full flex flex-col ${
+      className={`w-full mt-6 flex flex-col ${
         isOpen ? "gap-[12px] delay-0 " : "gap-[0px] delay-200"
       } relative rounded-[24px] bg-[#f4f4f4] hover:bg-[#eaeaea] border-[#dde1e6] border p-[24px] `}
     >
