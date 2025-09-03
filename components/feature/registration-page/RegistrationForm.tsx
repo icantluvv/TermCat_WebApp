@@ -8,7 +8,7 @@ import Button from "@/components/Button/Button"
 import Link from "next/link"
 import { AuthService } from "@/lib/services/auth.service"
 import { useModalStore } from "@/store/useRegistrationErrorModalStore"
-import RegistrationErrorModal from "@/components/feature/registration/RegistrationErrorModal"
+import RegistrationErrorModal from "@/components/feature/registration-page/RegistrationErrorModal"
 
 function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -34,39 +34,16 @@ function RegistrationForm() {
   useEffect(() => {
     setErrors({
       name:
-        name.trim().length === 0
-          ? "Введите имя"
-          : name.trim().length < 2
-            ? "Имя должно быть минимум 2 символа"
-            : "",
-      email:
-        email.trim().length === 0
-          ? "Введите email"
-          : !validateEmail(email)
-            ? "Неверный формат email"
-            : "",
+        name.trim().length === 0 ? "Введите имя" : name.trim().length < 2 ? "Имя должно быть минимум 2 символа" : "",
+      email: email.trim().length === 0 ? "Введите email" : !validateEmail(email) ? "Неверный формат email" : "",
       password:
-        password.length === 0
-          ? "Введите пароль"
-          : password.length < 6
-            ? "Пароль должен быть минимум 6 символов"
-            : "",
+        password.length === 0 ? "Введите пароль" : password.length < 6 ? "Пароль должен быть минимум 6 символов" : "",
       confirmPassword:
-        confirmPassword.length === 0
-          ? "Подтвердите пароль"
-          : confirmPassword !== password
-            ? "Пароли не совпадают"
-            : ""
+        confirmPassword.length === 0 ? "Подтвердите пароль" : confirmPassword !== password ? "Пароли не совпадают" : ""
     })
   }, [name, email, password, confirmPassword])
 
-  const isFormValid =
-    !errors.name &&
-    !errors.email &&
-    !errors.password &&
-    !errors.confirmPassword &&
-    agreeToTerms
-
+  const isFormValid = !errors.name && !errors.email && !errors.password && !errors.confirmPassword && agreeToTerms
 
   useEffect(() => {
     if (showErrorModal) {
@@ -78,7 +55,6 @@ function RegistrationForm() {
       document.body.style.overflow = ""
     }
   }, [showErrorModal])
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -106,14 +82,12 @@ function RegistrationForm() {
         className="flex flex-col w-[85vw] md:w-[55vw] lg:w-[518px] py-[3vh] px-[3vw] xl:px-[2vw]
       bg-white rounded-[24px] gap-[12px] md:gap-[18px] lg:gap-[24px] z-[1000] text-PrimaryBlack"
       >
-        <div
-          className="flex flex-col items-center w-full text-center mt-[3vh] gap-[12px] md:gap-[18px] lg:gap-[40px]">
+        <div className="flex flex-col items-center w-full text-center mt-[3vh] gap-[12px] md:gap-[18px] lg:gap-[40px]">
           <h3 className="text-[24px] lg:text-[42px] font-medium leading-tight">
             Добро пожаловать <br />в TermCat
           </h3>
           <p className="text-[12px] lg:text-[14px] text-Gray02 ">
-            Зарегистрируйтесь, чтобы использовать <br /> инновационный CAt
-            Toolls инструмент
+            Зарегистрируйтесь, чтобы использовать <br /> инновационный CAt Toolls инструмент
           </p>
         </div>
 
@@ -123,9 +97,7 @@ function RegistrationForm() {
 
         <div className="flex flex-col gap-[12px] md:gap-[18px] lg:gap-[24px] px-[2vw] xl:px-[0vw]">
           <div className="flex flex-col w-full gap-[6px]">
-            <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">
-              Имя
-            </label>
+            <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">Имя</label>
             <input
               onChange={(e) => setName(e.target.value)}
               value={name}
@@ -137,9 +109,7 @@ function RegistrationForm() {
           </div>
 
           <div className="flex flex-col w-full gap-[6px]">
-            <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">
-              E-mail
-            </label>
+            <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">E-mail</label>
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -151,9 +121,7 @@ function RegistrationForm() {
           </div>
 
           <div className="flex flex-col w-full gap-[6px]">
-            <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">
-              Пароль
-            </label>
+            <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">Пароль</label>
             <div className="relative w-full flex">
               <input
                 onChange={(e) => setPassword(e.target.value)}
@@ -198,34 +166,21 @@ function RegistrationForm() {
               type="checkbox"
               className="w-[18px] h-[18px] lg:w-[24px] lg:h-[24px] border-[#a1a1a1] accent-[#C2F041] cursor-pointer"
             />
-            <p className="text-[#a1a1a1] text-[12px] xl:text-[14px]">
-              Я соглашаюсь на обработку персональных данных
-            </p>
+            <p className="text-[#a1a1a1] text-[12px] xl:text-[14px]">Я соглашаюсь на обработку персональных данных</p>
           </div>
 
-          <Button
-            variant="submit"
-            text="Зарегистрироваться"
-            disabled={!agreeToTerms}
-          />
+          <Button variant="submit" text="Зарегистрироваться" disabled={!agreeToTerms} />
 
           <div className="flex gap-[6px] items-center mt-[1vh] justify-center">
-            <p className="text-Gray02 text-[12px] md:text-[14px]">
-              Уже есть аккаунт?
-            </p>
-            <Link
-              href={"/login"}
-              className="font-medium text-[14px] md:text-[16px] hover:opacity-75 active:opacity-60"
-            >
+            <p className="text-Gray02 text-[12px] md:text-[14px]">Уже есть аккаунт?</p>
+            <Link href={"/login"} className="font-medium text-[14px] md:text-[16px] hover:opacity-75 active:opacity-60">
               Войти
             </Link>
           </div>
         </div>
       </form>
 
-      {showErrorModal && (
-        <RegistrationErrorModal onClose={() => closeErrorModal()} />
-      )}
+      {showErrorModal && <RegistrationErrorModal onClose={() => closeErrorModal()} />}
     </>
   )
 }
