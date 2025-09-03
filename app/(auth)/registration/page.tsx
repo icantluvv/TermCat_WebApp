@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { getStaticMeta } from "@/utils/getStaticMeta"
-import RegistrationForm from "@/components/feature/login-page/LoginForm"
+import RegistrationForm from "@/components/feature/registration-page/RegistrationForm"
 
 export const metadata: Metadata = { ...getStaticMeta("/registration") }
 
@@ -9,7 +9,6 @@ const SignUp = () => {
     <>
       <RegistrationForm />
     </>
-
   )
 }
 export default SignUp
