@@ -1,67 +1,53 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
+import { refreshToken } from "@/package/api/auth/refresh-token"
+import { isAccessTokenExpired } from "@/utils/isAccessTokenExpired"
 
 export async function middleware(request: NextRequest) {
-  if (
-    request.nextUrl.pathname === "/login" ||
-    request.nextUrl.pathname === "/signup"
-  ) {
+  if (request.nextUrl.pathname === "/login" || request.nextUrl.pathname === "/signup") {
     return NextResponse.next()
   }
 
   const accessToken = request.cookies.get("accessToken")?.value
-  const refreshToken = request.cookies.get("refreshToken")?.value
+  const refreshTokenValue = request.cookies.get("refreshToken")?.value
 
-  if (!accessToken && !refreshToken) {
-    return NextResponse.redirect(new URL("/login", request.url))
-  }
+  // if (!accessToken && !refreshTokenValue) {
+  //   return NextResponse.redirect(new URL("/login", request.url))
+  // }
 
-  if (accessTokenExpired(accessToken) && refreshToken) {
+  if (isAccessTokenExpired(accessToken) && refreshTokenValue) {
     try {
-      const refreshRes = await fetch(
-        `${process.env.BACKEND_URL}/auth/refresh`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ refreshToken })
-        }
-      )
+      const result = await refreshToken(refreshTokenValue)
 
-      if (refreshRes.ok) {
-        const { accessToken: newAccessToken } = await refreshRes.json()
+      if (result.success) {
         const response = NextResponse.next()
 
-        response.cookies.set("accessToken", newAccessToken, {
+        response.cookies.set("accessToken", result.accessToken!, {
           httpOnly: true,
           path: "/",
           maxAge: 60 * 13,
           sameSite: "lax"
         })
+
+        if (result.refreshToken) {
+          response.cookies.set("refreshToken", result.refreshToken, {
+            httpOnly: true,
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+            sameSite: "lax"
+          })
+        }
+
         return response
       } else {
-        return NextResponse.redirect(new URL("/login", request.url))
+        // return NextResponse.redirect(new URL("/login", request.url))
       }
     } catch {
-      return NextResponse.redirect(new URL("/login", request.url))
+      // return NextResponse.redirect(new URL("/login", request.url))
     }
   }
-  return NextResponse.next()
-}
 
-function accessTokenExpired(token?: string): boolean {
-  if (!token) return true
-  try {
-    const payloadBase64 = token.split(".")[1]
-    const decodedPayload = JSON.parse(
-      Buffer.from(payloadBase64, "base64").toString("utf-8")
-    )
-    const exp = decodedPayload.exp
-    const now = Math.floor(Date.now() / 1000)
-    return exp < now
-  } catch (error) {
-    console.error("Failed to decode token:", error)
-    return true
-  }
+  return NextResponse.next()
 }
 
 export const config = {

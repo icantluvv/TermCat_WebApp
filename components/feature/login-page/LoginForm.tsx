@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 import SignInYandexButton from "@/components/shared/YandexButton/SignInYandexButton"
 import Image from "next/image"
 import eye from "@/public/images/auth/eye.png"
@@ -9,13 +9,11 @@ import Link from "next/link"
 import { AuthService } from "@/lib/services/auth.service"
 
 function RegistrationForm() {
-
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
 
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
 
     const success = await AuthService.getInstance().login({ email, password })
@@ -32,14 +30,12 @@ function RegistrationForm() {
       className="flex flex-col w-[85vw] md:w-[55vw] lg:w-[518px] py-[3vh] px-[3vw] xl:px-[2vw]
       bg-white rounded-[24px] gap-[12px] md:gap-[18px] lg:gap-[24px] z-[1000] text-PrimaryBlack"
     >
-      <div
-        className="flex flex-col items-center w-full text-center mt-[3vh] gap-[12px] md:gap-[18px] lg:gap-[40px]">
+      <div className="flex flex-col items-center w-full text-center mt-[3vh] gap-[12px] md:gap-[18px] lg:gap-[40px]">
         <h3 className="text-[24px] lg:text-[42px] font-medium leading-tight">
           Добро пожаловать <br /> в TermCat
         </h3>
         <p className="text-[12px] lg:text-[14px] text-Gray02 ">
-          Войдите в аккаунт, чтобы использовать <br /> инновационный CAT Tools
-          инструмент
+          Войдите в аккаунт, чтобы использовать <br /> инновационный CAT Tools инструмент
         </p>
       </div>
 
@@ -49,9 +45,7 @@ function RegistrationForm() {
 
       <div className="flex flex-col gap-[12px] md:gap-[18px] lg:gap-[24px] px-[2vw] xl:px-[0vw]">
         <div className="flex flex-col w-full gap-[6px]">
-          <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">
-            E-mail
-          </label>
+          <label className="text-[#a1a1a1] text-[12px] md:text-[14px]">E-mail</label>
           <input
             type="email"
             placeholder="Введите почту"
@@ -63,9 +57,7 @@ function RegistrationForm() {
         </div>
 
         <div className="flex flex-col w-full gap-y-2">
-          <label className="text-Gray02 text-[12px] md:text-[14px]">
-            Пароль
-          </label>
+          <label className="text-Gray02 text-[12px] md:text-[14px]">Пароль</label>
           <div className="relative flex w-full">
             <input
               type={showPassword ? "text" : "password"}
@@ -91,9 +83,7 @@ function RegistrationForm() {
 
         <div className="flex flex-col items-center">
           <div className="flex flex-col gap-[3px] items-center">
-            <p className="text-Gray02 text-[12px] md:text-[14px]">
-              У вас нет аккаунта?
-            </p>
+            <p className="text-Gray02 text-[12px] md:text-[14px]">У вас нет аккаунта?</p>
             <Link
               href={"/registration"}
               className="font-medium text-[14px] md:text-[16px] hover:opacity-75 active:opacity-60"

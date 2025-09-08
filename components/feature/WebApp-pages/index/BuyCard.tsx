@@ -53,13 +53,7 @@ const SmallBuyCard = () => {
           Промокод для получения <br /> termwords в профиле
         </p>
       </div>
-      <Image
-        src={background}
-        className="absolute opacity-10"
-        fill
-        objectFit="cover"
-        alt=""
-      />
+      <Image src={background} className="absolute opacity-10" fill objectFit="cover" alt="" />
     </Link>
   )
 }

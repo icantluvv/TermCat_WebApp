@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google"
 import "../globals.css"
+import { ReactNode } from "react"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -7,10 +8,10 @@ const poppins = Poppins({
   variable: "--font-poppins"
 })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru" className={poppins.variable}>
-    <body>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
