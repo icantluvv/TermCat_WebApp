@@ -3,17 +3,13 @@ import Link from "next/link"
 
 import arrow from "@/public/images/landing/arrow.svg"
 import landing_header_logo from "@/public/images/landing/logo.svg"
-import Typography from "@/components/core/typography/Typography"
-import Button from "@/components/core/button/Button"
+import Typography from "@/components/atoms/typography/Typography"
+import Button from "@/components/atoms/button/Button"
 
 const BigLandingHeader = () => (
   <div className="hidden lg:flex w-full h-[80px] justify-center relative items-center z-[5000]">
-    <Link href={"/#termcat"} className="absolute active:opacity-80">
-      <Image
-        src={landing_header_logo}
-        alt="landing header logo"
-        className="w-[104px]"
-      />
+    <Link href={"/"} className="absolute active:opacity-80">
+      <Image src={landing_header_logo} alt="landing header logo" className="w-[104px]" />
     </Link>
 
     <nav className="flex w-full justify-between items-center">
@@ -28,12 +24,7 @@ const BigLandingHeader = () => (
         </Link>
 
         <Link href={"/WebApp"}>
-          <Button
-            size="big"
-            variant="emptyGreen"
-            form="rounded"
-            className="pr-[6px]"
-          >
+          <Button size="big" variant="emptyGreen" form="rounded" className="pr-[6px]">
             <Typography variants="button">Войти</Typography>
 
             <div className="rounded-full min-w-[36px] h-[36px] bg-PrimaryGreen flex items-center justify-center">

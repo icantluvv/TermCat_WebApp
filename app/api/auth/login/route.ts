@@ -1,19 +1,42 @@
 import { NextResponse } from "next/server"
-import { loginUser, type LoginBody } from "@/package/api/auth/login-user"
-import { setTokensInCookies } from "@/utils/setTokens"
+import client from "@/package/api/axios.client"
+// import { cookies } from "next/headers"
 
 export async function POST(req: Request) {
-  const body: LoginBody = await req.json()
+  try {
+    const body = await req.json()
 
-  const result = await loginUser(body)
+    const response = await client<{ accessToken: string; refreshToken: string }>({
+      method: "POST",
+      url: "/auth/login",
+      data: body,
+      headers: { "Content-Type": "application/json" }
+    })
 
-  if (!result.success) {
-    return NextResponse.json({ message: result.error!.message }, { status: result.error!.status })
+    // if (response.data) {
+    //   const cookieStore = await cookies()
+    //
+    //   cookieStore.set({
+    //     name: "termAccessToken",
+    //     value: response.data.accessToken,
+    //     httpOnly: false,
+    //     path: "/",
+    //     expires: new Date(Date.now() + 10 * 60 * 1000)
+    //   })
+    //
+    //   cookieStore.set({
+    //     name: "termRefreshToken",
+    //     value: response.data.refreshToken,
+    //     httpOnly: false,
+    //     path: "/",
+    //     expires: new Date(Date.now() + 7 * 23 * 60 * 60 * 1000)
+    //   })
+    // }
+
+    return NextResponse.json(response.data)
+  } catch (error: unknown) {
+    console.error("API route login error:", error)
+    const errorMessage = error instanceof Error ? error.message : "Internal Server Error"
+    return NextResponse.json({ message: errorMessage }, { status: 500 })
   }
-
-  const response = NextResponse.json({ message: "Login successful" })
-
-  setTokensInCookies(response, result.accessToken!, result.accessMaxAge!, result.refreshToken!, result.refreshMaxAge!)
-
-  return response
 }

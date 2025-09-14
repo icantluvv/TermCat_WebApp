@@ -9,14 +9,14 @@ export function setTokensInCookies(
 ) {
   response.cookies.set("accessToken", accessToken, {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "strict",
     path: "/",
     maxAge: Math.floor(accessMaxAge / 1000)
   })
 
   response.cookies.set("refreshToken", refreshToken, {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "strict",
     path: "/",
     maxAge: Math.floor(refreshMaxAge / 1000)
   })

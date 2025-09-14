@@ -1,6 +1,6 @@
 import HeaderLayout from "@/components/shared/header/HeaderLayout"
 import { cookies } from "next/headers"
-import DialogsArray from "../../../components/feature/WebApp-pages/dialogs/DialogsArray"
+import DialogsArray from "@/components/molecules/WebApp-pages/dialogs/DialogsArray"
 
 const History = async () => {
   const cookieStore = await cookies()
@@ -25,12 +25,10 @@ const History = async () => {
   }
 
   return (
-    <div
-      className="flex flex-col h-full w-full gap-[24px] xl:h-[100svh] pt-[5svh]  xl:pb-0 items-center overflow-x-hidden">
+    <div className="flex flex-col h-full w-full gap-[24px] xl:h-[100svh] pt-[5svh]  xl:pb-0 items-center overflow-x-hidden">
       <HeaderLayout title="История" text="Продолжите один из своих проектов" />
 
-      <main
-        className="flex-1 flex flex-col w-full  md:w-[70%] xl:w-[55%] xl:px-0 bg-PageBG overflow-auto no-scrollbar gap-[24px] xl:py-[5vh] pb-[100px] overflow-x-hidden">
+      <main className="flex-1 flex flex-col w-full  md:w-[70%] xl:w-[55%] xl:px-0 bg-PageBG overflow-auto no-scrollbar gap-[24px] xl:py-[5vh] pb-[100px] overflow-x-hidden">
         <DialogsArray dialogs={history} />
       </main>
     </div>

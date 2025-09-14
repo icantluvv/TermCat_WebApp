@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-import Button from "@/components/core/button/Button"
+import Button from "@/components/atoms/button/Button"
 
 import notfound from "@/public/images/404/404.svg"
 import NotReadyBack from "@/public/images/not_ready/NotReadyBack.png"
-import Typography from "@/components/core/typography/Typography"
+import Typography from "@/components/atoms/typography/Typography"
 
 export default function NotFound() {
   return (

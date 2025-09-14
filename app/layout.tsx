@@ -10,8 +10,11 @@ const poppins = Poppins({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ru" className={poppins.variable}>
-      <body>{children}</body>
-    </html>
+    <>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <html lang="ru" className={poppins.variable}>
+        <body>{children}</body>
+      </html>
+    </>
   )
 }

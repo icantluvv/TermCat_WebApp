@@ -1,5 +1,5 @@
 import { AxiosError } from "axios"
-import client from "@/package/axios/axios.client"
+import client from "@/package/api/axios.client"
 
 export type RefreshTokenBody = {
   refreshToken: string

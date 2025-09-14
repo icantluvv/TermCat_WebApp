@@ -1,11 +1,11 @@
 export const revalidate = 60
 
 import HeaderLayout from "@/components/shared/header/HeaderLayout"
-import LinkedServices from "../../../components/feature/WebApp-pages/profile/LinkedServices"
-import SubscriptionStatus from "../../../components/feature/WebApp-pages/profile/SubscriptionStatus"
-import ProfileInfo from "../../../components/feature/WebApp-pages/profile/ProfileInfo"
+import LinkedServices from "@/components/molecules/WebApp-pages/profile/LinkedServices"
+import SubscriptionStatus from "@/components/molecules/WebApp-pages/profile/SubscriptionStatus"
+import ProfileInfo from "@/components/molecules/WebApp-pages/profile/ProfileInfo"
 import { cookies } from "next/headers"
-import PromoModal from "../../../components/feature/WebApp-pages/profile/PromoModal"
+import PromoModal from "@/components/molecules/WebApp-pages/profile/PromoModal"
 
 async function Profile() {
   const cookieStore = await cookies()
@@ -21,16 +21,13 @@ async function Profile() {
 
   const user: User = await getMe.json()
 
-  const getSub = await fetch(
-    `${process.env.BACKEND_URL}/subscriptions/getInfoSub/${user.id}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`
-      }
+  const getSub = await fetch(`${process.env.BACKEND_URL}/subscriptions/getInfoSub/${user.id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`
     }
-  )
+  })
 
   let subscribe = null
   if (getSub.ok) {
@@ -44,10 +41,7 @@ async function Profile() {
 
   return (
     <div className="flex flex-col gap-[24px] lg:gap-[40px]">
-      <HeaderLayout
-        title="Личный профиль"
-        text="Здесь хранятся все ваши данные"
-      />
+      <HeaderLayout title="Личный профиль" text="Здесь хранятся все ваши данные" />
       <main className="w-full">
         <ResponsiveProfileSections user={user} subscribe={subscribe} />
       </main>
@@ -106,10 +100,6 @@ const ResponsiveProfileSections = ({ user, subscribe }: ProfilePageProps) => {
   )
 }
 
-const SectionWrapper = ({
-                          className,
-                          layout
-                        }: {
-  className: string
-  layout: React.ReactNode
-}) => <div className={className}>{layout}</div>
+const SectionWrapper = ({ className, layout }: { className: string; layout: React.ReactNode }) => (
+  <div className={className}>{layout}</div>
+)

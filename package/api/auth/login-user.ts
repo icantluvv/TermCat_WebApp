@@ -1,6 +1,5 @@
-import { AxiosError } from "axios"
-import { decodeToken } from "@/utils/decodeJWT"
-import client from "../../axios/axios.client"
+import Cookies from "universal-cookie"
+import client, { type RequestConfig, type ResponseConfig } from "../axios.client"
 
 export type LoginBody = {
   email: string
@@ -14,76 +13,37 @@ export type LoginResponse = {
 
 export type LoginResult = {
   success: boolean
-  accessToken?: string
-  refreshToken?: string
-  accessMaxAge?: number
-  refreshMaxAge?: number
-  error?: {
-    message: string
-    status: number
-  }
+  data?: LoginResponse
+  error?: string
 }
 
-export async function loginUser(body: LoginBody): Promise<LoginResult> {
-  if (!process.env.JWT_SECRET) {
-    throw new Error("environment has not been configured")
+export async function loginUser({ email, password }: LoginBody): Promise<LoginResult> {
+  const config: RequestConfig<LoginBody> = {
+    method: "POST",
+    url: "/api/auth/login",
+    baseURL: "/",
+    data: { email, password },
+    headers: { "Content-Type": "application/json" }
   }
 
+  const cookies = new Cookies()
+
   try {
-    const res = await client<LoginResponse>({
-      method: "POST",
-      url: "/auth/login",
-      data: body,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "*/*"
-      }
-    })
+    const response: ResponseConfig<LoginResponse> = await client<LoginResponse, LoginBody>(config)
+    const { accessToken, refreshToken } = response.data
 
-    const { accessToken, refreshToken } = res.data
     if (!accessToken || !refreshToken) {
-      return {
-        success: false,
-        error: {
-          message: "Invalid tokens from server",
-          status: 500
-        }
-      }
+      return { success: false, error: "Invalid tokens from API" }
     }
 
-    const decodedAccess = decodeToken(accessToken, process.env.JWT_SECRET)
-    const decodedRefresh = decodeToken(refreshToken, process.env.JWT_SECRET)
+    cookies.set("accessToken", accessToken, { path: "/", maxAge: 10 * 60 })
+    cookies.set("refreshToken", refreshToken, { path: "/", maxAge: 7 * 24 * 60 * 60 })
 
-    const accessMaxAge = decodedAccess.exp * 1000 - Date.now()
-    const refreshMaxAge = decodedRefresh.exp * 1000 - Date.now()
-
-    if (accessMaxAge <= 0 || refreshMaxAge <= 0) {
-      return {
-        success: false,
-        error: {
-          message: "Token already expired",
-          status: 401
-        }
-      }
-    }
-
-    return {
-      success: true,
-      accessToken,
-      refreshToken,
-      accessMaxAge,
-      refreshMaxAge
-    }
+    return { success: true, data: { accessToken, refreshToken } }
   } catch (error) {
-    const axiosError = error as AxiosError<{ message: string }>
-    console.error("Login error:", axiosError.response?.data || axiosError.message)
-
     return {
       success: false,
-      error: {
-        message: axiosError.response?.data?.message || "Invalid credentials",
-        status: axiosError.response?.status || 401
-      }
+      error: error instanceof Error ? error.message : "An unknown error occurred"
     }
   }
 }

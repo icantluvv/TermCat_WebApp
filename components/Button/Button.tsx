@@ -1,13 +1,8 @@
 "use client"
 import { useRouter } from "next/navigation"
+import { ButtonHTMLAttributes, FC, ReactNode } from "react"
 
-const Button: React.FC<ButtonProps> = ({
-  variant = "main",
-  text,
-  href,
-  disabled,
-  ...props
-}) => {
+const Button: FC<ButtonProps> = ({ variant = "main", children, href, disabled, ...props }) => {
   const router = useRouter()
 
   const baseClasses =
@@ -38,9 +33,7 @@ const Button: React.FC<ButtonProps> = ({
       variantClasses = ""
   }
 
-  const disabledClasses = disabled
-    ? "bg-[#e8e8e8] cursor-not-allowed pointer-events-none"
-    : ""
+  const disabledClasses = disabled ? "bg-[#e8e8e8] cursor-not-allowed pointer-events-none" : ""
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled) {
@@ -62,14 +55,14 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       {...props}
     >
-      {text}
+      {children}
     </button>
   )
 }
 export default Button
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "submit" | "main" | "upgrade" | "text" | "full-green"
-  text: string
+  children?: ReactNode
   href?: string
 }

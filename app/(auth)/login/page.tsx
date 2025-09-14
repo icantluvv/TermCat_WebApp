@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import { getStaticMeta } from "@/utils/getStaticMeta"
-import LoginForm from "@/components/feature/login-page/LoginForm"
+import LoginForm from "@/components/organism/LoginForm"
 
 export const metadata: Metadata = { ...getStaticMeta("/login") }
 

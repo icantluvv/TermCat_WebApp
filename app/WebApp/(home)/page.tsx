@@ -2,8 +2,8 @@ import HeaderLayout from "@/components/shared/header/HeaderLayout"
 import { cookies } from "next/headers"
 import { getMe } from "@/package/api/profile/getMe"
 import { getSubInfo } from "@/package/api/profile/getSubInfo"
-import TariffLayout from "../../../components/feature/WebApp-pages/index/TariffLayout"
-import CardsLayout from "@/components/feature/WebApp-pages/index/CardsLayout"
+import TariffLayout from "@/components/molecules/WebApp-pages/index/TariffLayout"
+import CardsLayout from "@/components/molecules/WebApp-pages/index/CardsLayout"
 
 export default async function Home() {
   const cookieStore = await cookies()

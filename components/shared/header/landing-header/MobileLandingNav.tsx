@@ -21,11 +21,9 @@ const MobileLandingNav = ({ navLinks }: LandingLinksProps) => {
           </Link>
         ))}
       </nav>
-      <Image
-        src={logo}
-        alt={"mobile_nav_logo"}
-        className="absolute bottom-[5vh] w-[100px]"
-      ></Image>
+      <Link href={"/"} className={"inline-block absolute bottom-[5vh]"}>
+        <Image src={logo} alt={"mobile_nav_logo"} className="w-[100px]"></Image>
+      </Link>
     </div>
   )
 }
