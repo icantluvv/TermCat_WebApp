@@ -7,7 +7,6 @@ import { SignInYandexButton } from "@/components/organism/SignInYandexButton/sig
 
 import { loginUser } from "@/package/api/auth/login-user"
 import FormTitle from "@/components/molecules/FormTitle"
-import Typography from "@/components/atoms/typography/Typography"
 import FormBottomLink from "@/components/molecules/FormBottomLink"
 import InputField from "@/components/input/InputField"
 import Button from "@/components/atoms/button/Button"
@@ -39,20 +38,19 @@ function RegistrationForm() {
     >
       <FormTitle
         title={
-          <Typography variants="h3">
+          <>
             Добро пожаловать <br /> в TermCat
-          </Typography>
+          </>
         }
         description={
-          <Typography variants="p">
+          <>
+            {" "}
             Войдите в аккаунт, чтобы использовать <br /> инновационный CAT Tools инструмент
-          </Typography>
+          </>
         }
       />
 
-      <div className="w-full flex justify-center opacity-30">
-        <SignInYandexButton />
-      </div>
+      <SignInYandexButton disabled />
 
       <div className="flex flex-col gap-[12px] md:gap-[18px] lg:gap-[24px] px-[2vw] xl:px-[0vw]">
         <div className="flex flex-col w-full gap-y-2">

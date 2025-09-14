@@ -7,14 +7,14 @@ export async function POST(req: Request) {
 
     const response = await client<{ accessToken: string; refreshToken: string }>({
       method: "POST",
-      url: "/auth/login",
+      url: "/auth/register",
       data: body,
       headers: { "Content-Type": "application/json" }
     })
 
     return NextResponse.json(response.data)
   } catch (error: unknown) {
-    console.error("API route login error:", error)
+    console.error("API route register error:", error)
     const errorMessage = error instanceof Error ? error.message : "Internal Server Error"
     return NextResponse.json({ message: errorMessage }, { status: 500 })
   }
