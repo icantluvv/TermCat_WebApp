@@ -4,7 +4,7 @@ import { cookies } from "next/headers"
 
 export async function POST(req: NextRequest) {
   const cookieStore = await cookies() // не нужно await, cookies() синхронная функция
-  const accessToken = cookieStore.get("accessToken")?.value
+  const accessToken = cookieStore.get("TermCatAccessToken")?.value
   const { code } = await req.json()
 
   try {

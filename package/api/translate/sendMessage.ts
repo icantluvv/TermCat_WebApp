@@ -4,7 +4,7 @@ import { BotMessage } from "@/types/Translate"
 
 export async function sendMessage(prompt: string, dialogId: number): Promise<BotMessage> {
   const cookies = new Cookies()
-  const accessToken = cookies.get("accessToken")
+  const accessToken = cookies.get("TermCatAccessToken")
 
   const response = await client<BotMessage>({
     url: "/api/translate/generate",

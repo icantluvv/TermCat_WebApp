@@ -1,5 +1,3 @@
-"use server"
-
 import { cookies } from "next/headers"
 import client from "@/package/api/axios.client"
 import { SubData, ActiveSub } from "@/types/Subscription"
@@ -7,7 +5,7 @@ import { SubData, ActiveSub } from "@/types/Subscription"
 export async function getSubStatus(userId: number): Promise<SubData | ActiveSub> {
   try {
     const cookieStore = await cookies()
-    const accessToken = cookieStore.get("accessToken")?.value
+    const accessToken = cookieStore.get("TermCatAccessToken")?.value
 
     const response = await client<SubData | ActiveSub>({
       url: `/subscriptions/getInfoSub/${userId}`,

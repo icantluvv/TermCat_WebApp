@@ -4,6 +4,9 @@ import CardsLayout from "@/components/molecules/WebApp-pages/index/CardsLayout"
 import { getMe } from "@/package/api/profile/getMe"
 import { getSubStatus } from "@/package/api/profile/getSubStatus"
 
+export const dynamic = "force-dynamic"
+export const revalidate = 60
+
 export default async function Home() {
   const user = await getMe()
   const subscription = await getSubStatus(user.id)

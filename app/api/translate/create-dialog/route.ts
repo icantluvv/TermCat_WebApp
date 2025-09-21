@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     const cookieStore = await cookies()
 
-    const accessToken = cookieStore.get("accessToken")?.value
+    const accessToken = cookieStore.get("TermCatAccessToken")?.value
 
     const response = await fetch(`${backendUrl}/dialogs/createDialog`, {
       method: "POST",

@@ -4,6 +4,8 @@ import ResponsiveProfileSections from "@/app/(public)/WebApp/profile/components/
 import { getMe } from "@/package/api/profile/getMe"
 import { getSubStatus } from "@/package/api/profile/getSubStatus"
 
+export const dynamic = "force-dynamic"
+
 async function Profile() {
   const user = await getMe()
   const subResult = await getSubStatus(user.id)

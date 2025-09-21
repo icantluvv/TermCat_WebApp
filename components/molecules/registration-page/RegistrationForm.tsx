@@ -1,15 +1,15 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, FormEvent } from "react"
 import Image from "next/image"
 import eye from "@/public/images/auth/eye.png"
 import Button from "@/components/Button/Button"
 import Link from "next/link"
-import { AuthService } from "@/lib/services/auth.service"
 import { useModalStore } from "@/store/useRegistrationErrorModalStore"
 import RegistrationErrorModal from "@/components/molecules/registration-page/RegistrationErrorModal"
 import { SignInYandexButton } from "@/components/organism/SignInYandexButton"
 import FormTitle from "@/components/molecules/FormTitle"
+import { registerUser } from "@/package/api/auth/create-user"
 
 function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false)
@@ -57,18 +57,15 @@ function RegistrationForm() {
     }
   }, [showErrorModal])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!isFormValid) {
       openErrorModal()
       return
     }
 
-    const register = await AuthService.getInstance().signup({
-      email,
-      password,
-      name
-    })
+    const register = await registerUser(name, email, password)
+
     if (register) {
       window.location.href = "/WebApp"
     } else {

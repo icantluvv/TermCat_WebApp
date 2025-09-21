@@ -1,5 +1,3 @@
-"use server"
-
 import { cookies } from "next/headers"
 import client from "@/package/api/axios.client"
 import { Dialog } from "@/types/Translate"
@@ -7,7 +5,7 @@ import { Dialog } from "@/types/Translate"
 export async function getDialogById(dialogId: number): Promise<Dialog> {
   try {
     const cookieStore = await cookies()
-    const accessToken = cookieStore.get("accessToken")?.value
+    const accessToken = cookieStore.get("TermCatAccessToken")?.value
 
     const response = await client<Dialog>({
       url: `/dialogs/${dialogId}`,

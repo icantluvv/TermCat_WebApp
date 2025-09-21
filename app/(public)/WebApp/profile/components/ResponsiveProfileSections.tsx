@@ -2,11 +2,12 @@ import ProfileInfo from "@/components/molecules/WebApp-pages/profile/ProfileInfo
 import LinkedServices from "@/components/molecules/WebApp-pages/profile/LinkedServices"
 import SubscriptionStatus from "@/components/molecules/WebApp-pages/profile/SubscriptionStatus"
 import SectionWrapper from "@/app/(public)/WebApp/profile/components/SectionWrapper"
-import { Subscription, User } from "@/types/User"
+import { User } from "@/types/User"
+import { ActiveSub, SubData } from "@/types/Subscription"
 
 type ResponsiveProfileSectionsProps = {
   user: User
-  subscribe: Subscription
+  subscribe: SubData | ActiveSub
 }
 
 const ResponsiveProfileSections = ({ user, subscribe }: ResponsiveProfileSectionsProps) => {

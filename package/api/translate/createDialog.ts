@@ -15,7 +15,7 @@ export async function createDialog(prompt: string): Promise<Dialog> {
   const { title } = await generateTitle(prompt)
 
   const cookies = new Cookies()
-  const accessToken = cookies.get("accessToken")
+  const accessToken = cookies.get("TermCatAccessToken")
 
   if (!accessToken) {
     throw new Error("Access token not found")

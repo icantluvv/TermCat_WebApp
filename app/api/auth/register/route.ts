@@ -1,24 +1,13 @@
 import { NextResponse } from "next/server"
 import client from "@/package/api/axios.client"
 
-export type RegisterBody = {
-  email: string
-  password: string
-  name: string
-}
-
-export type RegisterResponse = {
+type RegisterResponse = {
   accessToken: string
   refreshToken: string
-  user?: {
-    id: string
-    email: string
-    name: string
-  }
 }
 
 export async function POST(req: Request) {
-  const { email, password, name }: RegisterBody = await req.json()
+  const { email, password, name } = await req.json()
 
   try {
     const response = await client<RegisterResponse>({
@@ -28,17 +17,14 @@ export async function POST(req: Request) {
       headers: { "Content-Type": "application/json" }
     })
 
-    const { accessToken, refreshToken, user } = response.data
+    const { accessToken, refreshToken } = response.data
 
     return NextResponse.json({
       success: true,
       accessToken,
-      refreshToken,
-      user
+      refreshToken
     })
-  } catch (error: unknown) {
-    console.error("API route register error:", error)
-    const errorMessage = error instanceof Error ? error.message : "Registration failed"
-    return NextResponse.json({ error: errorMessage }, { status: 500 })
+  } catch {
+    return NextResponse.json({ success: false, error: "Registration failed" }, { status: 500 })
   }
 }

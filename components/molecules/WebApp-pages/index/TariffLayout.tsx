@@ -1,7 +1,7 @@
-import { Subscription } from "@/types/User"
+import { ActiveSub, SubData } from "@/types/Subscription"
 
 type TariffLayoutProps = {
-  isActive: Subscription
+  isActive: SubData | ActiveSub
 }
 
 const TariffLayout = ({ isActive }: TariffLayoutProps) => {

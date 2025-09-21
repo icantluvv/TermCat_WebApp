@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import HeaderLayout from "@/components/shared/header/HeaderLayout"
 import DialogsArray from "@/components/molecules/WebApp-pages/dialogs/DialogsArray"
 import { getDialogList } from "@/package/api/translate/getDialogList"

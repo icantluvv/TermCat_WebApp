@@ -1,5 +1,3 @@
-"use server"
-
 import { cookies } from "next/headers"
 import client from "@/package/api/axios.client"
 import { User } from "@/types/User"
@@ -7,7 +5,7 @@ import { User } from "@/types/User"
 export async function getMe(): Promise<User> {
   try {
     const cookieStore = await cookies()
-    const accessToken = cookieStore.get("accessToken")?.value
+    const accessToken = cookieStore.get("TermCatAccessToken")?.value
 
     const response = await client<User>({
       url: "/users/getMe",

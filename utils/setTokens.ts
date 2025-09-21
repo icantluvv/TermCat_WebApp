@@ -8,13 +8,16 @@ export function setClientTokens(
 ) {
   const cookies = new Cookies()
 
-  cookies.set("accessToken", accessToken, {
+  cookies.remove("TermCatAccessToken", { path: "/" })
+  cookies.remove("TermCatRefreshToken", { path: "/" })
+
+  cookies.set("TermCatAccessToken", accessToken, {
     path: "/",
     maxAge: accessMaxAge ? Math.floor(accessMaxAge / 1000) : 13 * 60,
     sameSite: "strict"
   })
 
-  cookies.set("refreshToken", refreshToken, {
+  cookies.set("TermCatRefreshToken", refreshToken, {
     path: "/",
     maxAge: refreshMaxAge ? Math.floor(refreshMaxAge / 1000) : 7 * 24 * 60 * 60,
     sameSite: "strict"
