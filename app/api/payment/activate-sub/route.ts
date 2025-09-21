@@ -8,17 +8,13 @@ export async function POST(req: NextRequest) {
   const { code } = await req.json()
 
   try {
-    const response = await axios.post(
-      `${process.env.BACKEND_URL}/subscriptions/activatePromoSub`,
-      null,
-      {
-        params: { code },
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          Accept: "application/json"
-        }
+    const response = await axios.post(`${process.env.BASE_API_URL}/subscriptions/activatePromoSub`, null, {
+      params: { code },
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        Accept: "application/json"
       }
-    )
+    })
 
     return NextResponse.json(response.data)
   } catch (error: unknown) {
@@ -26,10 +22,7 @@ export async function POST(req: NextRequest) {
 
     if (axios.isAxiosError(error)) {
       if (error.response?.status === 400) {
-        return NextResponse.json(
-          { message: "Подписка уже активирована" },
-          { status: 400 }
-        )
+        return NextResponse.json({ message: "Подписка уже активирована" }, { status: 400 })
       }
 
       return NextResponse.json(
@@ -39,9 +32,6 @@ export async function POST(req: NextRequest) {
     }
 
     // Если ошибка не от axios
-    return NextResponse.json(
-      { error: "Неизвестная ошибка при активации подписки" },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: "Неизвестная ошибка при активации подписки" }, { status: 500 })
   }
 }

@@ -5,23 +5,22 @@ import Button from "@/components/Button/Button"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import active_sub_back from "@/public/images/profile/active_sub_back.png"
-import { Subscription } from "@/types/User"
+import { ActiveSub, SubData } from "@/types/Subscription"
 
-interface SubscribeStatusProps {
-  subscribe?: Subscription
-}
-
-const SubscriptionStatus = ({ subscribe }: SubscribeStatusProps) => {
+const SubscriptionStatus = ({ subscribe }: { subscribe: SubData | ActiveSub }) => {
   const { openPromoModal } = usePromoStore()
 
   if (subscribe?.isActive) {
-    return <SubscriptionActive />
+    if ("expiresAt" in subscribe && "startedAt" in subscribe) {
+      return <SubscriptionActive expiresAt={subscribe.expiresAt} startedAt={subscribe.startedAt} />
+    }
+    return <div>Ошибка: неполные данные подписки</div>
   }
 
   return (
     <div className="bg-[#151515] p-[24px] xl:p-[40px] rounded-[24px] flex flex-wrap gap-y-6  w-full justify-between">
       <h4 className="text-[24px] xl:text-[32px] text-white whitespace-nowrap">Активных подписок нет</h4>
-      <Button onClick={() => openPromoModal()} variant={"main"}>
+      <Button onClick={() => openPromoModal()} variant="main">
         Приобрести
       </Button>
     </div>
@@ -30,18 +29,23 @@ const SubscriptionStatus = ({ subscribe }: SubscribeStatusProps) => {
 
 export default SubscriptionStatus
 
-const SubscriptionActive = ({ expiresAt, startedAt }: { expiresAt?: string; startedAt?: string }) => {
+interface SubscriptionActiveProps {
+  expiresAt: string
+  startedAt: string
+}
+
+const SubscriptionActive = ({ expiresAt, startedAt }: SubscriptionActiveProps) => {
   const [timeLeft, setTimeLeft] = useState<string>("")
   const [progressPercent, setProgressPercent] = useState<number>(0)
 
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date()
-      const expires = expiresAt ? new Date(expiresAt) : null
-      const start = startedAt ? new Date(startedAt) : null
+      const expires = new Date(expiresAt)
+      const start = new Date(startedAt)
 
-      const diff = expires.getTime() - now.getTime()
-      const diffFromStart = now.getTime() - start.getTime()
+      const diff = expires ? expires.getTime() - now.getTime() : 0
+      const diffFromStart = start ? now.getTime() - start.getTime() : 0
 
       if (diff <= 0) {
         setTimeLeft("Подписка истекла")
@@ -53,7 +57,6 @@ const SubscriptionActive = ({ expiresAt, startedAt }: { expiresAt?: string; star
       setTimeLeft(`${daysLeft} дней доступно`)
 
       const daysPassed = Math.floor(diffFromStart / (1000 * 60 * 60 * 24))
-
       const maxDays = 30
       let percent = (daysPassed / maxDays) * 100
       if (percent > 100) percent = 100
@@ -64,7 +67,6 @@ const SubscriptionActive = ({ expiresAt, startedAt }: { expiresAt?: string; star
 
     calculateTimeLeft()
     const timer = setInterval(calculateTimeLeft, 1000)
-
     return () => clearInterval(timer)
   }, [expiresAt, startedAt])
 
@@ -96,7 +98,7 @@ const SubscriptionActive = ({ expiresAt, startedAt }: { expiresAt?: string; star
 
       <Image
         src={active_sub_back}
-        alt={"active_sub_back"}
+        alt="active_sub_back"
         fill
         className="rounded-[24px]"
         style={{ objectFit: "cover" }}

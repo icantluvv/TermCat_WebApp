@@ -7,7 +7,6 @@ import { SignInYandexButton } from "@/components/organism/SignInYandexButton/sig
 
 import { loginUser } from "@/package/api/auth/login-user"
 import FormTitle from "@/components/molecules/FormTitle"
-import Typography from "@/components/atoms/typography/Typography"
 import FormBottomLink from "@/components/molecules/FormBottomLink"
 import InputField from "@/components/input/InputField"
 import Button from "@/components/atoms/button/Button"

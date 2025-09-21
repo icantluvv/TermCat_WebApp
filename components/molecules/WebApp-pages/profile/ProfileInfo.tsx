@@ -4,8 +4,13 @@ import redact_info from "@/public/images/profile/redact_info.svg"
 import back from "@/public/images/homepage/db8ea4379f48b0bd833ddd83078abae6.png"
 import InputField from "@/components/input/InputField"
 import Button from "@/components/Button/Button"
+import { User } from "@/types/User"
 
-const ProfileInfo = ({ user }: UserProps) => (
+type ProfileInfoProps = {
+  user: User
+}
+
+const ProfileInfo = ({ user }: ProfileInfoProps) => (
   <>
     <div className="bg-[#E8E8E8] flex rounded-[24px] w-full md:w-[calc(50%-10px)] xl:w-[calc(55%-20px)] relative">
       {/* info block */}
@@ -23,7 +28,7 @@ const ProfileInfo = ({ user }: UserProps) => (
           <InputField disabled label="Новый пароль" type="password" placeholder="" />
           <div>
             <Button variant="main" type="button">
-              Сохранит
+              Сохранить
             </Button>
           </div>
         </div>
