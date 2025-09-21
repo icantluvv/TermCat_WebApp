@@ -22,7 +22,7 @@ function RegistrationForm() {
 
     try {
       const userData = await loginUser({ email, password })
-      if (userData.success) {
+      if (userData.status === 200) {
         router.push("/WebApp")
       }
     } catch (error) {
@@ -44,13 +44,14 @@ function RegistrationForm() {
         }
         description={
           <>
-            {" "}
-            Войдите в аккаунт, чтобы использовать <br /> инновационный CAT Tools инструмент
+            Войдите в аккаунт, чтобы использовать <br /> инновационный CAT инструмент
           </>
         }
       />
 
-      <SignInYandexButton disabled />
+      <div className="w-full flex justify-center opacity-30">
+        <SignInYandexButton />
+      </div>
 
       <div className="flex flex-col gap-[12px] md:gap-[18px] lg:gap-[24px] px-[2vw] xl:px-[0vw]">
         <div className="flex flex-col w-full gap-y-2">

@@ -1,5 +1,5 @@
-import Cookies from "universal-cookie"
 import client, { type RequestConfig, type ResponseConfig } from "../axios.client"
+import { setClientTokens } from "@/utils/setTokens"
 
 export type LoginBody = {
   email: string
@@ -7,17 +7,13 @@ export type LoginBody = {
 }
 
 export type LoginResponse = {
-  accessToken: string
-  refreshToken: string
-}
-
-export type LoginResult = {
-  success: boolean
-  data?: LoginResponse
+  status: number
+  accessToken?: string
+  refreshToken?: string
   error?: string
 }
 
-export async function loginUser({ email, password }: LoginBody): Promise<LoginResult> {
+export async function loginUser({ email, password }: LoginBody): Promise<LoginResponse> {
   const config: RequestConfig<LoginBody> = {
     method: "POST",
     url: "/api/auth/login",
@@ -26,24 +22,21 @@ export async function loginUser({ email, password }: LoginBody): Promise<LoginRe
     headers: { "Content-Type": "application/json" }
   }
 
-  const cookies = new Cookies()
-
   try {
     const response: ResponseConfig<LoginResponse> = await client<LoginResponse, LoginBody>(config)
     const { accessToken, refreshToken } = response.data
 
     if (!accessToken || !refreshToken) {
-      return { success: false, error: "Invalid tokens from API" }
+      return { status: 400, error: "Invalid tokens received" }
     }
 
-    cookies.set("accessToken", accessToken, { path: "/", maxAge: 10 * 60 })
-    cookies.set("refreshToken", refreshToken, { path: "/", maxAge: 7 * 24 * 60 * 60 })
+    setClientTokens(accessToken, refreshToken)
 
-    return { success: true, data: { accessToken, refreshToken } }
+    return { status: 200, accessToken, refreshToken }
   } catch (error) {
     return {
-      success: false,
-      error: error instanceof Error ? error.message : "An unknown error occurred"
+      status: 401,
+      error: error instanceof Error ? error.message : "Login error"
     }
   }
 }

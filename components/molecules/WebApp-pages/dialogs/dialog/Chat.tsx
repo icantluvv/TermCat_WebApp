@@ -1,58 +1,66 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { TranslateService } from "@/lib/services/translate.service"
+import { FormEvent, useEffect, useRef, useState } from "react"
 import Message from "../Message"
+import { BotMessage, Message as MessageType } from "@/types/Translate"
+import { sendMessage } from "@/package/api/translate/sendMessage"
 
-const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
+type ChatProps = {
+  id: number
+  dialog: MessageType[]
+}
+
+const Chat = ({ id, dialog }: ChatProps) => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const [prompt, setPrompt] = useState("")
-  const [messages, setMessages] = useState(initialMessages)
+  const [messages, setMessages] = useState<MessageType[]>(dialog)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!prompt.trim()) return
 
     const userMessage = prompt
-    setMessages((prev) => [...prev, { text: userMessage, role: "user" }])
     setPrompt("")
     setLoading(true)
 
+    // Показываем сообщение пользователя сразу
+    setMessages((prev) => [...prev, { text: userMessage, role: "user" }])
+    console.log("Отправка на сервер:", userMessage)
+
     try {
-      const response = await TranslateService.getInstance().sendPrompt(
-        userMessage,
-        dialogId,
-        title
-      )
+      // Ждём ответа с сервера
+      const response: BotMessage = await sendMessage(userMessage, id)
+      console.log("Ответ с сервера:", response)
 
-      console.log(response)
+      // Создаём объект типа Message из ответа сервера
+      const botMessage: MessageType = { text: response.response, role: "assistant" }
 
-      const updatedDialog = await TranslateService.getInstance().fetchDialog(
-        dialogId
-      )
-      setMessages(updatedDialog.dialog)
+      // Добавляем ответ бота в стейт
+      setMessages((prev) => [...prev, botMessage])
+      console.log("Обновлённый стейт:", [...messages, botMessage])
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error)
     } finally {
       setLoading(false)
     }
   }
+
   return (
     <>
-      <main className="flex-1 w-full flex flex-col  overflow-auto no-scrollbar gap-[24px] relative items-center ">
+      <div className="flex-1 w-full flex flex-col  overflow-auto no-scrollbar gap-[24px] relative items-center ">
         <section className="flex flex-col gap-[48px] xl:w-[55%] py-[5svh]">
           {messages.map((msg, index) => (
             <Message key={index} role={msg.role} text={msg.text} />
           ))}
           <div className="w-full h-[px]" ref={messagesEndRef} />
         </section>
-      </main>
+      </div>
 
       <form
         onSubmit={handleSubmit}
@@ -78,11 +86,7 @@ const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
             stroke="#fff"
             strokeWidth={2}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" />
           </svg>
         </button>
       </form>

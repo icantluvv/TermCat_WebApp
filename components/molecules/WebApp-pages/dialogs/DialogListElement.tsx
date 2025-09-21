@@ -2,7 +2,11 @@
 
 import { useRouter } from "next/navigation"
 
-const Dialog = ({ title, id }: DialogType) => {
+type DialogProps = {
+  title: string
+  id: number
+}
+const Dialog = ({ title, id }: DialogProps) => {
   const router = useRouter()
   return (
     <button

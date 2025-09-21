@@ -1,48 +1,22 @@
-import { AxiosError } from "axios"
+import { cookies } from "next/headers"
 import client from "@/package/api/axios.client"
+import { User } from "@/types/User"
 
-export type User = {
-  id: string
-  name: string
-  email: string
-  picture?: string
-  [key: string]: unknown
-}
-
-export type GetMeResult = {
-  success: boolean
-  data?: User
-  error?: {
-    message: string
-    status: number
-  }
-}
-
-export async function getMe(accessToken: string): Promise<GetMeResult> {
+export async function getMe(): Promise<User> {
   try {
-    const res = await client<User>({
-      method: "GET",
+    const cookieStore = await cookies()
+    const accessToken = cookieStore.get("TermCatAccessToken")?.value
+
+    const response = await client<User>({
       url: "/users/getMe",
+      method: "GET",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`
       }
     })
 
-    return {
-      success: true,
-      data: res.data
-    }
-  } catch (error) {
-    const axiosError = error as AxiosError<{ message: string }>
-    console.error("Get user info error:", axiosError.response?.data || axiosError.message)
-
-    return {
-      success: false,
-      error: {
-        message: axiosError.response?.data?.message || "Failed to get user info",
-        status: axiosError.response?.status || 500
-      }
-    }
+    return response.data
+  } catch (error: unknown) {
+    throw new Error("Error of fetching user data" + error)
   }
 }

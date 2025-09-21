@@ -15,11 +15,7 @@ const SubScriptionCard = () => {
         Активировать
         <br /> Подписку
       </h3>
-      <Image
-        src={termwardBack}
-        className="rounded-[24px] opacity-10 left-0 top-0 w-full absolute h-full"
-        alt={""}
-      />
+      <Image src={termwardBack} className="rounded-[24px] opacity-10 left-0 top-0 w-full absolute h-full" alt={""} />
       <Image
         src={background}
         className="rounded-[24px] right-0 bottom-[-13vh] absolute z-1000 mt-[1vh] ml-[6.4vw] opacity-100"

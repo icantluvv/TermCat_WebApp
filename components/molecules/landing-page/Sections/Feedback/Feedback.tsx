@@ -1,7 +1,7 @@
 import FeedbackCard from "./FeedbackCard"
 import FeedbackSlider from "./FeedbackSlider"
 import Typography from "@/components/atoms/typography/Typography"
-import { feedbacks } from "@/app/(landing)/constants"
+import { feedbacks } from "@/app/(public)/(landing)/constants"
 import Container from "@/components/shared/Container/Container"
 
 const Feedback = () => {

@@ -1,5 +1,5 @@
-import Cookies from "universal-cookie"
 import client, { type RequestConfig, type ResponseConfig } from "../axios.client"
+import { setClientTokens } from "@/utils/setTokens"
 
 export type RegisterBody = {
   email: string
@@ -23,7 +23,7 @@ export type RegisterResult = {
   error?: string
 }
 
-export async function registerUser({ email, password, name }: RegisterBody): Promise<RegisterResult> {
+export async function registerUser(email: string, password: string, name: string): Promise<RegisterResult> {
   const config: RequestConfig<RegisterBody> = {
     method: "POST",
     url: "/api/auth/register",
@@ -32,24 +32,21 @@ export async function registerUser({ email, password, name }: RegisterBody): Pro
     headers: { "Content-Type": "application/json" }
   }
 
-  const cookies = new Cookies()
-
   try {
     const response: ResponseConfig<RegisterResponse> = await client<RegisterResponse, RegisterBody>(config)
-    const { accessToken, refreshToken, user } = response.data
+    const { accessToken, refreshToken } = response.data
 
     if (!accessToken || !refreshToken) {
-      return { success: false, error: "Invalid tokens from API" }
+      return { success: false, error: "Invalid tokens received" }
     }
 
-    cookies.set("accessToken", accessToken, { path: "/", maxAge: 10 * 60 })
-    cookies.set("refreshToken", refreshToken, { path: "/", maxAge: 7 * 23 * 60 * 60 })
+    setClientTokens(accessToken, refreshToken)
 
-    return { success: true, data: { accessToken, refreshToken, user } }
+    return { success: true }
   } catch (error) {
     return {
       success: false,
-      error: error instanceof Error ? error.message : "An unknown error occurred"
+      error: error instanceof Error ? error.message : "Registration failed"
     }
   }
 }

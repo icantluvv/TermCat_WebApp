@@ -1,29 +1,18 @@
-interface Message {
-  role: "user" | "assistant"
-  text: string
-}
-
-interface Dialog {
+export type Dialog = {
   id: number
-  userId: number
+  userId?: number
   title: string
   dialog: Message[]
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 
-type DialogType = {
-  id: string
-  title: string
-}
-
-interface ChatProps {
-  dialogId: string
-  title: string
-  initialMessages: { text: string; role: "user" | "assistant" }[]
-}
-
-interface MessageProps {
+export type Message = {
   role: "user" | "assistant"
   text: string
+}
+
+export type BotMessage = {
+  response: string
+  dialogId: number
 }

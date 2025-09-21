@@ -8,10 +8,8 @@ export type RequestConfig<TData = unknown> = {
   responseType?: "arraybuffer" | "blob" | "document" | "json" | "stream" | "text"
   signal?: AbortSignal
   url?: string
-  baseURL?: string // <-- новый параметр
+  baseURL?: string
 }
-
-export type ResponseErrorConfig<TError = unknown> = TError
 
 export type ResponseConfig<TData = unknown> = {
   data: TData
@@ -48,10 +46,5 @@ const client = async <TData, TError = unknown, TVariables = unknown>(
     throw error
   })
 }
-
-axiosInstance.interceptors.request.use((request) => {
-  console.log("Request baseURL:", request.baseURL)
-  return request
-})
 
 export default client

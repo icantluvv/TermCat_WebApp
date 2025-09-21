@@ -1,26 +1,22 @@
 "use client"
+
 import { usePromoStore } from "@/store/PromoStore"
 import { useState } from "react"
 import Button from "@/components/Button/Button"
-import { PaymentService } from "@/lib/services/payment.service"
 import { useEffect } from "react"
+import { activateSub } from "@/package/api/payment/activateSub"
 
 const PromoModal = () => {
   const { isPromoModalOpen, closePromoModal } = usePromoStore()
   const [promoCode, setPromoCode] = useState("")
 
-  const paymentService = PaymentService.getInstance()
-
   useEffect(() => {
     if (isPromoModalOpen) {
-      // Блокируем прокрутку
       document.body.style.overflow = "hidden"
     } else {
-      // Восстанавливаем прокрутку
       document.body.style.overflow = ""
     }
 
-    // Очистка эффекта при размонтировании или изменении isPromoModalOpen
     return () => {
       document.body.style.overflow = ""
     }
@@ -30,7 +26,7 @@ const PromoModal = () => {
 
   const handleActivate = async () => {
     try {
-      await paymentService.activeSubByPromo(promoCode)
+      await activateSub(promoCode)
       closePromoModal()
       location.reload()
     } catch (error) {

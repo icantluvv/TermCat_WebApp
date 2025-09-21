@@ -1,7 +1,6 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { AuthService } from "@/lib/services/auth.service"
 import NavItem from "./NavItem"
 import { navItems } from "@/constants/navItems"
 
@@ -12,7 +11,7 @@ const DesktopNav = () => {
       router.push(`/WebApp/dialogs/create`)
     },
     logout: async () => {
-      await AuthService.getInstance().logout()
+      //функция логаут
       window.location.reload()
     }
   }
@@ -22,13 +21,7 @@ const DesktopNav = () => {
       <nav className="w-full bg-PrimaryBlack rounded-[100px] py-[48px] px-[24px] flex flex-col gap-y-[70px]">
         <div className="flex flex-col items-center gap-y-[40px]">
           {navItems.map(({ href, icon, alt, action }, i) => (
-            <NavItem
-              key={i}
-              href={href}
-              icon={icon}
-              alt={alt}
-              onClick={action ? actions[action] : undefined}
-            />
+            <NavItem key={i} href={href} icon={icon} alt={alt} onClick={action ? actions[action] : undefined} />
           ))}
         </div>
       </nav>

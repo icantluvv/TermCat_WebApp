@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useFeedbackStore } from "@/store/LandingFeedbackPeopleStore"
 
 import arrow from "@/public/images/landing/arrow.svg"
-import { feedbacks } from "@/app/(landing)/constants"
+import { feedbacks } from "@/app/(public)/(landing)/constants"
 
 const FeedbackSlider = () => {
   const { activeIndex, next, prev, setActiveIndex } = useFeedbackStore()

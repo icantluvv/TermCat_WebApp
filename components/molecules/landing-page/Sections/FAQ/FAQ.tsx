@@ -1,7 +1,7 @@
 import React from "react"
 import Question from "./Question"
 import Typography from "@/components/atoms/typography/Typography"
-import { questions } from "@/app/(landing)/constants"
+import { questions } from "@/app/(public)/(landing)/constants"
 import Container from "@/components/shared/Container/Container"
 
 const FAQ = () => (

@@ -1,45 +1,48 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { TranslateService } from "@/lib/services/translate.service"
+import { FormEvent, KeyboardEvent, useState } from "react"
+import { createDialog } from "@/package/api/translate/createDialog"
 
 const CreateDialogChat = () => {
   const [prompt, setPrompt] = useState("")
   const router = useRouter()
-  const translateService = TranslateService.getInstance()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Проверка на пустую строку
-    const trimmedPrompt = prompt.trim()
-    if (!trimmedPrompt) return
-
-    // Формируем заголовок из первых 4 слов
-    const title = trimmedPrompt.split(" ").slice(0, 5).join(" ")
+  const handleSubmit = async () => {
+    if (!prompt.trim()) return
 
     try {
-      // Создаем диалог
-      const dialog = await translateService.createDialog(title)
-
-      await TranslateService.getInstance().sendPrompt(prompt, dialog.id, title)
-
-      // Переходим в диалог
+      const dialog = await createDialog(prompt)
       router.push(`/WebApp/dialogs/${dialog.id}`)
     } catch (error) {
       console.error("Ошибка при создании диалога:", error)
     }
   }
 
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    handleSubmit()
+  }
+
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault()
+      handleSubmit()
+    }
+  }
+
   return (
     <>
-      <main className="flex-1 w-full flex flex-col overflow-auto no-scrollbar gap-[24px] relative items-center "></main>
+      <div className="flex-1 w-full flex flex-col overflow-auto no-scrollbar gap-[24px] relative items-center "></div>
 
-      <div className="flex items-center mb-[80px] xl:mb-[2svh] w-full xl:w-[65%] bg-LightGray rounded-full px-[24px] py-[12px] ">
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex items-center mb-[80px] xl:mb-[2svh] w-full xl:w-[65%] bg-LightGray rounded-full px-[24px] py-[12px]"
+      >
         <input
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
+          onKeyDown={handleKeyPress}
           type="text"
           placeholder="Ваш текст..."
           className="flex-1 bg-transparent outline-none text-PrimaryBlack placeholder:text-Gray02 text-[16px]"
@@ -57,14 +60,10 @@ const CreateDialogChat = () => {
             stroke="#fff"
             strokeWidth={2}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" />
           </svg>
         </button>
-      </div>
+      </form>
     </>
   )
 }

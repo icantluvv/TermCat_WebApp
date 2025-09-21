@@ -1,34 +1,28 @@
-"use client"
-import { useRouter } from "next/navigation"
 import Dialog from "./DialogListElement"
+import Link from "next/link"
+import { Dialog as DialogType } from "@/types/Translate"
 
-const DialogsArray = ({ dialogs }: { dialogs: DialogType[] }) => {
-  const router = useRouter()
+type DialogsArrayProps = {
+  list: DialogType[]
+}
 
-  const handleClick = async () => {
-    try {
-      router.push("/WebApp/dialogs/create")
-    } catch (error) {
-      console.error("Ошибка при создании диалога:", error)
-    }
-  }
-
-  if (!dialogs || dialogs.length === 0) {
+const DialogsArray = ({ list }: DialogsArrayProps) => {
+  if (!list || list.length === 0) {
     return (
       <section className="flex w-full h-full bg-PageBg items-center justify-center flex-col xl:gap-[24px]">
-        <button
-          onClick={handleClick}
+        <Link
+          href="/WebApp/dialogs/create"
           className="text-[14px] xl:text-[16px] rounded-full px-[24px] py-[12px] bg-PrimaryGreen active:bg-PrimaryGreenActive text-PrimaryBlack ]"
         >
           Начните работу с TermCAT
-        </button>
+        </Link>
       </section>
     )
   }
 
   return (
     <>
-      {dialogs.map((dialog) => (
+      {list.map((dialog: DialogType) => (
         <Dialog key={dialog.id} id={dialog.id} title={dialog.title} />
       ))}
     </>
