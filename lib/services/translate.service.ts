@@ -14,14 +14,11 @@ export class TranslateService {
 
   async getDialogById(id: string, accessToken: string | unknown) {
     try {
-      const response = await axios.get(
-        `${process.env.BACKEND_URL}/dialogs/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`
-          }
+      const response = await axios.get(`${process.env.BACKEND_URL}/dialogs/${id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
         }
-      )
+      })
 
       return response.data
     } catch (error) {
@@ -51,7 +48,7 @@ export class TranslateService {
     return await response.json()
   }
 
-  async sendPrompt(prompt: string, dialogId: string, title: string) {
+  async sendPrompt(prompt: string, dialogId: number, title: string) {
     const response = await fetch("/api/translate/generate", {
       method: "POST",
       headers: {
@@ -71,7 +68,7 @@ export class TranslateService {
     return await response.json()
   }
 
-  async fetchDialog(dialogId: string) {
+  async fetchDialog(dialogId: number) {
     const response = await fetch(`/api/translate/get-dialog/${dialogId}`)
 
     if (!response.ok) {

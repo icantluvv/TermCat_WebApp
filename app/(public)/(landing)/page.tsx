@@ -6,7 +6,7 @@ import TariffSection from "@/components/molecules/landing-page/Sections/Tariffs/
 import FAQ from "@/components/molecules/landing-page/Sections/FAQ/FAQ"
 import Feedback from "@/components/molecules/landing-page/Sections/Feedback/Feedback"
 import Script from "next/script"
-import { PageSchema } from "@/app/(landing)/constants"
+import { PageSchema } from "@/app/(public)/(landing)/constants"
 import { Metadata } from "next"
 import { getStaticMeta } from "@/utils/getStaticMeta"
 

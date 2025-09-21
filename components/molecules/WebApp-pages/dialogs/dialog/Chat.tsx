@@ -1,21 +1,22 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { FormEvent, useEffect, useRef, useState } from "react"
 import { TranslateService } from "@/lib/services/translate.service"
 import Message from "../Message"
+import type { Chat } from "@/types/Translate"
 
-const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
+const Chat = ({ id, dialog }: Chat) => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const [prompt, setPrompt] = useState("")
-  const [messages, setMessages] = useState(initialMessages)
+  const [messages, setMessages] = useState(dialog)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!prompt.trim()) return
 
@@ -25,17 +26,9 @@ const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
     setLoading(true)
 
     try {
-      const response = await TranslateService.getInstance().sendPrompt(
-        userMessage,
-        dialogId,
-        title
-      )
+      // const response = await TranslateService.getInstance().sendPrompt(userMessage, id, title)
 
-      console.log(response)
-
-      const updatedDialog = await TranslateService.getInstance().fetchDialog(
-        dialogId
-      )
+      const updatedDialog = await TranslateService.getInstance().fetchDialog(id)
       setMessages(updatedDialog.dialog)
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error)
@@ -78,11 +71,7 @@ const Chat = ({ dialogId, title, initialMessages }: ChatProps) => {
             stroke="#fff"
             strokeWidth={2}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" />
           </svg>
         </button>
       </form>

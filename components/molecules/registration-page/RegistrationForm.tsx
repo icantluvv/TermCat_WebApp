@@ -82,6 +82,7 @@ function RegistrationForm() {
         className="flex flex-col w-[85vw] md:w-[55vw] lg:w-[518px] py-[3vh] px-[3vw] xl:px-[2vw]
       bg-white rounded-[24px] gap-[12px] md:gap-[18px] lg:gap-[24px] z-[1000] text-PrimaryBlack"
       >
+<<<<<<< Updated upstream
         <div className="flex flex-col items-center w-full text-center mt-[3vh] gap-[12px] md:gap-[18px] lg:gap-[40px]">
           <h3 className="text-[24px] lg:text-[42px] font-medium leading-tight">
             Добро пожаловать <br />в TermCat
@@ -90,6 +91,20 @@ function RegistrationForm() {
             Зарегистрируйтесь, чтобы использовать <br /> инновационный CAt Toolls инструмент
           </p>
         </div>
+=======
+        <FormTitle
+          title={
+            <>
+              Добро пожаловать <br /> в TermCat
+            </>
+          }
+          description={
+            <>
+              Зарегистрируйтесь, чтобы использовать <br /> инновационный CAT инструмент
+            </>
+          }
+        />
+>>>>>>> Stashed changes
 
         <div className="w-full flex justify-center opacity-30">
           <SignInYandexButton />

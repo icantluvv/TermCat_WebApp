@@ -5,21 +5,17 @@ import Button from "@/components/Button/Button"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import active_sub_back from "@/public/images/profile/active_sub_back.png"
+import { Subscription } from "@/types/User"
 
 interface SubscribeStatusProps {
-  subscribe?: {
-    id: number
-    startedAt: string
-    expiresAt: string
-    isActive: boolean
-  } | null
+  subscribe?: Subscription
 }
 
 const SubscriptionStatus = ({ subscribe }: SubscribeStatusProps) => {
   const { openPromoModal } = usePromoStore()
 
   if (subscribe?.isActive) {
-    return <SubscriptionActive expiresAt={subscribe.expiresAt} startedAt={subscribe.startedAt} />
+    return <SubscriptionActive />
   }
 
   return (
@@ -34,15 +30,15 @@ const SubscriptionStatus = ({ subscribe }: SubscribeStatusProps) => {
 
 export default SubscriptionStatus
 
-const SubscriptionActive = ({ expiresAt, startedAt }: { expiresAt: string; startedAt: string }) => {
+const SubscriptionActive = ({ expiresAt, startedAt }: { expiresAt?: string; startedAt?: string }) => {
   const [timeLeft, setTimeLeft] = useState<string>("")
   const [progressPercent, setProgressPercent] = useState<number>(0)
 
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date()
-      const expires = new Date(expiresAt)
-      const start = new Date(startedAt)
+      const expires = expiresAt ? new Date(expiresAt) : null
+      const start = startedAt ? new Date(startedAt) : null
 
       const diff = expires.getTime() - now.getTime()
       const diffFromStart = now.getTime() - start.getTime()

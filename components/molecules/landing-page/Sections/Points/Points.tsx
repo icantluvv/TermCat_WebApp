@@ -3,7 +3,7 @@ import line_third from "@/public/images/landing/line_third.svg"
 import StepItem from "./StepItem"
 import shadow from "@/public/images/landing/points/text-shadow.svg"
 import Typography from "@/components/atoms/typography/Typography"
-import { steps } from "@/app/(landing)/constants"
+import { steps } from "@/app/(public)/(landing)/constants"
 import Container from "@/components/shared/Container/Container"
 
 const ThirdSection = () => {

@@ -23,7 +23,7 @@ const BigLandingHeader = () => (
           </Button>
         </Link>
 
-        <Link href={"/WebApp"}>
+        <Link href={"/login"}>
           <Button size="big" variant="emptyGreen" form="rounded" className="pr-[6px]">
             <Typography variants="button">Войти</Typography>
 

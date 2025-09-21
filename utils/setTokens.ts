@@ -1,23 +1,22 @@
-import { NextResponse } from "next/server"
+import Cookies from "universal-cookie"
 
-export function setTokensInCookies(
-  response: NextResponse,
+export function setClientTokens(
   accessToken: string,
-  accessMaxAge: number,
   refreshToken: string,
-  refreshMaxAge: number
+  accessMaxAge?: number,
+  refreshMaxAge?: number
 ) {
-  response.cookies.set("accessToken", accessToken, {
-    httpOnly: true,
-    sameSite: "strict",
+  const cookies = new Cookies()
+
+  cookies.set("accessToken", accessToken, {
     path: "/",
-    maxAge: Math.floor(accessMaxAge / 1000)
+    maxAge: accessMaxAge ? Math.floor(accessMaxAge / 1000) : 13 * 60,
+    sameSite: "strict"
   })
 
-  response.cookies.set("refreshToken", refreshToken, {
-    httpOnly: true,
-    sameSite: "strict",
+  cookies.set("refreshToken", refreshToken, {
     path: "/",
-    maxAge: Math.floor(refreshMaxAge / 1000)
+    maxAge: refreshMaxAge ? Math.floor(refreshMaxAge / 1000) : 7 * 24 * 60 * 60,
+    sameSite: "strict"
   })
 }

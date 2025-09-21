@@ -19,12 +19,7 @@ const PlanCard = () => {
           Исследуйте возможности своего тарифа
         </span>
       </h3>
-      <Image
-        src={smart}
-        className="rounded-[24px] absolute z-[0] top-0 left-0 object-cover"
-        fill
-        alt={"smart_back"}
-      />
+      <Image src={smart} className="rounded-[24px] absolute z-[0] top-0 left-0 object-cover" fill alt={"smart_back"} />
       <div className="rounded-[50%] w-[48px] h-[48px] bg-[#e8e8e8] right-0 top-0 m-[5%] md:flex hidden absolute items-center justify-center">
         <Image src={arrow} alt={""} className="w-1/3 h-1/3"></Image>
       </div>

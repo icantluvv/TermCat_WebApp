@@ -2,23 +2,24 @@
 
 import { cookies } from "next/headers"
 import client from "@/package/api/axios.client"
-import { User } from "@/types/User"
+import { Dialog } from "@/types/Translate"
 
-export async function getMe(): Promise<User> {
+export async function getDialogList(dialogId: number): Promise<Dialog> {
   try {
     const cookieStore = await cookies()
     const accessToken = cookieStore.get("accessToken")?.value
 
-    const response = await client<User>({
-      url: "/users/getMe",
+    const response = await client<Dialog>({
+      url: `/dialogs/${dialogId}`,
       method: "GET",
       headers: {
+        accept: "*/*",
         Authorization: `Bearer ${accessToken}`
       }
     })
 
     return response.data
-  } catch (error: unknown) {
-    throw new Error("Error of fetching user data" + error)
+  } catch (error) {
+    throw new Error("Error of fetching subscription data" + error)
   }
 }

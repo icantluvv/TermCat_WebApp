@@ -1,29 +1,21 @@
-interface Message {
-  role: "user" | "assistant"
-  text: string
+type DialogList = {
+  list: Dialog[]
 }
 
-interface Dialog {
+type Dialog = {
   id: number
   userId: number
   title: string
-  dialog: Message[]
+  dialog: Messages
   createdAt: string
   updatedAt: string
 }
 
-type DialogType = {
-  id: string
-  title: string
+type Messages = {
+  messagesList: Message[]
 }
 
-interface ChatProps {
-  dialogId: string
-  title: string
-  initialMessages: { text: string; role: "user" | "assistant" }[]
-}
-
-interface MessageProps {
+export type Message = {
   role: "user" | "assistant"
   text: string
 }

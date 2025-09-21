@@ -8,44 +8,44 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  const accessToken = request.cookies.get("accessToken")?.value
-  const refreshTokenValue = request.cookies.get("refreshToken")?.value
+  // const accessToken = request.cookies.get("accessToken")?.value
+  // const refreshTokenValue = request.cookies.get("refreshToken")?.value
 
   // if (!accessToken && !refreshTokenValue) {
   //   return NextResponse.redirect(new URL("/login", request.url))
   // }
 
-  if (isAccessTokenExpired(accessToken) && refreshTokenValue) {
-    try {
-      const result = await refreshToken(refreshTokenValue)
-
-      if (result.success) {
-        const response = NextResponse.next()
-
-        response.cookies.set("accessToken", result.accessToken!, {
-          httpOnly: true,
-          path: "/",
-          maxAge: 60 * 13,
-          sameSite: "lax"
-        })
-
-        if (result.refreshToken) {
-          response.cookies.set("refreshToken", result.refreshToken, {
-            httpOnly: true,
-            path: "/",
-            maxAge: 60 * 60 * 24 * 7,
-            sameSite: "lax"
-          })
-        }
-
-        return response
-      } else {
-        // return NextResponse.redirect(new URL("/login", request.url))
-      }
-    } catch {
-      // return NextResponse.redirect(new URL("/login", request.url))
-    }
-  }
+  // if (isAccessTokenExpired(accessToken) && refreshTokenValue) {
+  //   try {
+  //     const result = await refreshToken(refreshTokenValue)
+  //
+  //     if (result.success) {
+  //       const response = NextResponse.next()
+  //
+  //       response.cookies.set("accessToken", result.accessToken!, {
+  //         httpOnly: true,
+  //         path: "/",
+  //         maxAge: 60 * 13,
+  //         sameSite: "lax"
+  //       })
+  //
+  //       if (result.refreshToken) {
+  //         response.cookies.set("refreshToken", result.refreshToken, {
+  //           httpOnly: true,
+  //           path: "/",
+  //           maxAge: 60 * 60 * 23 * 7,
+  //           sameSite: "lax"
+  //         })
+  //       }
+  //
+  //       return response
+  //     } else {
+  //       // return NextResponse.redirect(new URL("/login", request.url))
+  //     }
+  //   } catch {
+  //     // return NextResponse.redirect(new URL("/login", request.url))
+  //   }
+  // }
 
   return NextResponse.next()
 }

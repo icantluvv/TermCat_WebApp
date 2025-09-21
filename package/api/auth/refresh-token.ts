@@ -1,5 +1,6 @@
 import { AxiosError } from "axios"
 import client from "@/package/api/axios.client"
+import Cookies from "universal-cookie"
 
 export type RefreshTokenBody = {
   refreshToken: string
@@ -7,57 +8,30 @@ export type RefreshTokenBody = {
 
 export type RefreshTokenResponse = {
   accessToken: string
-  refreshToken?: string
 }
 
-export type RefreshTokenResult = {
-  success: boolean
-  accessToken?: string
-  refreshToken?: string
-  error?: {
-    message: string
-    status: number
-  }
-}
-
-export async function refreshToken(refreshTokenValue: string): Promise<RefreshTokenResult> {
+export async function refreshToken({ refreshToken }: RefreshTokenBody): Promise<string | undefined> {
   try {
     const res = await client<RefreshTokenResponse>({
       method: "POST",
       url: "/auth/refresh",
-      data: { refreshToken: refreshTokenValue },
+      data: { refreshToken },
       headers: {
         "Content-Type": "application/json"
       }
     })
 
-    const { accessToken, refreshToken: newRefreshToken } = res.data
+    const newAccessToken = res.data.accessToken
 
-    if (!accessToken) {
-      return {
-        success: false,
-        error: {
-          message: "Invalid access token from server",
-          status: 500
-        }
-      }
+    if (typeof window !== "undefined") {
+      const cookies = new Cookies()
+      cookies.set("accessToken", newAccessToken, { path: "/", maxAge: 13 * 60 })
     }
 
-    return {
-      success: true,
-      accessToken,
-      refreshToken: newRefreshToken
-    }
+    return newAccessToken
   } catch (error) {
     const axiosError = error as AxiosError<{ message: string }>
     console.error("Refresh token error:", axiosError.response?.data || axiosError.message)
-
-    return {
-      success: false,
-      error: {
-        message: axiosError.response?.data?.message || "Failed to refresh token",
-        status: axiosError.response?.status || 401
-      }
-    }
+    return undefined
   }
 }

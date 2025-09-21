@@ -16,9 +16,7 @@ const IntroduceCard = () => {
           Смотреть
           <br /> инструкцию
         </h6>
-        <span className="text-[0.75rem] font-poppins font-regular xl:flex hidden">
-          по работе с Termcat
-        </span>
+        <span className="text-[0.75rem] font-poppins font-regular xl:flex hidden">по работе с Termcat</span>
       </div>
       <div className="rounded-[50%] w-[36px] lg:w-[48px] h-[36px] lg:h-[48px] bg-[#e8e8e8] right-0 top-0 m-[5%] absolute flex items-center justify-center z-[1000]">
         <Image src={arrow} alt={""} className="w-1/3 h-1/3"></Image>
@@ -33,13 +31,7 @@ export default IntroduceCard
 const BackgroundPicture = () => {
   return (
     <>
-      <Image
-        src={instruction_back}
-        alt={"instruction_back"}
-        fill
-        objectFit="cover"
-        className="xl:flex hidden"
-      ></Image>
+      <Image src={instruction_back} alt={"instruction_back"} fill objectFit="cover" className="xl:flex hidden"></Image>
 
       <Image
         src={introduce_back_mobile}

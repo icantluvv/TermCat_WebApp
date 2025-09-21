@@ -23,7 +23,7 @@ function RegistrationForm() {
 
     try {
       const userData = await loginUser({ email, password })
-      if (userData.success) {
+      if (userData.status === 200) {
         router.push("/WebApp")
       }
     } catch (error) {
@@ -44,9 +44,16 @@ function RegistrationForm() {
           </Typography>
         }
         description={
+<<<<<<< Updated upstream
           <Typography variants="p">
             Войдите в аккаунт, чтобы использовать <br /> инновационный CAT Tools инструмент
           </Typography>
+=======
+          <>
+            {" "}
+            Войдите в аккаунт, чтобы использовать <br /> инновационный CAT инструмент
+          </>
+>>>>>>> Stashed changes
         }
       />
 
