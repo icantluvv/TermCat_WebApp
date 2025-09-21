@@ -8,22 +8,26 @@ const CreateDialogChat = () => {
   const [prompt, setPrompt] = useState("")
   const router = useRouter()
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
+    if (!prompt.trim()) return
 
     try {
       const dialog = await createDialog(prompt)
-
       router.push(`/WebApp/dialogs/${dialog.id}`)
     } catch (error) {
       console.error("Ошибка при создании диалога:", error)
     }
   }
 
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    handleSubmit()
+  }
+
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
-      handleSubmit(e as unknown)
+      handleSubmit()
     }
   }
 
@@ -31,7 +35,10 @@ const CreateDialogChat = () => {
     <>
       <div className="flex-1 w-full flex flex-col overflow-auto no-scrollbar gap-[24px] relative items-center "></div>
 
-      <div className="flex items-center mb-[80px] xl:mb-[2svh] w-full xl:w-[65%] bg-LightGray rounded-full px-[24px] py-[12px] ">
+      <form
+        onSubmit={handleFormSubmit}
+        className="flex items-center mb-[80px] xl:mb-[2svh] w-full xl:w-[65%] bg-LightGray rounded-full px-[24px] py-[12px]"
+      >
         <input
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
@@ -56,7 +63,7 @@ const CreateDialogChat = () => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" />
           </svg>
         </button>
-      </div>
+      </form>
     </>
   )
 }

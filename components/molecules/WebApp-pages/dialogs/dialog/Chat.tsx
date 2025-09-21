@@ -1,15 +1,20 @@
 "use client"
 
 import { FormEvent, useEffect, useRef, useState } from "react"
-import { TranslateService } from "@/lib/services/translate.service"
 import Message from "../Message"
-import type { Chat } from "@/types/Translate"
+import { BotMessage, Message as MessageType } from "@/types/Translate"
+import { sendMessage } from "@/package/api/translate/sendMessage"
 
-const Chat = ({ id, dialog }: Chat) => {
+type ChatProps = {
+  id: number
+  dialog: MessageType[]
+}
+
+const Chat = ({ id, dialog }: ChatProps) => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const [prompt, setPrompt] = useState("")
-  const [messages, setMessages] = useState(dialog)
+  const [messages, setMessages] = useState<MessageType[]>(dialog)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -21,31 +26,41 @@ const Chat = ({ id, dialog }: Chat) => {
     if (!prompt.trim()) return
 
     const userMessage = prompt
-    setMessages((prev) => [...prev, { text: userMessage, role: "user" }])
     setPrompt("")
     setLoading(true)
 
-    try {
-      // const response = await TranslateService.getInstance().sendPrompt(userMessage, id, title)
+    // Показываем сообщение пользователя сразу
+    setMessages((prev) => [...prev, { text: userMessage, role: "user" }])
+    console.log("Отправка на сервер:", userMessage)
 
-      const updatedDialog = await TranslateService.getInstance().fetchDialog(id)
-      setMessages(updatedDialog.dialog)
+    try {
+      // Ждём ответа с сервера
+      const response: BotMessage = await sendMessage(userMessage, id)
+      console.log("Ответ с сервера:", response)
+
+      // Создаём объект типа Message из ответа сервера
+      const botMessage: MessageType = { text: response.response, role: "assistant" }
+
+      // Добавляем ответ бота в стейт
+      setMessages((prev) => [...prev, botMessage])
+      console.log("Обновлённый стейт:", [...messages, botMessage])
     } catch (error) {
       console.error("Ошибка при отправке сообщения:", error)
     } finally {
       setLoading(false)
     }
   }
+
   return (
     <>
-      <main className="flex-1 w-full flex flex-col  overflow-auto no-scrollbar gap-[24px] relative items-center ">
+      <div className="flex-1 w-full flex flex-col  overflow-auto no-scrollbar gap-[24px] relative items-center ">
         <section className="flex flex-col gap-[48px] xl:w-[55%] py-[5svh]">
           {messages.map((msg, index) => (
             <Message key={index} role={msg.role} text={msg.text} />
           ))}
           <div className="w-full h-[px]" ref={messagesEndRef} />
         </section>
-      </main>
+      </div>
 
       <form
         onSubmit={handleSubmit}

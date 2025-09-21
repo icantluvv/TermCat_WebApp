@@ -10,7 +10,7 @@ const History = async () => {
       <HeaderLayout title="История" text="Продолжите один из своих проектов" />
 
       <main className="flex-1 flex flex-col w-full  md:w-[70%] xl:w-[55%] xl:px-0 bg-PageBG overflow-auto no-scrollbar gap-[24px] xl:py-[5vh] pb-[100px] overflow-x-hidden">
-        <DialogsArray list={dialogsData.list} />
+        <DialogsArray list={dialogsData} />
       </main>
     </div>
   )

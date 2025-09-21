@@ -1,21 +1,18 @@
-type DialogList = {
-  list: Dialog[]
-}
-
-type Dialog = {
+export type Dialog = {
   id: number
-  userId: number
+  userId?: number
   title: string
-  dialog: Messages
-  createdAt: string
-  updatedAt: string
-}
-
-type Messages = {
-  messagesList: Message[]
+  dialog: Message[]
+  createdAt?: string
+  updatedAt?: string
 }
 
 export type Message = {
   role: "user" | "assistant"
   text: string
+}
+
+export type BotMessage = {
+  response: string
+  dialogId: number
 }

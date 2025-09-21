@@ -22,7 +22,8 @@ export async function createDialog(prompt: string): Promise<Dialog> {
   }
 
   const response = await client<Dialog>({
-    url: "/dialogs/createDialog",
+    url: "/api/translate/create-dialog",
+    baseURL: "/",
     method: "POST",
     data: {
       title,

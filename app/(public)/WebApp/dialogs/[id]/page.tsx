@@ -1,15 +1,11 @@
-import { cookies } from "next/headers"
-import { TranslateService } from "@/lib/services/translate.service"
 import HeaderLayout from "@/components/shared/header/HeaderLayout"
-// import Chat from "@/components/molecules/WebApp-pages/dialogs/dialog/Chat"
+import { getDialogById } from "@/package/api/translate/getDialogById"
+import Chat from "@/components/molecules/WebApp-pages/dialogs/dialog/Chat"
 
-const DialogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+const DialogPage = async ({ params }: { params: Promise<{ id: number }> }) => {
   const { id } = await params
 
-  const cookieStore = await cookies()
-  const accessToken = cookieStore.get("accessToken")?.value
-
-  const dialog = await TranslateService.getInstance().getDialogById(id, accessToken)
+  const dialog = await getDialogById(id)
 
   return (
     <div className="flex flex-col w-full items-center h-[100svh] overflow-hidden ">
@@ -17,7 +13,7 @@ const DialogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         <HeaderLayout title={dialog.title} text="" />
       </div>
 
-      {/*<Chat dialogId={id} title={dialog.title} initialMessages={dialog.dialog} />*/}
+      <Chat id={id} dialog={dialog.dialog} />
     </div>
   )
 }

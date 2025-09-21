@@ -39,21 +39,14 @@ function RegistrationForm() {
     >
       <FormTitle
         title={
-          <Typography variants="h3">
+          <>
             Добро пожаловать <br /> в TermCat
-          </Typography>
+          </>
         }
         description={
-<<<<<<< Updated upstream
-          <Typography variants="p">
-            Войдите в аккаунт, чтобы использовать <br /> инновационный CAT Tools инструмент
-          </Typography>
-=======
           <>
-            {" "}
             Войдите в аккаунт, чтобы использовать <br /> инновационный CAT инструмент
           </>
->>>>>>> Stashed changes
         }
       />
 

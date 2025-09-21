@@ -1,10 +1,12 @@
 import Dialog from "./DialogListElement"
 import Link from "next/link"
-import { DialogList } from "@/types/Translate"
+import { Dialog as DialogType } from "@/types/Translate"
 
-import { Dialog as DialogProps } from "@/types/Translate"
+type DialogsArrayProps = {
+  list: DialogType[]
+}
 
-const DialogsArray = ({ list }: DialogList) => {
+const DialogsArray = ({ list }: DialogsArrayProps) => {
   if (!list || list.length === 0) {
     return (
       <section className="flex w-full h-full bg-PageBg items-center justify-center flex-col xl:gap-[24px]">
@@ -20,7 +22,7 @@ const DialogsArray = ({ list }: DialogList) => {
 
   return (
     <>
-      {list.map((dialog: DialogProps) => (
+      {list.map((dialog: DialogType) => (
         <Dialog key={dialog.id} id={dialog.id} title={dialog.title} />
       ))}
     </>

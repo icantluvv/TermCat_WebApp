@@ -4,7 +4,7 @@ import { cookies } from "next/headers"
 import client from "@/package/api/axios.client"
 import { Dialog } from "@/types/Translate"
 
-export async function getDialogList(dialogId: number): Promise<Dialog> {
+export async function getDialogById(dialogId: number): Promise<Dialog> {
   try {
     const cookieStore = await cookies()
     const accessToken = cookieStore.get("accessToken")?.value
